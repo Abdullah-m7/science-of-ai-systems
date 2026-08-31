@@ -13,3 +13,8 @@ authors = [{name = "Abdullah Almohammedi"}]
 [tool.pytest.ini_options]
 pythonpath = ["src"]
 testpaths = ["tests"]
+
+[project.scripts]
+sais-rcl-pc = "sais.rcl_pc_analysis:main"
+sais-collect-public = "sais.public_evidence:main"
+sais-verify-freeze = "sais.freeze_manifest:main"

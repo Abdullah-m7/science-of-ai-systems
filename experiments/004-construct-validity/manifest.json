@@ -1,0 +1,106 @@
+{
+  "analysis_version": "SMI-CP/RCL-PC/ANALYSIS/1",
+  "bootstrap_reps": 20000,
+  "bootstrap_seed": 20260831,
+  "controller": {
+    "commit": "e9715e52f24465362d4b0768fc98e9551df2ed8a",
+    "protocol_version": "SMI-CP/003/1",
+    "tag": "sais-stage003-controller-v1",
+    "workflow": ".github/workflows/stage003-controller.yml"
+  },
+  "excluded_prefixes": [
+    "S001-",
+    "S002",
+    "S003-",
+    "DRYRUN-"
+  ],
+  "execution_gate": {
+    "reason": "product_configuration_not_yet_bound_to_each_signed_trial",
+    "required_before_first_included_trial": [
+      "freeze a completed product configuration record",
+      "bind its SHA-256 and block ID into controller READY, signed ledger, seal, and reveal",
+      "teach public collection and final analysis to verify that binding",
+      "validate the extended controller on a permanently excluded trial"
+    ],
+    "state": "HOLD"
+  },
+  "first_included_trial_started": false,
+  "freeze_tag": "sais-rcl-pc-v1",
+  "frozen_artifacts": [
+    {
+      "path": "experiments/004-construct-validity/DESIGN_AUDIT.md",
+      "sha256": "6841dadfdcb0889a792977f715752a28a42cf34d0df626c993aabcaa282f7e97"
+    },
+    {
+      "path": "experiments/004-construct-validity/RCL_PC_PREREGISTRATION.md",
+      "sha256": "f62e2f8eb615e5ed3863a48cb2ae69b2ffe542d67674794775705830e527f06e"
+    },
+    {
+      "path": "experiments/004-construct-validity/SUBJECT_INSTRUCTIONS.md",
+      "sha256": "2f4eeaec30498d8699ba618400e0c362e731476cd4ac3f592f4bc1bd44ac2105"
+    },
+    {
+      "path": "experiments/004-construct-validity/PUBLIC_EVIDENCE_PROTOCOL.md",
+      "sha256": "44deb4728712f556c1f851fc2fb3347402e145f988fccfe98365318aaa32514d"
+    },
+    {
+      "path": "experiments/004-construct-validity/config.schema.json",
+      "sha256": "709342c8d44d3d4ead31a86804afc703b2f9eff1aceea5aff56fc19103b3dd2a"
+    },
+    {
+      "path": "src/sais/rcl_pc_analysis.py",
+      "sha256": "00f791ad3b48358aae15d27dd1376fd64d02fdc58d21e45713937d953a867bfd"
+    },
+    {
+      "path": "src/sais/public_evidence.py",
+      "sha256": "fd2dd0181d5cc80de7258e66c7cefcd0bd05076cff1518eea15f98f5330a63b0"
+    }
+  ],
+  "interaction_language": "English",
+  "manifest_version": "SMI-CP/RCL-PC/MANIFEST/1",
+  "public_provenance": {
+    "controller_actor": "github-actions[bot]",
+    "dedicated_issue_per_trial": true,
+    "live_recollection_required": true,
+    "repository": "Abdullah-m7/science-of-ai-systems",
+    "subject_actor": "Abdullah-m7"
+  },
+  "status": "CANDIDATE_FREEZE",
+  "subject_instruction_version": "SMI-CP/RCL-PC/SUBJECT/1",
+  "subject_login": "Abdullah-m7",
+  "trial_count": 32,
+  "trial_ids": [
+    "PC-RCL-001",
+    "PC-RCL-002",
+    "PC-RCL-003",
+    "PC-RCL-004",
+    "PC-RCL-005",
+    "PC-RCL-006",
+    "PC-RCL-007",
+    "PC-RCL-008",
+    "PC-RCL-009",
+    "PC-RCL-010",
+    "PC-RCL-011",
+    "PC-RCL-012",
+    "PC-RCL-013",
+    "PC-RCL-014",
+    "PC-RCL-015",
+    "PC-RCL-016",
+    "PC-RCL-017",
+    "PC-RCL-018",
+    "PC-RCL-019",
+    "PC-RCL-020",
+    "PC-RCL-021",
+    "PC-RCL-022",
+    "PC-RCL-023",
+    "PC-RCL-024",
+    "PC-RCL-025",
+    "PC-RCL-026",
+    "PC-RCL-027",
+    "PC-RCL-028",
+    "PC-RCL-029",
+    "PC-RCL-030",
+    "PC-RCL-031",
+    "PC-RCL-032"
+  ]
+}

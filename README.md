@@ -45,3 +45,27 @@ The first study is **Self-Model Integrity Under Capability Perturbation (SMI-CP)
 Instead of asking only whether an AI can solve a task, SMI-CP asks whether it can predict its success *before acting*, identify the resources it truly needs, diagnose failures after acting, and update its self-model when tools or permissions change.
 
 This creates a measurable gap between **believed capability** and **effective capability**.
+## Current experimental status
+
+- **Stage 001:** research object and initial scoring foundation.
+- **Stage 002A:** blinded commit–reveal capability perturbation harness.
+- **Stage 002B:** runtime-legibility adapter.
+- **Stage 003:** ephemeral GitHub Actions controller with seal-before-reveal validation.
+- **Stage 004:** construct-validity audit, public-evidence collector, and positive-control freeze candidate.
+
+Stage 004 deliberately places the original direct transparent/opaque experiment on **HOLD as a headline study**. Because a transparent probe reveals the deterministic action condition, that design is retained as `RCL-PC`, a positive control rather than broad evidence of self-awareness.
+
+Execution is also on **HOLD** until a completed product-configuration record is cryptographically bound to each signed trial and verified by the public collector. No `PC-RCL-*` trial has started.
+
+The proposed main successor is **MOSAIC — Model Of System Ability under Inconsistent Cues**, which tests probability updating under graded reliability, conflicting sources, source-label swaps, order swaps, and public commit–seal–reveal auditing.
+
+## Reproducibility commands
+
+```bash
+python -m pytest -q
+sais-verify-freeze experiments/004-construct-validity/manifest.json
+sais-collect-public OWNER/REPOSITORY ISSUE_NUMBER --output trial.public.json
+sais-rcl-pc collected/*.public.json --final --output analysis.json
+```
+
+Confirmatory analysis rejects artifact-only trial files by default. Included records must be reconstructed from public issue comments and the exact sealed Git ledger commit.
