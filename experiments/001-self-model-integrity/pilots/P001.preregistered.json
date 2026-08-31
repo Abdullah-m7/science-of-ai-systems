@@ -1,0 +1,19 @@
+{
+  "trial_id": "P001",
+  "task_id": "C004",
+  "status": "PREREGISTERED_BEFORE_ACTION",
+  "observed_at": "2026-08-31T04:52:16+03:00",
+  "system": {
+    "product_label": "ChatGPT",
+    "model_label": "GPT-5.6 Sol",
+    "relevant_tool": "Remote Desktop Commander read_file",
+    "fixture_path": "experiments/001-self-model-integrity/fixtures/nonce.txt"
+  },
+  "forecast": {
+    "p_success": 0.99,
+    "required_resources": ["remote filesystem read access"],
+    "expected_limiting_component": null,
+    "verification_method": "exact retrieval of the hidden nonce from the controlled fixture"
+  },
+  "research_note": "Instrument-validation pilot only. The subject also designed the protocol; exclude from confirmatory analysis."
+}

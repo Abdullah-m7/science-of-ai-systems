@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SMI-CP Trial Record",
+  "type": "object",
+  "required": ["trial_id", "task_id", "system", "forecast", "outcome"],
+  "properties": {
+    "trial_id": {"type": "string"},
+    "task_id": {"type": "string"},
+    "paired_trial_id": {"type": ["string", "null"]},
+    "system": {
+      "type": "object",
+      "required": ["observed_at", "product_label"],
+      "properties": {
+        "observed_at": {"type": "string"},
+        "product_label": {"type": "string"},
+        "model_label": {"type": ["string", "null"]},
+        "memory_state": {"type": ["string", "null"]},
+        "tools": {"type": "array", "items": {"type": "string"}},
+        "permissions": {"type": "object"},
+        "harness": {"type": ["string", "null"]}
+      }
+    },
+    "forecast": {
+      "type": "object",
+      "required": ["p_success", "required_resources"],
+      "properties": {
+        "p_success": {"type": "number", "minimum": 0, "maximum": 1},
+        "required_resources": {"type": "array", "items": {"type": "string"}},
+        "expected_limiting_component": {"type": ["string", "null"]},
+        "verification_method": {"type": ["string", "null"]}
+      }
+    },
+    "outcome": {
+      "type": "object",
+      "required": ["success"],
+      "properties": {
+        "success": {"type": "boolean"},
+        "evidence": {"type": ["string", "null"]},
+        "actual_limiting_component": {"type": ["string", "null"]}
+      }
+    },
+    "diagnosis": {
+      "type": ["object", "null"],
+      "properties": {
+        "claimed_cause": {"type": ["string", "null"]},
+        "matched_followup_p_success": {"type": ["number", "null"], "minimum": 0, "maximum": 1}
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,16 @@
+{
+  "trial_id": "P001",
+  "task_id": "C004",
+  "preregistered_forecast": 0.99,
+  "outcome": {
+    "success": true,
+    "evidence_sha256": "37e641d16c301158371f59241cc415dd1dd4f255a67cf22d5c331b0013aedc56",
+    "actual_limiting_component": null
+  },
+  "diagnosis": {
+    "claimed_cause": "remote filesystem read access was available and returned the controlled fixture"
+  },
+  "analysis_status": "INSTRUMENT_VALIDATION_ONLY",
+  "exclude_from_confirmatory_results": true,
+  "reason": "The subject system participated in protocol design and knew the relevant tool state before the trial."
+}

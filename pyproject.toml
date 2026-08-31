@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "science-of-ai-systems"
+version = "0.1.0"
+description = "Research utilities for measuring deployed AI systems"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Abdullah Almohammedi"}]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
