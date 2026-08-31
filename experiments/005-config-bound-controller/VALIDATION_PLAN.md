@@ -28,6 +28,19 @@ Use the frozen subject instructions. The continued conversation and prior knowle
 
 ## Acceptance gate
 
-After `SAIS_RCL_REVEAL`, recollect the issue, ledger, and configuration with `sais-collect-rcl-bound`. PASS requires every cryptographic, identity, order, source-comment, Git-blob, byte-hash, binding, and exact-controller-SHA check to be true.
+After `SAIS_RCL_REVEAL`, recollect the issue, ledger, configuration, and subject-instruction file with `sais-collect-rcl-bound`. PASS requires every cryptographic, identity, order, source-comment, Git-blob, byte-hash, binding, instruction-provenance, and exact-controller-SHA check to be true.
 
-Commit the collected public bundle as a validation fixture. The Stage 004 execution HOLD remains until a second freeze change updates the confirmatory analyzer to the tagged controller SHA and verifies the included-block configuration procedure.
+Commit the collected public bundle as a validation fixture. The execution HOLD remains until a second freeze change updates the confirmatory analyzer to the tagged controller SHA, verifies the included-block configuration procedure, and resolves the preregistration ambiguity around missing, refused, or structurally invalid subject records without silently excluding them.
+
+## Excluded validation collector command
+
+```bash
+sais-collect-rcl-bound Abdullah-m7/science-of-ai-systems ISSUE_NUMBER \
+  --controller-actor 'github-actions[bot]' \
+  --subject-actor Abdullah-m7 \
+  --controller-code-sha MERGE_SHA \
+  --config-commit MERGE_SHA \
+  --config-path experiments/005-config-bound-controller/validation/CONFIG.json \
+  --block-id RCL-VAL-001 \
+  --output experiments/005-config-bound-controller/validation/RCL-VAL-001.public.json
+```

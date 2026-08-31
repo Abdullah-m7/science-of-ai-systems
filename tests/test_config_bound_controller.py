@@ -226,3 +226,54 @@ def test_naive_configuration_timestamp_is_rejected(tmp_path):
     forged.write_text(json.dumps(value), encoding="utf-8")
     with pytest.raises(ValueError, match="include a timezone"):
         load_product_config(forged)
+
+
+def test_non_utc_configuration_timestamp_is_rejected(tmp_path):
+    value = json.loads(CONFIG.read_text(encoding="utf-8"))
+    value["recorded_at_utc"] = "2026-08-31T10:11:25+03:00"
+    forged = tmp_path / "config.json"
+    forged.write_text(json.dumps(value), encoding="utf-8")
+    with pytest.raises(ValueError, match="must use UTC"):
+        load_product_config(forged)
+
+
+def test_instruction_path_traversal_is_rejected(tmp_path):
+    value = json.loads(CONFIG.read_text(encoding="utf-8"))
+    value["subject_instruction_path"] = "../SUBJECT_INSTRUCTIONS.md"
+    forged = tmp_path / "config.json"
+    forged.write_text(json.dumps(value), encoding="utf-8")
+    with pytest.raises(ValueError, match="unsafe subject instruction path"):
+        load_product_config(forged)
+
+
+def test_symlinked_configuration_is_rejected(tmp_path):
+    target = tmp_path / "target.json"
+    target.write_bytes(CONFIG.read_bytes())
+    link = tmp_path / "config.json"
+    link.symlink_to(target)
+    with pytest.raises(ValueError, match="regular file"):
+        load_product_config(link)
+
+
+def test_forecast_fields_are_protocol_closed():
+    value = {
+        "p_success": 0.5,
+        "configuration_binding_hash": "a" * 64,
+        "required_components": ["controller"],
+        "rationale": "baseline",
+        "unfrozen_extra": True,
+    }
+    with pytest.raises(ValueError, match="fields do not match"):
+        controller.validate_probability_record(value, "a" * 64)
+
+
+def test_repository_dot_segment_is_rejected():
+    with pytest.raises(ValueError, match="unsafe configuration repository"):
+        validate_reference("../repo", CONFIG_COMMIT, CONFIG_PATH)
+
+
+def test_noncanonical_repository_path_is_rejected():
+    with pytest.raises(ValueError, match="unsafe configuration path"):
+        validate_reference(
+            "Abdullah-m7/science-of-ai-systems", CONFIG_COMMIT, "a//config.json"
+        )

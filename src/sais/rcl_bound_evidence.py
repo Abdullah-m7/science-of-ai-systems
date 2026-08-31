@@ -14,11 +14,13 @@ from typing import Any
 from urllib.parse import quote
 
 from .config_binding import (
+    BLOCK_ID_RE,
     COMMIT_RE,
-    REPOSITORY_RE,
     binding_hash,
     validate_product_config,
     validate_reference,
+    validate_repository_name,
+    validate_repository_path,
     verify_binding_bytes,
 )
 from .ephemeral_controller import object_hash
@@ -39,6 +41,7 @@ from .rcl_bound_controller import (
     READY_PREFIX,
     REVEAL_PREFIX,
     SEAL_PREFIX,
+    SUBJECT_LOGIN_RE,
     TRIAL_ID_RE,
     verify_sealed_trial,
 )
@@ -116,8 +119,12 @@ def _source_matches(comment: dict[str, Any], source: dict[str, Any]) -> bool:
     )
 
 
-def _decode_source(source: dict[str, Any]) -> tuple[bytes, Any]:
-    raw = base64.b64decode(source["content_base64"], validate=True)
+def _decode_bytes(source: dict[str, Any]) -> bytes:
+    return base64.b64decode(source["content_base64"], validate=True)
+
+
+def _decode_json_source(source: dict[str, Any]) -> tuple[bytes, Any]:
+    raw = _decode_bytes(source)
     return raw, json.loads(raw)
 
 
@@ -128,6 +135,9 @@ def verify_public_trial(
     expected_controller_actor: str | None = None,
     expected_subject_actor: str | None = None,
     expected_controller_code_sha: str | None = None,
+    expected_configuration_commit: str | None = None,
+    expected_configuration_path: str | None = None,
+    expected_block_id: str | None = None,
 ) -> dict[str, bool]:
     try:
         ledger = bundle["ledger"]
@@ -152,8 +162,10 @@ def verify_public_trial(
         forecast0_c = _comment_by_id(comments, commit["source_comment"]["id"])
         forecast1_c = _comment_by_id(comments, performed["source_comment"]["id"])
         diagnosis_c = _comment_by_id(comments, diagnosis["source_comment"]["id"])
-        raw_ledger, parsed_ledger = _decode_source(public["ledger_source"])
-        raw_config, parsed_config = _decode_source(public["configuration_source"])
+        raw_ledger, parsed_ledger = _decode_json_source(public["ledger_source"])
+        raw_config, parsed_config = _decode_json_source(public["configuration_source"])
+        raw_instructions = _decode_bytes(public["subject_instruction_source"])
+        raw_instructions.decode("utf-8")
         validate_product_config(config)
     except (
         KeyError,
@@ -185,6 +197,7 @@ def verify_public_trial(
     repository = public.get("repository")
     ledger_source = public["ledger_source"]
     config_source = public["configuration_source"]
+    instruction_source = public["subject_instruction_source"]
     comment_ids = [int(item["id"]) for item in comments]
     positions = {comment_id: index for index, comment_id in enumerate(comment_ids)}
     selected = {
@@ -250,6 +263,12 @@ def verify_public_trial(
             if name != "valid"
         },
         "public_structure_valid": True,
+        "trial_id_format_valid": bool(TRIAL_ID_RE.fullmatch(trial_id)),
+        "controller_code_sha_format_valid": bool(COMMIT_RE.fullmatch(code_sha)),
+        "ledger_commit_format_valid": bool(
+            COMMIT_RE.fullmatch(str(reveal.get("ledger_commit", "")))
+        ),
+        "issue_number_positive": int(public["issue_number"]) > 0,
         "cryptographic_trial_valid": bool(crypto.get("valid")),
         "configuration_binding_valid": bool(binding_checks.get("valid")),
         "repository_present": isinstance(repository, str)
@@ -263,6 +282,12 @@ def verify_public_trial(
         or subject == expected_subject_actor,
         "controller_code_matches_expected": expected_controller_code_sha is None
         or code_sha == expected_controller_code_sha,
+        "configuration_commit_matches_expected": expected_configuration_commit is None
+        or binding.get("commit") == expected_configuration_commit,
+        "configuration_path_matches_expected": expected_configuration_path is None
+        or binding.get("path") == expected_configuration_path,
+        "configuration_block_matches_expected": expected_block_id is None
+        or binding.get("block_id") == expected_block_id,
         "controller_subject_distinct": controller_actor != subject,
         "all_comment_ids_unique": len(comment_ids) == len(set(comment_ids)),
         "selected_comment_ids_unique": len(ordered_ids) == len(set(ordered_ids)),
@@ -331,6 +356,20 @@ def verify_public_trial(
         == hashlib.sha256(raw_config).hexdigest(),
         "config_bytes_sha256_matches": config_source.get("content_sha256")
         == binding.get("config_sha256"),
+        "instruction_source_repository_matches": instruction_source.get("repository")
+        == binding.get("repository"),
+        "instruction_source_commit_matches": instruction_source.get("commit")
+        == binding.get("commit"),
+        "instruction_source_path_matches": instruction_source.get("path")
+        == config.get("subject_instruction_path"),
+        "instruction_blob_sha_matches": instruction_source.get("api_blob_sha")
+        == git_blob_sha1(raw_instructions),
+        "instruction_source_content_sha256_matches": instruction_source.get(
+            "content_sha256"
+        )
+        == hashlib.sha256(raw_instructions).hexdigest(),
+        "instruction_bytes_sha256_matches": hashlib.sha256(raw_instructions).hexdigest()
+        == config.get("subject_instruction_sha256"),
     }
     checks["valid"] = all(checks.values())
     return checks
@@ -375,13 +414,31 @@ def collect_public_trial(
     controller_actor: str = "github-actions[bot]",
     expected_subject_actor: str | None = None,
     expected_controller_code_sha: str | None = None,
+    expected_configuration_commit: str | None = None,
+    expected_configuration_path: str | None = None,
+    expected_block_id: str | None = None,
 ) -> dict[str, Any]:
-    if not REPOSITORY_RE.fullmatch(repository):
-        raise ValueError("repository must be owner/name")
+    validate_repository_name(repository)
     if issue_number < 1:
         raise ValueError("issue_number must be positive")
     if not controller_actor:
         raise ValueError("controller_actor must be non-empty")
+    if expected_subject_actor is not None and not SUBJECT_LOGIN_RE.fullmatch(
+        expected_subject_actor
+    ):
+        raise ValueError("expected subject actor is unsafe")
+    if expected_controller_code_sha is not None and not COMMIT_RE.fullmatch(
+        expected_controller_code_sha
+    ):
+        raise ValueError("expected controller code SHA is invalid")
+    if expected_configuration_commit is not None and not COMMIT_RE.fullmatch(
+        expected_configuration_commit
+    ):
+        raise ValueError("expected configuration commit is invalid")
+    if expected_configuration_path is not None:
+        validate_repository_path(expected_configuration_path)
+    if expected_block_id is not None and not BLOCK_ID_RE.fullmatch(expected_block_id):
+        raise ValueError("expected block id is invalid")
     raw_comments = _fetch_comments(repository, issue_number, token)
     comments = [
         {
@@ -433,6 +490,29 @@ def collect_public_trial(
         path=config_path,
     )
     configuration = json.loads(raw_config)
+    validate_product_config(configuration)
+    instruction_path = str(configuration["subject_instruction_path"])
+    validate_repository_path(instruction_path, label="subject instruction")
+    instruction_record = _content_record(
+        config_repository, config_commit, instruction_path, token
+    )
+    instruction_source, raw_instructions = _source_from_record(
+        instruction_record,
+        repository=config_repository,
+        commit=config_commit,
+        path=instruction_path,
+    )
+    try:
+        raw_instructions.decode("utf-8")
+    except UnicodeDecodeError as error:
+        raise PublicEvidenceError("subject instructions are not UTF-8") from error
+    if (
+        hashlib.sha256(raw_instructions).hexdigest()
+        != configuration["subject_instruction_sha256"]
+    ):
+        raise PublicEvidenceError(
+            "subject instruction bytes do not match configuration"
+        )
 
     bundle = {
         "ledger": ledger,
@@ -446,6 +526,7 @@ def collect_public_trial(
             "comments": comments,
             "ledger_source": ledger_source,
             "configuration_source": config_source,
+            "subject_instruction_source": instruction_source,
         },
     }
     verification = verify_public_trial(
@@ -454,6 +535,9 @@ def collect_public_trial(
         expected_controller_actor=controller_actor,
         expected_subject_actor=expected_subject_actor,
         expected_controller_code_sha=expected_controller_code_sha,
+        expected_configuration_commit=expected_configuration_commit,
+        expected_configuration_path=expected_configuration_path,
+        expected_block_id=expected_block_id,
     )
     bundle["public_verification"] = verification
     if not verification.get("valid"):
@@ -472,6 +556,9 @@ def main() -> None:
     parser.add_argument("--controller-actor", default="github-actions[bot]")
     parser.add_argument("--subject-actor")
     parser.add_argument("--controller-code-sha")
+    parser.add_argument("--config-commit")
+    parser.add_argument("--config-path")
+    parser.add_argument("--block-id")
     args = parser.parse_args()
     token = os.environ.get("GITHUB_TOKEN") or None
     bundle = collect_public_trial(
@@ -481,6 +568,9 @@ def main() -> None:
         controller_actor=args.controller_actor,
         expected_subject_actor=args.subject_actor,
         expected_controller_code_sha=args.controller_code_sha,
+        expected_configuration_commit=args.config_commit,
+        expected_configuration_path=args.config_path,
+        expected_block_id=args.block_id,
     )
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(

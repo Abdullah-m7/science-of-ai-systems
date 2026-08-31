@@ -16,6 +16,8 @@ CONFIG = (
     ROOT / "experiments" / "005-config-bound-controller" / "validation" / "CONFIG.json"
 )
 CONFIG_PATH = "experiments/005-config-bound-controller/validation/CONFIG.json"
+INSTRUCTION_PATH = "experiments/005-config-bound-controller/SUBJECT_INSTRUCTIONS.md"
+INSTRUCTIONS = ROOT / INSTRUCTION_PATH
 CONFIG_COMMIT = "a" * 40
 CODE_SHA = "c" * 40
 LEDGER_COMMIT = "b" * 40
@@ -133,6 +135,7 @@ def make_bundle(monkeypatch, tmp_path):
         json.dumps(result["ledger"], indent=2, sort_keys=True) + "\n"
     ).encode()
     raw_config = CONFIG.read_bytes()
+    raw_instructions = INSTRUCTIONS.read_bytes()
     bundle = {
         "ledger": result["ledger"],
         "reveal": result["reveal"],
@@ -158,6 +161,14 @@ def make_bundle(monkeypatch, tmp_path):
                 "content_sha256": hashlib.sha256(raw_config).hexdigest(),
                 "content_base64": base64.b64encode(raw_config).decode(),
             },
+            "subject_instruction_source": {
+                "repository": REPOSITORY,
+                "commit": CONFIG_COMMIT,
+                "path": INSTRUCTION_PATH,
+                "api_blob_sha": git_blob_sha1(raw_instructions),
+                "content_sha256": hashlib.sha256(raw_instructions).hexdigest(),
+                "content_base64": base64.b64encode(raw_instructions).decode(),
+            },
         },
     }
     return bundle
@@ -170,6 +181,9 @@ def verify(bundle):
         expected_controller_actor="github-actions[bot]",
         expected_subject_actor="subject",
         expected_controller_code_sha=CODE_SHA,
+        expected_configuration_commit=CONFIG_COMMIT,
+        expected_configuration_path=CONFIG_PATH,
+        expected_block_id="RCL-VAL-001",
     )
 
 
@@ -183,6 +197,18 @@ def test_configuration_object_substitution_is_detected(monkeypatch, tmp_path):
     checks = verify(forged)
     assert checks["valid"] is False
     assert checks["configuration_object_matches"] is False
+
+
+def test_subject_instruction_byte_substitution_is_detected(monkeypatch, tmp_path):
+    forged = make_bundle(monkeypatch, tmp_path)
+    replacement = b"substituted subject instructions\n"
+    forged["public_record"]["subject_instruction_source"]["content_base64"] = (
+        base64.b64encode(replacement).decode()
+    )
+    checks = verify(forged)
+    assert checks["valid"] is False
+    assert checks["instruction_blob_sha_matches"] is False
+    assert checks["instruction_bytes_sha256_matches"] is False
 
 
 def test_outsider_reveal_prefix_is_ignored(monkeypatch, tmp_path):
@@ -218,7 +244,28 @@ def test_expected_controller_code_is_enforced(monkeypatch, tmp_path):
     assert checks["controller_code_matches_expected"] is False
 
 
-def test_live_collector_round_trips_two_exact_git_sources(monkeypatch, tmp_path):
+def test_expected_configuration_commit_is_enforced(monkeypatch, tmp_path):
+    bundle = make_bundle(monkeypatch, tmp_path)
+    checks = evidence.verify_public_trial(
+        bundle, expected_configuration_commit="0" * 40
+    )
+    assert checks["valid"] is False
+    assert checks["configuration_commit_matches_expected"] is False
+
+
+def test_expected_configuration_path_and_block_are_enforced(monkeypatch, tmp_path):
+    bundle = make_bundle(monkeypatch, tmp_path)
+    checks = evidence.verify_public_trial(
+        bundle,
+        expected_configuration_path="other/config.json",
+        expected_block_id="OTHER-BLOCK",
+    )
+    assert checks["valid"] is False
+    assert checks["configuration_path_matches_expected"] is False
+    assert checks["configuration_block_matches_expected"] is False
+
+
+def test_live_collector_round_trips_three_exact_git_sources(monkeypatch, tmp_path):
     bundle = make_bundle(monkeypatch, tmp_path)
     public = bundle["public_record"]
     monkeypatch.setattr(
@@ -228,11 +275,12 @@ def test_live_collector_round_trips_two_exact_git_sources(monkeypatch, tmp_path)
     )
 
     def fake_api_get(url, token=None):
-        source = (
-            public["ledger_source"]
-            if "rcl-controller" in url
-            else public["configuration_source"]
-        )
+        if "rcl-controller" in url:
+            source = public["ledger_source"]
+        elif "CONFIG.json" in url:
+            source = public["configuration_source"]
+        else:
+            source = public["subject_instruction_source"]
         return {
             "type": "file",
             "encoding": "base64",
@@ -247,6 +295,9 @@ def test_live_collector_round_trips_two_exact_git_sources(monkeypatch, tmp_path)
         controller_actor="github-actions[bot]",
         expected_subject_actor="subject",
         expected_controller_code_sha=CODE_SHA,
+        expected_configuration_commit=CONFIG_COMMIT,
+        expected_configuration_path=CONFIG_PATH,
+        expected_block_id="RCL-VAL-001",
     )
     assert collected["public_verification"]["valid"] is True
     assert collected["configuration"]["block_id"] == "RCL-VAL-001"
@@ -263,4 +314,20 @@ def test_collector_rejects_unsafe_repository_before_network(monkeypatch):
     monkeypatch.setattr(evidence, "_fetch_comments", should_not_run)
     with pytest.raises(ValueError, match="owner/name"):
         evidence.collect_public_trial("owner/repo/../../other", 1)
+    assert called is False
+
+
+def test_invalid_expected_commit_is_rejected_before_network(monkeypatch):
+    called = False
+
+    def should_not_run(*args, **kwargs):
+        nonlocal called
+        called = True
+        raise AssertionError("network should not be reached")
+
+    monkeypatch.setattr(evidence, "_fetch_comments", should_not_run)
+    with pytest.raises(ValueError, match="expected configuration commit"):
+        evidence.collect_public_trial(
+            REPOSITORY, 1, expected_configuration_commit="not-a-commit"
+        )
     assert called is False

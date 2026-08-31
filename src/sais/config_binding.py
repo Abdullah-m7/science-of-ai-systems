@@ -5,13 +5,13 @@ from __future__ import annotations
 import hashlib
 import json
 import re
-from datetime import datetime
-from pathlib import Path, PurePosixPath
+from datetime import datetime, timedelta
+from pathlib import Path
 from typing import Any
 
 from .ephemeral_controller import object_hash
 
-CONFIG_PROTOCOL = "SMI-CP/RCL-PC/1"
+CONFIG_PROTOCOL = "SMI-CP/RCL-PC/CONFIG/2"
 BINDING_PROTOCOL = "SMI-CP/RCL-PC/CONFIG-BINDING/1"
 BLOCK_ID_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$")
 REPOSITORY_RE = re.compile(r"^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$")
@@ -30,6 +30,7 @@ REQUIRED_FIELDS = {
     "memory_state",
     "available_tools",
     "permitted_trial_tools",
+    "subject_instruction_path",
     "subject_instruction_sha256",
     "notes",
 }
@@ -93,6 +94,8 @@ def validate_product_config(config: dict[str, Any]) -> None:
         raise ValueError("recorded_at_utc must be ISO-8601") from error
     if timestamp.tzinfo is None:
         raise ValueError("recorded_at_utc must include a timezone")
+    if timestamp.utcoffset() != timedelta(0):
+        raise ValueError("recorded_at_utc must use UTC")
     if config.get("conversation_state") not in {
         "fresh",
         "continued",
@@ -138,12 +141,21 @@ def validate_product_config(config: dict[str, Any]) -> None:
         raise ValueError("product_status_page_checked must be boolean or null")
     _string_list(config.get("available_tools"), "available_tools")
     _string_list(config.get("permitted_trial_tools"), "permitted_trial_tools")
+    validate_repository_path(
+        _nonempty_string(
+            config.get("subject_instruction_path"), "subject_instruction_path"
+        ),
+        label="subject instruction",
+    )
     if not SHA256_RE.fullmatch(str(config.get("subject_instruction_sha256", ""))):
         raise ValueError("subject_instruction_sha256 must be lowercase SHA-256")
 
 
 def load_product_config(path: str | Path) -> tuple[dict[str, Any], bytes]:
-    raw = Path(path).read_bytes()
+    target = Path(path)
+    if target.is_symlink() or not target.is_file():
+        raise ValueError("product configuration must be a regular file")
+    raw = target.read_bytes()
     try:
         config = json.loads(raw)
     except json.JSONDecodeError as error:
@@ -152,14 +164,34 @@ def load_product_config(path: str | Path) -> tuple[dict[str, Any], bytes]:
     return config, raw
 
 
-def validate_reference(repository: str, commit: str, path: str) -> None:
+def validate_repository_path(path: str, *, label: str = "configuration") -> None:
+    if not isinstance(path, str):
+        raise ValueError(f"unsafe {label} path")
+    parts = path.split("/")
+    if (
+        not parts
+        or any(part in {"", ".", ".."} for part in parts)
+        or "\\" in path
+        or any(ord(character) < 32 or ord(character) == 127 for character in path)
+    ):
+        raise ValueError(f"unsafe {label} path")
+
+
+def validate_repository_name(repository: str) -> None:
     if not REPOSITORY_RE.fullmatch(repository):
         raise ValueError("configuration repository must be owner/name")
+    owner, name = repository.split("/", 1)
+    if owner in {".", ".."} or name in {".", ".."}:
+        raise ValueError("unsafe configuration repository")
+    if any(ord(character) < 32 or ord(character) == 127 for character in repository):
+        raise ValueError("unsafe configuration repository")
+
+
+def validate_reference(repository: str, commit: str, path: str) -> None:
+    validate_repository_name(repository)
     if not COMMIT_RE.fullmatch(commit):
         raise ValueError("configuration commit must be a full lowercase Git SHA")
-    pure = PurePosixPath(path)
-    if pure.is_absolute() or not pure.parts or ".." in pure.parts or "\\" in path:
-        raise ValueError("unsafe configuration path")
+    validate_repository_path(path)
 
 
 def build_binding(

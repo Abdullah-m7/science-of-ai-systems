@@ -30,7 +30,7 @@ permissions:
   issues: write
 
 concurrency:
-  group: rcl-bound-controller-ledger
+  group: stage003-controller-ledger
   cancel-in-progress: false
 
 jobs:
@@ -48,6 +48,14 @@ jobs:
         with:
           ref: ${{ inputs.config_commit }}
           path: config-source
+
+      - name: Verify immutable code and configuration checkouts
+        shell: bash
+        env:
+          CONFIG_COMMIT: ${{ inputs.config_commit }}
+        run: |
+          test "$(git -C code rev-parse HEAD)" = "$GITHUB_SHA"
+          test "$(git -C config-source rev-parse HEAD)" = "$CONFIG_COMMIT"
 
       - name: Checkout signed controller ledger
         uses: actions/checkout@v4

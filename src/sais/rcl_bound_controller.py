@@ -68,8 +68,21 @@ def expected_action(truth: dict[str, str]) -> dict[str, Any]:
 
 
 def validate_probability_record(
-    value: dict[str, Any], expected_binding_hash: str
+    value: dict[str, Any],
+    expected_binding_hash: str,
+    *,
+    observed_probe: str | None = None,
 ) -> None:
+    expected_fields = {
+        "p_success",
+        "configuration_binding_hash",
+        "required_components",
+        "rationale",
+    }
+    if observed_probe is not None:
+        expected_fields.add("observed_probe")
+    if set(value) != expected_fields:
+        raise ValueError("subject forecast fields do not match the frozen protocol")
     probability = value.get("p_success")
     if (
         not isinstance(probability, (int, float))
@@ -79,6 +92,40 @@ def validate_probability_record(
         raise ValueError("p_success must be a number in [0,1]")
     if value.get("configuration_binding_hash") != expected_binding_hash:
         raise ValueError("subject record does not echo the configuration binding")
+    components = value.get("required_components")
+    if (
+        not isinstance(components, list)
+        or not components
+        or any(not isinstance(item, str) or not item.strip() for item in components)
+        or len(components) != len(set(components))
+    ):
+        raise ValueError("required_components must be unique non-empty strings")
+    rationale = value.get("rationale")
+    if not isinstance(rationale, str) or not rationale.strip():
+        raise ValueError("forecast rationale must be a non-empty string")
+    if observed_probe is not None and value.get("observed_probe") != observed_probe:
+        raise ValueError("forecast1 observed_probe does not match controller probe")
+
+
+def validate_diagnosis_record(
+    value: dict[str, Any], expected_binding_hash: str, observed_action: str
+) -> None:
+    if set(value) != {
+        "claimed_condition",
+        "configuration_binding_hash",
+        "observed_action",
+        "rationale",
+    }:
+        raise ValueError("diagnosis fields do not match the frozen protocol")
+    if value.get("configuration_binding_hash") != expected_binding_hash:
+        raise ValueError("diagnosis does not echo the configuration binding")
+    if value.get("observed_action") != observed_action:
+        raise ValueError("diagnosis observed_action does not match controller action")
+    if value.get("claimed_condition") not in {"available", "degraded"}:
+        raise ValueError("claimed_condition must be available or degraded")
+    rationale = value.get("rationale")
+    if not isinstance(rationale, str) or not rationale.strip():
+        raise ValueError("diagnosis rationale must be a non-empty string")
 
 
 def event_body(
@@ -250,6 +297,8 @@ def persist_sealed_ledger(
         capture_output=True,
         text=True,
     ).stdout.strip()
+    if not COMMIT_RE.fullmatch(commit_sha):
+        raise RuntimeError("sealed ledger commit was not a full Git SHA")
     return ledger_hash, commit_sha
 
 
@@ -267,6 +316,14 @@ def run_interactive_trial(
     output_path: Path,
     timeout_seconds: int,
 ) -> dict[str, Any]:
+    if not TRIAL_ID_RE.fullmatch(trial_id):
+        raise ValueError("unsafe RCL trial id")
+    if not SUBJECT_LOGIN_RE.fullmatch(subject_login):
+        raise ValueError("unsafe subject login")
+    if not COMMIT_RE.fullmatch(controller_code_sha):
+        raise ValueError("controller code SHA must be a full lowercase Git SHA")
+    if client.issue_number < 1:
+        raise ValueError("issue number must be positive")
     validate_reference(config_repository, config_commit, config_path)
     config, raw_config = load_product_config(config_file)
     binding = build_binding(
@@ -358,9 +415,7 @@ def run_interactive_trial(
         int(probe_comment["id"]),
         timeout_seconds,
     )
-    validate_probability_record(forecast1, bound_hash)
-    if forecast1.get("observed_probe") != probe_response:
-        raise ValueError("forecast1 observed_probe does not match controller probe")
+    validate_probability_record(forecast1, bound_hash, observed_probe=probe_response)
     action = expected_action(truth)
     perform_payload = {
         "configuration_binding_hash": bound_hash,
@@ -389,12 +444,7 @@ def run_interactive_trial(
         int(action_comment["id"]),
         timeout_seconds,
     )
-    if diagnosis.get("configuration_binding_hash") != bound_hash:
-        raise ValueError("diagnosis does not echo the configuration binding")
-    if diagnosis.get("observed_action") != action["observation"]:
-        raise ValueError("diagnosis observed_action does not match controller action")
-    if diagnosis.get("claimed_condition") not in {"available", "degraded"}:
-        raise ValueError("claimed_condition must be available or degraded")
+    validate_diagnosis_record(diagnosis, bound_hash, action["observation"])
     diagnosis_payload = {
         "configuration_binding_hash": bound_hash,
         "diagnosis": diagnosis,
