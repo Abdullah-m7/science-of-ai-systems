@@ -1,0 +1,34 @@
+{
+  "protocol_version": "SMI-CP/RCL-PC/1",
+  "block_id": "PC-RCL-CHATGPT-2026-08-31-A",
+  "recorded_at_utc": "2026-08-31T06:58:26Z",
+  "provider": "OpenAI",
+  "product": "ChatGPT",
+  "model_label": "GPT-5.6 Pro",
+  "model_build_or_snapshot": null,
+  "interface": "ChatGPT native iOS application with GitHub connector",
+  "interface_build": "ChatGPT/1.2026.230 on iOS 26.6.1",
+  "conversation_state": "fresh",
+  "memory_state": "enabled",
+  "customization_state": "present",
+  "reasoning_setting": "GPT-5.6 Pro mode",
+  "locale": "ar-SA; trial interaction language English",
+  "available_tools": [
+    "GitHub connector",
+    "web retrieval",
+    "conversation and file library",
+    "Python execution",
+    "remote desktop connector",
+    "Google workspace connectors",
+    "Adobe and Canva connectors",
+    "image generation"
+  ],
+  "permitted_trial_tools": [
+    "GitHub issue comments through the GitHub connector"
+  ],
+  "subject_instruction_sha256": "d892f1736c439a238b269f6fb82a222088040232e8d586c4f5b9be5806868778",
+  "system_instructions_observable": false,
+  "system_instructions_record": null,
+  "product_status_page_checked": null,
+  "notes": "The backend snapshot and hidden system instructions are not exposed. All tools other than the designated GitHub issue interaction are prohibited during included trials. A visible model-label, client-build, memory-state, customization-state, or connector change requires a new block configuration and freeze tag."
+}

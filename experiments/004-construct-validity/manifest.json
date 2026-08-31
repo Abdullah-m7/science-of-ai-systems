@@ -1,0 +1,96 @@
+{
+  "manifest_version": "SMI-CP/RCL-PC/MANIFEST/1",
+  "status": "CANDIDATE_FREEZE",
+  "freeze_tag": "sais-rcl-pc-v1",
+  "repository": "Abdullah-m7/science-of-ai-systems",
+  "interaction_language": "English",
+  "subject_login": "Abdullah-m7",
+  "subject_instruction_version": "SMI-CP/RCL-PC/SUBJECT/1",
+  "block_config": "experiments/004-construct-validity/BLOCK_CONFIG.json",
+  "analysis_version": "SMI-CP/RCL-PC/ANALYSIS/1",
+  "bootstrap_reps": 20000,
+  "bootstrap_seed": 20260831,
+  "controller": {
+    "protocol_version": "SMI-CP/003/1",
+    "tag": "sais-stage003-controller-v1",
+    "commit": "e9715e52f24465362d4b0768fc98e9551df2ed8a",
+    "actor": "github-actions[bot]",
+    "workflow": ".github/workflows/stage003-controller.yml"
+  },
+  "excluded_prefixes": [
+    "S001-",
+    "S002",
+    "S003-",
+    "DRYRUN-"
+  ],
+  "first_included_trial_started": false,
+  "trial_count": 32,
+  "trial_ids": [
+    "PC-RCL-001",
+    "PC-RCL-002",
+    "PC-RCL-003",
+    "PC-RCL-004",
+    "PC-RCL-005",
+    "PC-RCL-006",
+    "PC-RCL-007",
+    "PC-RCL-008",
+    "PC-RCL-009",
+    "PC-RCL-010",
+    "PC-RCL-011",
+    "PC-RCL-012",
+    "PC-RCL-013",
+    "PC-RCL-014",
+    "PC-RCL-015",
+    "PC-RCL-016",
+    "PC-RCL-017",
+    "PC-RCL-018",
+    "PC-RCL-019",
+    "PC-RCL-020",
+    "PC-RCL-021",
+    "PC-RCL-022",
+    "PC-RCL-023",
+    "PC-RCL-024",
+    "PC-RCL-025",
+    "PC-RCL-026",
+    "PC-RCL-027",
+    "PC-RCL-028",
+    "PC-RCL-029",
+    "PC-RCL-030",
+    "PC-RCL-031",
+    "PC-RCL-032"
+  ],
+  "frozen_artifacts": [
+    {
+      "path": "experiments/004-construct-validity/DESIGN_AUDIT.md",
+      "sha256": "9c6e3327705bf9521a4d88f5793d73780add574934c7136b6693b003324630ec"
+    },
+    {
+      "path": "experiments/004-construct-validity/RCL_PC_PREREGISTRATION.md",
+      "sha256": "432400e09f96d0557a148349b0fc198059cf4595f12f464684bade2fc252a2e4"
+    },
+    {
+      "path": "experiments/004-construct-validity/SUBJECT_INSTRUCTIONS.md",
+      "sha256": "d892f1736c439a238b269f6fb82a222088040232e8d586c4f5b9be5806868778"
+    },
+    {
+      "path": "experiments/004-construct-validity/PUBLIC_EVIDENCE_PROTOCOL.md",
+      "sha256": "3c7054d0717a2897f66e5e6fe390311c532d78a7bda9742413b36b97779e3b83"
+    },
+    {
+      "path": "experiments/004-construct-validity/config.schema.json",
+      "sha256": "399b1381991756c2d1b70a3e0da0b38011870d1defc69ab405862f26cee86d58"
+    },
+    {
+      "path": "experiments/004-construct-validity/BLOCK_CONFIG.json",
+      "sha256": "fa7ea43127b9caa608360747e9c84e5e79e21a2fa9941881ef28679f49fac491"
+    },
+    {
+      "path": "src/sais/rcl_pc_analysis.py",
+      "sha256": "e9a1f12231107ddcf2acd52b780d95c068ce4a0752f9eeb93a05f65326149e55"
+    },
+    {
+      "path": "src/sais/public_evidence.py",
+      "sha256": "15d69618ba8f34ebf900b7f8d7383929caf86cc58c83286d81aacde960948a8b"
+    }
+  ]
+}
