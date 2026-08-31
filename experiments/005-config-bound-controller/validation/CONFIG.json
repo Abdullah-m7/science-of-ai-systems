@@ -1,0 +1,29 @@
+{
+  "available_tools": [
+    "GitHub connector",
+    "Remote Desktop Commander"
+  ],
+  "block_id": "RCL-VAL-001",
+  "conversation_state": "continued",
+  "customization_state": "present",
+  "interface": "ChatGPT conversation with GitHub connector-mediated issue comments",
+  "interface_build": null,
+  "locale": "ar-SA",
+  "memory_state": "unknown",
+  "model_build_or_snapshot": null,
+  "model_label": "GPT-5.6 Pro",
+  "notes": "Controller-validation block only. Continued conversation and all outputs are permanently excluded from behavioral estimates.",
+  "permitted_trial_tools": [
+    "GitHub issue read",
+    "GitHub issue comment"
+  ],
+  "product": "ChatGPT",
+  "product_status_page_checked": false,
+  "protocol_version": "SMI-CP/RCL-PC/1",
+  "provider": "OpenAI",
+  "reasoning_setting": "system-selected reasoning model",
+  "recorded_at_utc": "2026-08-31T07:11:25Z",
+  "subject_instruction_sha256": "d3054c535ca9f677175ea309146bb32e94a5c3867331ebfb39454dab6d3f81b8",
+  "system_instructions_observable": false,
+  "system_instructions_record": null
+}
