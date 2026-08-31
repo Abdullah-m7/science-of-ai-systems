@@ -1,0 +1,97 @@
+name: rcl-bound-controller
+
+on:
+  workflow_dispatch:
+    inputs:
+      trial_id:
+        description: RCL-VAL-NNN or PC-RCL-NNN trial identifier
+        required: true
+        type: string
+      issue_number:
+        description: Dedicated public GitHub issue number
+        required: true
+        type: string
+      subject_login:
+        description: GitHub login accepted for forecasts and diagnosis
+        required: true
+        default: Abdullah-m7
+        type: string
+      config_commit:
+        description: Full Git commit containing the product configuration record
+        required: true
+        type: string
+      config_path:
+        description: Repository-relative path to the product configuration JSON
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: stage003-controller-ledger
+  cancel-in-progress: false
+
+jobs:
+  controller:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout frozen controller code
+        uses: actions/checkout@v4
+        with:
+          path: code
+
+      - name: Checkout exact product configuration commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.config_commit }}
+          path: config-source
+
+      - name: Verify immutable code and configuration checkouts
+        shell: bash
+        env:
+          CONFIG_COMMIT: ${{ inputs.config_commit }}
+        run: |
+          test "$(git -C code rev-parse HEAD)" = "$GITHUB_SHA"
+          test "$(git -C config-source rev-parse HEAD)" = "$CONFIG_COMMIT"
+
+      - name: Checkout signed controller ledger
+        uses: actions/checkout@v4
+        with:
+          ref: controller-ledger
+          path: ledger
+
+      - name: Run configuration-bound controller
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPOSITORY: ${{ github.repository }}
+          TRIAL_ID: ${{ inputs.trial_id }}
+          ISSUE_NUMBER: ${{ inputs.issue_number }}
+          SUBJECT_LOGIN: ${{ inputs.subject_login }}
+          CONFIG_COMMIT: ${{ inputs.config_commit }}
+          CONFIG_PATH: ${{ inputs.config_path }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/rcl-bound"
+          PYTHONPATH=code/src python -m sais.rcl_bound_controller \
+            --trial-id "$TRIAL_ID" \
+            --repository "$REPOSITORY" \
+            --issue-number "$ISSUE_NUMBER" \
+            --subject-login "$SUBJECT_LOGIN" \
+            --controller-code-sha "$GITHUB_SHA" \
+            --config-file "config-source/$CONFIG_PATH" \
+            --config-repository "$REPOSITORY" \
+            --config-commit "$CONFIG_COMMIT" \
+            --config-path "$CONFIG_PATH" \
+            --ledger-dir ledger \
+            --output "$RUNNER_TEMP/rcl-bound/trial-output.json" \
+            --timeout-seconds 1200
+
+      - name: Upload sealed validation artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: rcl-bound-trial-${{ github.run_id }}
+          path: ${{ runner.temp }}/rcl-bound/trial-output.json
+          retention-days: 90

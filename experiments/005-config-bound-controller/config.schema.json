@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/sais/rcl-pc-config-v2.schema.json",
+  "title": "RCL-PC Configuration-Bound Product Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "protocol_version",
+    "block_id",
+    "recorded_at_utc",
+    "provider",
+    "product",
+    "model_label",
+    "interface",
+    "conversation_state",
+    "memory_state",
+    "available_tools",
+    "permitted_trial_tools",
+    "subject_instruction_path",
+    "subject_instruction_sha256",
+    "notes"
+  ],
+  "properties": {
+    "protocol_version": {"const": "SMI-CP/RCL-PC/CONFIG/2"},
+    "block_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$"
+    },
+    "recorded_at_utc": {"type": "string", "format": "date-time"},
+    "provider": {"type": "string", "minLength": 1},
+    "product": {"type": "string", "minLength": 1},
+    "model_label": {"type": "string", "minLength": 1},
+    "model_build_or_snapshot": {"type": ["string", "null"]},
+    "interface": {"type": "string", "minLength": 1},
+    "interface_build": {"type": ["string", "null"]},
+    "conversation_state": {
+      "type": "string",
+      "enum": ["fresh", "continued", "temporary", "unknown"]
+    },
+    "memory_state": {
+      "type": "string",
+      "enum": ["enabled", "disabled", "not_available", "unknown"]
+    },
+    "customization_state": {
+      "type": "string",
+      "enum": ["present", "absent", "unknown"]
+    },
+    "reasoning_setting": {"type": ["string", "null"]},
+    "locale": {"type": ["string", "null"]},
+    "available_tools": {
+      "type": "array",
+      "items": {"type": "string"},
+      "uniqueItems": true
+    },
+    "permitted_trial_tools": {
+      "type": "array",
+      "items": {"type": "string"},
+      "uniqueItems": true
+    },
+    "subject_instruction_path": {
+      "type": "string",
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.?/)(?!.*\\\\).+$"
+    },
+    "subject_instruction_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "system_instructions_observable": {"type": "boolean"},
+    "system_instructions_record": {"type": ["string", "null"]},
+    "product_status_page_checked": {"type": ["boolean", "null"]},
+    "notes": {"type": "string"}
+  }
+}

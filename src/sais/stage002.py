@@ -157,7 +157,6 @@ class TrialController:
         assert self.forecast0 and self.entropy and self.condition and self.payload and self.commitment
         reveal = {
             "protocol_version": PROTOCOL_VERSION,
-            "protocol_version": PROTOCOL_VERSION,
             "trial_id": self.trial_id,
             "family": self.family,
             "forecast_lock": _sha256(self.forecast0),

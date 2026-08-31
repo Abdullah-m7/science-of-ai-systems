@@ -52,6 +52,7 @@ This creates a measurable gap between **believed capability** and **effective ca
 - **Stage 002B:** runtime-legibility adapter.
 - **Stage 003:** ephemeral GitHub Actions controller with seal-before-reveal validation.
 - **Stage 004:** construct-validity audit, public-evidence collector, and positive-control freeze candidate.
+- **Stage 005A:** configuration-bound RCL controller candidate; local end-to-end verification complete, public excluded validation pending.
 
 Stage 004 deliberately places the original direct transparent/opaque experiment on **HOLD as a headline study**. Because a transparent probe reveals the deterministic action condition, that design is retained as `RCL-PC`, a positive control rather than broad evidence of self-awareness.
 
@@ -65,6 +66,7 @@ The proposed main successor is **MOSAIC — Model Of System Ability under Incons
 python -m pytest -q
 sais-verify-freeze experiments/004-construct-validity/manifest.json
 sais-collect-public OWNER/REPOSITORY ISSUE_NUMBER --output trial.public.json
+sais-collect-rcl-bound OWNER/REPOSITORY ISSUE_NUMBER --output trial.rcl.public.json
 sais-rcl-pc collected/*.public.json --final --output analysis.json
 ```
 
