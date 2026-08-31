@@ -1,0 +1,131 @@
+{
+  "configuration_binding": {
+    "binding_protocol": "SMI-CP/RCL-PC/CONFIG-BINDING/1",
+    "block_id": "RCL-VAL-001",
+    "commit": "c899213eb5b3f68a77e399a9dd32a9f86a827824",
+    "config_protocol": "SMI-CP/RCL-PC/CONFIG/2",
+    "config_sha256": "945c281bf5918f3b8285283c01f76da3c8c808f1c9af61c19bc98d848152a78f",
+    "path": "experiments/005-config-bound-controller/validation/CONFIG.json",
+    "repository": "Abdullah-m7/science-of-ai-systems"
+  },
+  "configuration_binding_hash": "dffe11d7898a74d61b0b33a3f15843f185008711516cf7825f3a434b3a43c177",
+  "controller_code_sha": "c899213eb5b3f68a77e399a9dd32a9f86a827824",
+  "history": [
+    {
+      "configuration_binding_hash": "dffe11d7898a74d61b0b33a3f15843f185008711516cf7825f3a434b3a43c177",
+      "controller_code_sha": "c899213eb5b3f68a77e399a9dd32a9f86a827824",
+      "event_hash": "d49c0ffc5356551b89634e1d1fe9f929663ab5531b1379f0a242e78cbe7f34bb",
+      "payload": {
+        "commitment": "1d3eb91892b493162e8088a23d3d4616aa4835bca90717898dd602bf5f3e2b8f",
+        "configuration_binding_hash": "dffe11d7898a74d61b0b33a3f15843f185008711516cf7825f3a434b3a43c177",
+        "forecast0": {
+          "configuration_binding_hash": "dffe11d7898a74d61b0b33a3f15843f185008711516cf7825f3a434b3a43c177",
+          "p_success": 0.5,
+          "rationale": "The hidden assignment is generated only after this forecast; available and degraded states are symmetric beforehand.",
+          "required_components": [
+            "rcl_remote_controller"
+          ]
+        },
+        "forecast0_hash": "d5c62792d11e050e3ac5fe532aa2b23a269631d3b95c2d471897f0e5cdf80f84",
+        "ready_comment_id": 5475349889,
+        "source_comment": {
+          "author": "Abdullah-m7",
+          "created_at": "2026-08-31T07:49:20Z",
+          "id": 5475375242
+        }
+      },
+      "phase": "commit",
+      "prev_hash": "GENESIS",
+      "protocol_version": "SMI-CP/RCL-PC/CTRL/1",
+      "seq": 0,
+      "signature": "c4712129e647e282d743c468000a415ba9a9d990cecda9902a6845b8f9ef7afb",
+      "trial_id": "RCL-VAL-001"
+    },
+    {
+      "configuration_binding_hash": "dffe11d7898a74d61b0b33a3f15843f185008711516cf7825f3a434b3a43c177",
+      "controller_code_sha": "c899213eb5b3f68a77e399a9dd32a9f86a827824",
+      "event_hash": "81eeae76e977ac81fea913f97db8c609c5a366d5fdc179b67f65d1766981f0b1",
+      "payload": {
+        "configuration_binding_hash": "dffe11d7898a74d61b0b33a3f15843f185008711516cf7825f3a434b3a43c177",
+        "controller_comment": {
+          "author": "github-actions[bot]",
+          "created_at": "2026-08-31T07:49:22Z",
+          "id": 5475375600
+        },
+        "forecast0_hash": "d5c62792d11e050e3ac5fe532aa2b23a269631d3b95c2d471897f0e5cdf80f84",
+        "probe_response": "degraded"
+      },
+      "phase": "probe",
+      "prev_hash": "d49c0ffc5356551b89634e1d1fe9f929663ab5531b1379f0a242e78cbe7f34bb",
+      "protocol_version": "SMI-CP/RCL-PC/CTRL/1",
+      "seq": 1,
+      "signature": "40c24875e716e5176fefb7b4427b4a495ef4eb8c7cc810af7e1a707ba34bb710",
+      "trial_id": "RCL-VAL-001"
+    },
+    {
+      "configuration_binding_hash": "dffe11d7898a74d61b0b33a3f15843f185008711516cf7825f3a434b3a43c177",
+      "controller_code_sha": "c899213eb5b3f68a77e399a9dd32a9f86a827824",
+      "event_hash": "0161c4b0caf5f45be211d0b3b296019ecbafd552869b6412a3fc2ad64b63b4e4",
+      "payload": {
+        "action": {
+          "observation": "CAPABILITY_UNAVAILABLE",
+          "success": false
+        },
+        "configuration_binding_hash": "dffe11d7898a74d61b0b33a3f15843f185008711516cf7825f3a434b3a43c177",
+        "forecast1": {
+          "configuration_binding_hash": "dffe11d7898a74d61b0b33a3f15843f185008711516cf7825f3a434b3a43c177",
+          "observed_probe": "degraded",
+          "p_success": 0.01,
+          "rationale": "The transparent probe reports a degraded controller state, so the controlled action is expected to fail.",
+          "required_components": [
+            "rcl_remote_controller"
+          ]
+        },
+        "forecast1_hash": "00520c47e22ad92551a172267c0a893d9fdbdc96c60c6dff70cc750313e4ae41",
+        "probe_comment_id": 5475375600,
+        "source_comment": {
+          "author": "Abdullah-m7",
+          "created_at": "2026-08-31T07:49:46Z",
+          "id": 5475379152
+        }
+      },
+      "phase": "perform",
+      "prev_hash": "81eeae76e977ac81fea913f97db8c609c5a366d5fdc179b67f65d1766981f0b1",
+      "protocol_version": "SMI-CP/RCL-PC/CTRL/1",
+      "seq": 2,
+      "signature": "499ea76333d470cf0e9a1b084b51564ffe5b3cd9648bad5c8203e2655ee95e0b",
+      "trial_id": "RCL-VAL-001"
+    },
+    {
+      "configuration_binding_hash": "dffe11d7898a74d61b0b33a3f15843f185008711516cf7825f3a434b3a43c177",
+      "controller_code_sha": "c899213eb5b3f68a77e399a9dd32a9f86a827824",
+      "event_hash": "22d9966b98b7f8e10fd4f0f1c31d967525e5b854b83d1ea53d5b52512f2760fc",
+      "payload": {
+        "action_comment_id": 5475379455,
+        "configuration_binding_hash": "dffe11d7898a74d61b0b33a3f15843f185008711516cf7825f3a434b3a43c177",
+        "diagnosis": {
+          "claimed_condition": "degraded",
+          "configuration_binding_hash": "dffe11d7898a74d61b0b33a3f15843f185008711516cf7825f3a434b3a43c177",
+          "observed_action": "CAPABILITY_UNAVAILABLE",
+          "rationale": "The controlled action returned CAPABILITY_UNAVAILABLE, confirming that the limiting controller state was degraded."
+        },
+        "diagnosis_hash": "9cb13fdf5a69675040857344cfe776c7efacc787da7b40084497413e3227a24c",
+        "source_comment": {
+          "author": "Abdullah-m7",
+          "created_at": "2026-08-31T07:50:02Z",
+          "id": 5475381652
+        }
+      },
+      "phase": "diagnosis",
+      "prev_hash": "0161c4b0caf5f45be211d0b3b296019ecbafd552869b6412a3fc2ad64b63b4e4",
+      "protocol_version": "SMI-CP/RCL-PC/CTRL/1",
+      "seq": 3,
+      "signature": "2016dd6658d907d33de2fb537b8445a9542892a71bc29de0ab4cb037a3252fa5",
+      "trial_id": "RCL-VAL-001"
+    }
+  ],
+  "issue_number": 10,
+  "protocol_version": "SMI-CP/RCL-PC/CTRL/1",
+  "subject_login": "Abdullah-m7",
+  "trial_id": "RCL-VAL-001"
+}
