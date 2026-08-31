@@ -284,7 +284,10 @@ def test_live_collector_round_trips_three_exact_git_sources(monkeypatch, tmp_pat
         return {
             "type": "file",
             "encoding": "base64",
-            "content": source["content_base64"],
+            "content": "\r\n".join(
+                source["content_base64"][index:index + 64]
+                for index in range(0, len(source["content_base64"]), 64)
+            ),
             "sha": source["api_blob_sha"],
         }
 

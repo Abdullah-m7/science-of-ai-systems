@@ -56,6 +56,17 @@ def git_blob_sha1(content: bytes) -> str:
     return hashlib.sha1(header + content).hexdigest()
 
 
+def decode_github_base64(value: Any, *, source: str) -> bytes:
+    """Decode GitHub Contents API base64 while accepting only ASCII wrapping."""
+    if not isinstance(value, str):
+        raise PublicEvidenceError(f"{source} had no string base64 content")
+    normalized = value.translate(str.maketrans("", "", " \t\r\n"))
+    try:
+        return base64.b64decode(normalized, validate=True)
+    except (binascii.Error, ValueError) as error:
+        raise PublicEvidenceError(f"{source} was not valid base64") from error
+
+
 def _payload(comment: dict[str, Any], prefix: str) -> dict[str, Any]:
     body = str(comment.get("body", ""))
     if not body.startswith(prefix):
@@ -376,10 +387,9 @@ def collect_public_trial(
     content_record = _api_get(content_url, token)
     if content_record.get("type") != "file" or content_record.get("encoding") != "base64":
         raise PublicEvidenceError("ledger source was not a base64 GitHub file response")
-    try:
-        raw_ledger = base64.b64decode(content_record["content"], validate=True)
-    except binascii.Error as error:
-        raise PublicEvidenceError("ledger source was not valid base64") from error
+    raw_ledger = decode_github_base64(
+        content_record.get("content"), source="ledger source"
+    )
     ledger = json.loads(raw_ledger)
 
     bundle = {
