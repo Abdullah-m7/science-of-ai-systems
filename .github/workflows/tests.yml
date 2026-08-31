@@ -16,3 +16,4 @@ jobs:
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e . pytest
       - run: python -m pytest -q
+      - run: python -m sais.freeze_manifest experiments/004-construct-validity/manifest.json

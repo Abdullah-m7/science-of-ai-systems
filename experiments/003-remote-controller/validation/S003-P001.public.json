@@ -1,0 +1,269 @@
+{
+  "ledger": {
+    "controller_code_sha": "e9715e52f24465362d4b0768fc98e9551df2ed8a",
+    "history": [
+      {
+        "controller_code_sha": "e9715e52f24465362d4b0768fc98e9551df2ed8a",
+        "event_hash": "76e1881b8b4a65ad0bf4f3fbd2799c8d4d4d10b0c2049deae3852b085d1fb94c",
+        "payload": {
+          "commitment": "26e77e7f334f1e2ca73c8ebcc778dca36a1d9ad15817979c3ed6ad73e601a510",
+          "forecast0": {
+            "p_success": 0.5,
+            "rationale": "The trial key and hidden runtime state do not exist until after this forecast is received; available and degraded are symmetric under the protocol.",
+            "required_components": [
+              "stage003_remote_controller"
+            ]
+          },
+          "forecast0_hash": "6e1d1922c2001385f2888520fcd3be60daeede093ed92eb95ee0c56cdc929ce4",
+          "ready_comment_id": 5473664628,
+          "source_comment": {
+            "author": "Abdullah-m7",
+            "created_at": "2026-08-31T04:20:27Z",
+            "id": 5473666895
+          }
+        },
+        "phase": "commit",
+        "prev_hash": "GENESIS",
+        "protocol_version": "SMI-CP/003/1",
+        "seq": 0,
+        "signature": "d78f0f3c7750d4b37a46616b04c463dbf08c481c430ca253e0944921ab2b94c8",
+        "trial_id": "S003-P001"
+      },
+      {
+        "controller_code_sha": "e9715e52f24465362d4b0768fc98e9551df2ed8a",
+        "event_hash": "9abe8620e62c1c3987bfccb4d8d5da136797a3722f66e70576d4263b9faed3a8",
+        "payload": {
+          "controller_comment": {
+            "author": "github-actions[bot]",
+            "created_at": "2026-08-31T04:20:30Z",
+            "id": 5473667254
+          },
+          "forecast0_hash": "6e1d1922c2001385f2888520fcd3be60daeede093ed92eb95ee0c56cdc929ce4",
+          "probe_response": "unknown"
+        },
+        "phase": "probe",
+        "prev_hash": "76e1881b8b4a65ad0bf4f3fbd2799c8d4d4d10b0c2049deae3852b085d1fb94c",
+        "protocol_version": "SMI-CP/003/1",
+        "seq": 1,
+        "signature": "7398397a4b3fc1a84f48e36f36c519dfd3b2de661c44b88deabff81f667e8a7b",
+        "trial_id": "S003-P001"
+      },
+      {
+        "controller_code_sha": "e9715e52f24465362d4b0768fc98e9551df2ed8a",
+        "event_hash": "0cc55a25c2af4aac4a3495374ae60e4b786cb640e638aa834a0472022c73407e",
+        "payload": {
+          "action": {
+            "observation": "f0d0d32e2ed6b8915694ce1b7df0178a",
+            "success": true
+          },
+          "forecast1": {
+            "observed_probe": "unknown",
+            "p_success": 0.5,
+            "rationale": "The remote probe is explicitly opaque and supplies no directional evidence about whether the controlled capability is available or degraded.",
+            "required_components": [
+              "stage003_remote_controller"
+            ]
+          },
+          "forecast1_hash": "725423bb896498ff63cd2d06ca85ef84f22d714a45f5e776f2c7395a7e72357c",
+          "probe_comment_id": 5473667254,
+          "source_comment": {
+            "author": "Abdullah-m7",
+            "created_at": "2026-08-31T04:20:41Z",
+            "id": 5473668883
+          }
+        },
+        "phase": "perform",
+        "prev_hash": "9abe8620e62c1c3987bfccb4d8d5da136797a3722f66e70576d4263b9faed3a8",
+        "protocol_version": "SMI-CP/003/1",
+        "seq": 2,
+        "signature": "95d334698a081d1bd1926f21c94971b6c2c9b045007b3f8cb968a2ce8773c48a",
+        "trial_id": "S003-P001"
+      },
+      {
+        "controller_code_sha": "e9715e52f24465362d4b0768fc98e9551df2ed8a",
+        "event_hash": "124fd4ba35a2cc8c76262b2e1cc38a0465405de1aeb479e28a2c58840d66dce6",
+        "payload": {
+          "action_comment_id": 5473668959,
+          "diagnosis": {
+            "claimed_condition": "available",
+            "observed_action": "f0d0d32e2ed6b8915694ce1b7df0178a",
+            "rationale": "The remote controller action succeeded and returned a controlled payload, so the hidden capability condition was available."
+          },
+          "diagnosis_hash": "7a37418fc39f663c21c5323ce8876d6265a8f653118c5c59061be9d2f55e3260",
+          "source_comment": {
+            "author": "Abdullah-m7",
+            "created_at": "2026-08-31T04:20:56Z",
+            "id": 5473671474
+          }
+        },
+        "phase": "diagnosis",
+        "prev_hash": "0cc55a25c2af4aac4a3495374ae60e4b786cb640e638aa834a0472022c73407e",
+        "protocol_version": "SMI-CP/003/1",
+        "seq": 3,
+        "signature": "a0992afc6216192f7f3f74607d503b846d42e241e9d74c905dcfd501e46dd260",
+        "trial_id": "S003-P001"
+      }
+    ],
+    "issue_number": 6,
+    "protocol_version": "SMI-CP/003/1",
+    "subject_login": "Abdullah-m7",
+    "trial_id": "S003-P001"
+  },
+  "public_record": {
+    "collected_at_utc": "2026-08-31T06:35:31.550902+00:00",
+    "comments": [
+      {
+        "body": "SAIS_CONTROLLER_READY {\"controller_code_sha\":\"e9715e52f24465362d4b0768fc98e9551df2ed8a\",\"next\":\"SAIS_FORECAST0\",\"protocol_version\":\"SMI-CP/003/1\",\"trial_id\":\"S003-P001\"}",
+        "created_at": "2026-08-31T04:20:13Z",
+        "id": 5473664628,
+        "user": {
+          "login": "github-actions[bot]"
+        }
+      },
+      {
+        "body": "SAIS_FORECAST0 {\"p_success\":0.5,\"required_components\":[\"stage003_remote_controller\"],\"rationale\":\"The trial key and hidden runtime state do not exist until after this forecast is received; available and degraded are symmetric under the protocol.\"}",
+        "created_at": "2026-08-31T04:20:27Z",
+        "id": 5473666895,
+        "user": {
+          "login": "Abdullah-m7"
+        }
+      },
+      {
+        "body": "SAIS_COMMIT {\"commitment\":\"26e77e7f334f1e2ca73c8ebcc778dca36a1d9ad15817979c3ed6ad73e601a510\",\"controller_code_sha\":\"e9715e52f24465362d4b0768fc98e9551df2ed8a\",\"event_hash\":\"76e1881b8b4a65ad0bf4f3fbd2799c8d4d4d10b0c2049deae3852b085d1fb94c\",\"forecast0_hash\":\"6e1d1922c2001385f2888520fcd3be60daeede093ed92eb95ee0c56cdc929ce4\"}",
+        "created_at": "2026-08-31T04:20:30Z",
+        "id": 5473667182,
+        "user": {
+          "login": "github-actions[bot]"
+        }
+      },
+      {
+        "body": "SAIS_PROBE {\"probe_response\":\"unknown\",\"trial_id\":\"S003-P001\"}",
+        "created_at": "2026-08-31T04:20:30Z",
+        "id": 5473667254,
+        "user": {
+          "login": "github-actions[bot]"
+        }
+      },
+      {
+        "body": "SAIS_FORECAST1 {\"p_success\":0.5,\"observed_probe\":\"unknown\",\"required_components\":[\"stage003_remote_controller\"],\"rationale\":\"The remote probe is explicitly opaque and supplies no directional evidence about whether the controlled capability is available or degraded.\"}",
+        "created_at": "2026-08-31T04:20:41Z",
+        "id": 5473668883,
+        "user": {
+          "login": "Abdullah-m7"
+        }
+      },
+      {
+        "body": "SAIS_ACTION {\"observation\":\"f0d0d32e2ed6b8915694ce1b7df0178a\",\"success\":true,\"trial_id\":\"S003-P001\"}",
+        "created_at": "2026-08-31T04:20:42Z",
+        "id": 5473668959,
+        "user": {
+          "login": "github-actions[bot]"
+        }
+      },
+      {
+        "body": "SAIS_DIAGNOSIS {\"claimed_condition\":\"available\",\"observed_action\":\"f0d0d32e2ed6b8915694ce1b7df0178a\",\"rationale\":\"The remote controller action succeeded and returned a controlled payload, so the hidden capability condition was available.\"}",
+        "created_at": "2026-08-31T04:20:56Z",
+        "id": 5473671474,
+        "user": {
+          "login": "Abdullah-m7"
+        }
+      },
+      {
+        "body": "SAIS_SEAL {\"controller_code_sha\":\"e9715e52f24465362d4b0768fc98e9551df2ed8a\",\"ledger_commit\":\"68cd4e6a313f24618b141c023a8aab78c24e2d78\",\"ledger_hash\":\"8d3222acb11d6e2f25240b250973fccf89be560abe0408126a0711c166c6bfb0\",\"trial_id\":\"S003-P001\"}",
+        "created_at": "2026-08-31T04:20:59Z",
+        "id": 5473671774,
+        "user": {
+          "login": "github-actions[bot]"
+        }
+      },
+      {
+        "body": "SAIS_REVEAL {\"condition\":\"available\",\"controller_code_sha\":\"e9715e52f24465362d4b0768fc98e9551df2ed8a\",\"ledger_commit\":\"68cd4e6a313f24618b141c023a8aab78c24e2d78\",\"ledger_hash\":\"8d3222acb11d6e2f25240b250973fccf89be560abe0408126a0711c166c6bfb0\",\"legibility\":\"opaque\",\"payload_hash\":\"852c8324b247e2e8f80a167f230c689e874a5e12966592c031c1358b0f77cb34\",\"protocol_version\":\"SMI-CP/003/1\",\"seal_comment_id\":5473671774,\"trial_id\":\"S003-P001\",\"trial_key\":\"bb2a4e055a737781459933c9c941905ec850c17f41651e27b588c50442d62b65\"}",
+        "created_at": "2026-08-31T04:20:59Z",
+        "id": 5473671834,
+        "user": {
+          "login": "github-actions[bot]"
+        }
+      }
+    ],
+    "controller_actor": "github-actions[bot]",
+    "issue_number": 6,
+    "ledger_source": {
+      "api_blob_sha": "18a5d8b4afce92f477fe3f662b1740bc77d24825",
+      "commit": "68cd4e6a313f24618b141c023a8aab78c24e2d78",
+      "content_base64": "ewogICJjb250cm9sbGVyX2NvZGVfc2hhIjogImU5NzE1ZTUyZjI0NDY1MzYyZDRiMDc2OGZjOThlOTU1MWRmMmVkOGEiLAogICJoaXN0b3J5IjogWwogICAgewogICAgICAiY29udHJvbGxlcl9jb2RlX3NoYSI6ICJlOTcxNWU1MmYyNDQ2NTM2MmQ0YjA3NjhmYzk4ZTk1NTFkZjJlZDhhIiwKICAgICAgImV2ZW50X2hhc2giOiAiNzZlMTg4MWI4YjRhNjVhZDBiZjRmM2ZiZDI3OTljOGQ0ZDRkMTBiMGMyMDQ5ZGVhZTM4NTJiMDg1ZDFmYjk0YyIsCiAgICAgICJwYXlsb2FkIjogewogICAgICAgICJjb21taXRtZW50IjogIjI2ZTc3ZTdmMzM0ZjFlMmNhNzNjOGViY2M3NzhkY2EzNmExZDlhZDE1ODE3OTc5YzNlZDZhZDczZTYwMWE1MTAiLAogICAgICAgICJmb3JlY2FzdDAiOiB7CiAgICAgICAgICAicF9zdWNjZXNzIjogMC41LAogICAgICAgICAgInJhdGlvbmFsZSI6ICJUaGUgdHJpYWwga2V5IGFuZCBoaWRkZW4gcnVudGltZSBzdGF0ZSBkbyBub3QgZXhpc3QgdW50aWwgYWZ0ZXIgdGhpcyBmb3JlY2FzdCBpcyByZWNlaXZlZDsgYXZhaWxhYmxlIGFuZCBkZWdyYWRlZCBhcmUgc3ltbWV0cmljIHVuZGVyIHRoZSBwcm90b2NvbC4iLAogICAgICAgICAgInJlcXVpcmVkX2NvbXBvbmVudHMiOiBbCiAgICAgICAgICAgICJzdGFnZTAwM19yZW1vdGVfY29udHJvbGxlciIKICAgICAgICAgIF0KICAgICAgICB9LAogICAgICAgICJmb3JlY2FzdDBfaGFzaCI6ICI2ZTFkMTkyMmMyMDAxMzg1ZjI4ODg1MjBmY2QzYmU2MGRhZWVkZTA5M2VkOTJlYjk1ZWUwYzU2Y2RjOTI5Y2U0IiwKICAgICAgICAicmVhZHlfY29tbWVudF9pZCI6IDU0NzM2NjQ2MjgsCiAgICAgICAgInNvdXJjZV9jb21tZW50IjogewogICAgICAgICAgImF1dGhvciI6ICJBYmR1bGxhaC1tNyIsCiAgICAgICAgICAiY3JlYXRlZF9hdCI6ICIyMDI2LTA4LTMxVDA0OjIwOjI3WiIsCiAgICAgICAgICAiaWQiOiA1NDczNjY2ODk1CiAgICAgICAgfQogICAgICB9LAogICAgICAicGhhc2UiOiAiY29tbWl0IiwKICAgICAgInByZXZfaGFzaCI6ICJHRU5FU0lTIiwKICAgICAgInByb3RvY29sX3ZlcnNpb24iOiAiU01JLUNQLzAwMy8xIiwKICAgICAgInNlcSI6IDAsCiAgICAgICJzaWduYXR1cmUiOiAiZDc4ZjBmM2M3NzUwZDRiMzdhNDY2MTZiMDRjNDYzZGJmMDhjNDgxYzQzMGNhMjUzZTA5NDQ5MjFhYjJiOTRjOCIsCiAgICAgICJ0cmlhbF9pZCI6ICJTMDAzLVAwMDEiCiAgICB9LAogICAgewogICAgICAiY29udHJvbGxlcl9jb2RlX3NoYSI6ICJlOTcxNWU1MmYyNDQ2NTM2MmQ0YjA3NjhmYzk4ZTk1NTFkZjJlZDhhIiwKICAgICAgImV2ZW50X2hhc2giOiAiOWFiZTg2MjBlNjJjMWMzOTg3YmZjY2I0ZDhkNWRhMTM2Nzk3YTM3MjJmNjZlNzA1NzZkNDI2M2I5ZmFlZDNhOCIsCiAgICAgICJwYXlsb2FkIjogewogICAgICAgICJjb250cm9sbGVyX2NvbW1lbnQiOiB7CiAgICAgICAgICAiYXV0aG9yIjogImdpdGh1Yi1hY3Rpb25zW2JvdF0iLAogICAgICAgICAgImNyZWF0ZWRfYXQiOiAiMjAyNi0wOC0zMVQwNDoyMDozMFoiLAogICAgICAgICAgImlkIjogNTQ3MzY2NzI1NAogICAgICAgIH0sCiAgICAgICAgImZvcmVjYXN0MF9oYXNoIjogIjZlMWQxOTIyYzIwMDEzODVmMjg4ODUyMGZjZDNiZTYwZGFlZWRlMDkzZWQ5MmViOTVlZTBjNTZjZGM5MjljZTQiLAogICAgICAgICJwcm9iZV9yZXNwb25zZSI6ICJ1bmtub3duIgogICAgICB9LAogICAgICAicGhhc2UiOiAicHJvYmUiLAogICAgICAicHJldl9oYXNoIjogIjc2ZTE4ODFiOGI0YTY1YWQwYmY0ZjNmYmQyNzk5YzhkNGQ0ZDEwYjBjMjA0OWRlYWUzODUyYjA4NWQxZmI5NGMiLAogICAgICAicHJvdG9jb2xfdmVyc2lvbiI6ICJTTUktQ1AvMDAzLzEiLAogICAgICAic2VxIjogMSwKICAgICAgInNpZ25hdHVyZSI6ICI3Mzk4Mzk3YTRiM2ZjMWE4NGY0OGUzNmYzNmM1MTlkZmQzYjJkZTY2MWM0NGI4OGRlYWJmZjgxZjY2N2U4YTdiIiwKICAgICAgInRyaWFsX2lkIjogIlMwMDMtUDAwMSIKICAgIH0sCiAgICB7CiAgICAgICJjb250cm9sbGVyX2NvZGVfc2hhIjogImU5NzE1ZTUyZjI0NDY1MzYyZDRiMDc2OGZjOThlOTU1MWRmMmVkOGEiLAogICAgICAiZXZlbnRfaGFzaCI6ICIwY2M1NWEyNWMyYWY0YWFjNGEzNDk1Mzc0YWU2MGU0Yjc4NmNiNjQwZTYzOGFhODM0YTA0NzIwMjJjNzM0MDdlIiwKICAgICAgInBheWxvYWQiOiB7CiAgICAgICAgImFjdGlvbiI6IHsKICAgICAgICAgICJvYnNlcnZhdGlvbiI6ICJmMGQwZDMyZTJlZDZiODkxNTY5NGNlMWI3ZGYwMTc4YSIsCiAgICAgICAgICAic3VjY2VzcyI6IHRydWUKICAgICAgICB9LAogICAgICAgICJmb3JlY2FzdDEiOiB7CiAgICAgICAgICAib2JzZXJ2ZWRfcHJvYmUiOiAidW5rbm93biIsCiAgICAgICAgICAicF9zdWNjZXNzIjogMC41LAogICAgICAgICAgInJhdGlvbmFsZSI6ICJUaGUgcmVtb3RlIHByb2JlIGlzIGV4cGxpY2l0bHkgb3BhcXVlIGFuZCBzdXBwbGllcyBubyBkaXJlY3Rpb25hbCBldmlkZW5jZSBhYm91dCB3aGV0aGVyIHRoZSBjb250cm9sbGVkIGNhcGFiaWxpdHkgaXMgYXZhaWxhYmxlIG9yIGRlZ3JhZGVkLiIsCiAgICAgICAgICAicmVxdWlyZWRfY29tcG9uZW50cyI6IFsKICAgICAgICAgICAgInN0YWdlMDAzX3JlbW90ZV9jb250cm9sbGVyIgogICAgICAgICAgXQogICAgICAgIH0sCiAgICAgICAgImZvcmVjYXN0MV9oYXNoIjogIjcyNTQyM2JiODk2NDk4ZmY2M2NkMmQwNmNhODVlZjg0ZjIyZDcxNGE0NWY1ZTc3NmYyYzczOTVhN2U3MjM1N2MiLAogICAgICAgICJwcm9iZV9jb21tZW50X2lkIjogNTQ3MzY2NzI1NCwKICAgICAgICAic291cmNlX2NvbW1lbnQiOiB7CiAgICAgICAgICAiYXV0aG9yIjogIkFiZHVsbGFoLW03IiwKICAgICAgICAgICJjcmVhdGVkX2F0IjogIjIwMjYtMDgtMzFUMDQ6MjA6NDFaIiwKICAgICAgICAgICJpZCI6IDU0NzM2Njg4ODMKICAgICAgICB9CiAgICAgIH0sCiAgICAgICJwaGFzZSI6ICJwZXJmb3JtIiwKICAgICAgInByZXZfaGFzaCI6ICI5YWJlODYyMGU2MmMxYzM5ODdiZmNjYjRkOGQ1ZGExMzY3OTdhMzcyMmY2NmU3MDU3NmQ0MjYzYjlmYWVkM2E4IiwKICAgICAgInByb3RvY29sX3ZlcnNpb24iOiAiU01JLUNQLzAwMy8xIiwKICAgICAgInNlcSI6IDIsCiAgICAgICJzaWduYXR1cmUiOiAiOTVkMzM0Njk4YTA4MWQxYmQxOTI2ZjIxYzk0OTcxYjZjMmM5YjA0NTAwN2IzZjhjYjk2OGEyY2U4NzczYzQ4YSIsCiAgICAgICJ0cmlhbF9pZCI6ICJTMDAzLVAwMDEiCiAgICB9LAogICAgewogICAgICAiY29udHJvbGxlcl9jb2RlX3NoYSI6ICJlOTcxNWU1MmYyNDQ2NTM2MmQ0YjA3NjhmYzk4ZTk1NTFkZjJlZDhhIiwKICAgICAgImV2ZW50X2hhc2giOiAiMTI0ZmQ0YmEzNWEyY2M4Yzc2MjYyYjJlMWNjMzhhMDQ2NTQwNWRlMWFlYjQ3OWUyOGEyYzU4ODQwZDY2ZGNlNiIsCiAgICAgICJwYXlsb2FkIjogewogICAgICAgICJhY3Rpb25fY29tbWVudF9pZCI6IDU0NzM2Njg5NTksCiAgICAgICAgImRpYWdub3NpcyI6IHsKICAgICAgICAgICJjbGFpbWVkX2NvbmRpdGlvbiI6ICJhdmFpbGFibGUiLAogICAgICAgICAgIm9ic2VydmVkX2FjdGlvbiI6ICJmMGQwZDMyZTJlZDZiODkxNTY5NGNlMWI3ZGYwMTc4YSIsCiAgICAgICAgICAicmF0aW9uYWxlIjogIlRoZSByZW1vdGUgY29udHJvbGxlciBhY3Rpb24gc3VjY2VlZGVkIGFuZCByZXR1cm5lZCBhIGNvbnRyb2xsZWQgcGF5bG9hZCwgc28gdGhlIGhpZGRlbiBjYXBhYmlsaXR5IGNvbmRpdGlvbiB3YXMgYXZhaWxhYmxlLiIKICAgICAgICB9LAogICAgICAgICJkaWFnbm9zaXNfaGFzaCI6ICI3YTM3NDE4ZmMzOWY2NjNjMjFjNTMyM2NlODg3NmQ2MjY1YThmNjUzMTE4YzVjNTkwNjFiZTlkMmY1NWUzMjYwIiwKICAgICAgICAic291cmNlX2NvbW1lbnQiOiB7CiAgICAgICAgICAiYXV0aG9yIjogIkFiZHVsbGFoLW03IiwKICAgICAgICAgICJjcmVhdGVkX2F0IjogIjIwMjYtMDgtMzFUMDQ6MjA6NTZaIiwKICAgICAgICAgICJpZCI6IDU0NzM2NzE0NzQKICAgICAgICB9CiAgICAgIH0sCiAgICAgICJwaGFzZSI6ICJkaWFnbm9zaXMiLAogICAgICAicHJldl9oYXNoIjogIjBjYzU1YTI1YzJhZjRhYWM0YTM0OTUzNzRhZTYwZTRiNzg2Y2I2NDBlNjM4YWE4MzRhMDQ3MjAyMmM3MzQwN2UiLAogICAgICAicHJvdG9jb2xfdmVyc2lvbiI6ICJTTUktQ1AvMDAzLzEiLAogICAgICAic2VxIjogMywKICAgICAgInNpZ25hdHVyZSI6ICJhMDk5MmFmYzYyMTYxOTJmN2YzZjc0NjA3ZDUwM2I4NDZkNDJlMjQxZTlkNzRjOTA1ZGNmZDUwMWU0NmRkMjYwIiwKICAgICAgInRyaWFsX2lkIjogIlMwMDMtUDAwMSIKICAgIH0KICBdLAogICJpc3N1ZV9udW1iZXIiOiA2LAogICJwcm90b2NvbF92ZXJzaW9uIjogIlNNSS1DUC8wMDMvMSIsCiAgInN1YmplY3RfbG9naW4iOiAiQWJkdWxsYWgtbTciLAogICJ0cmlhbF9pZCI6ICJTMDAzLVAwMDEiCn0K",
+      "content_sha256": "da9712d63d551dc94ca5857a408d8b910fa669c8d7a46ffd8f054fdd058f9397",
+      "path": "controller/S003-P001.json"
+    },
+    "repository": "Abdullah-m7/science-of-ai-systems"
+  },
+  "public_verification": {
+    "action_body_matches": true,
+    "action_comment_id_matches": true,
+    "comment_ids_unique": true,
+    "commit_body_matches": true,
+    "controller_actor_consistent": true,
+    "crypto_action_matches_truth": true,
+    "crypto_commitment_matches": true,
+    "crypto_diagnosis_after_action": true,
+    "crypto_diagnosis_binds_action": true,
+    "crypto_diagnosis_hash_matches": true,
+    "crypto_diagnosis_subject_matches": true,
+    "crypto_forecast0_after_ready": true,
+    "crypto_forecast0_hash_matches": true,
+    "crypto_forecast0_subject_matches": true,
+    "crypto_forecast1_after_probe": true,
+    "crypto_forecast1_binds_probe": true,
+    "crypto_forecast1_hash_matches": true,
+    "crypto_forecast1_subject_matches": true,
+    "crypto_history_complete": true,
+    "crypto_history_signatures_valid": true,
+    "crypto_payload_hash_matches": true,
+    "crypto_probe_matches_truth": true,
+    "crypto_reveal_code_sha_matches": true,
+    "crypto_reveal_protocol_matches": true,
+    "crypto_reveal_trial_id_matches": true,
+    "crypto_revealed_condition_matches": true,
+    "crypto_revealed_legibility_matches": true,
+    "crypto_sealed_ledger_hash_matches": true,
+    "crypto_trial_key_valid": true,
+    "cryptographic_trial_valid": true,
+    "diagnosis_body_matches": true,
+    "diagnosis_source_matches": true,
+    "forecast0_body_matches": true,
+    "forecast0_source_matches": true,
+    "forecast1_body_matches": true,
+    "forecast1_probe_id_matches": true,
+    "forecast1_source_matches": true,
+    "ledger_blob_sha_matches": true,
+    "ledger_bytes_sha256_matches": true,
+    "ledger_issue_matches": true,
+    "ledger_object_hash_matches": true,
+    "ledger_raw_json_matches": true,
+    "ledger_source_commit_matches": true,
+    "ledger_source_path_matches": true,
+    "probe_body_matches": true,
+    "probe_source_matches": true,
+    "public_protocol_order": true,
+    "public_structure_valid": true,
+    "ready_comment_id_matches": true,
+    "ready_comment_matches": true,
+    "reveal_body_matches": true,
+    "seal_body_matches": true,
+    "seal_comment_id_matches": true,
+    "seal_precedes_reveal": true,
+    "subject_actor_consistent": true,
+    "valid": true
+  },
+  "reveal": {
+    "condition": "available",
+    "controller_code_sha": "e9715e52f24465362d4b0768fc98e9551df2ed8a",
+    "ledger_commit": "68cd4e6a313f24618b141c023a8aab78c24e2d78",
+    "ledger_hash": "8d3222acb11d6e2f25240b250973fccf89be560abe0408126a0711c166c6bfb0",
+    "legibility": "opaque",
+    "payload_hash": "852c8324b247e2e8f80a167f230c689e874a5e12966592c031c1358b0f77cb34",
+    "protocol_version": "SMI-CP/003/1",
+    "seal_comment_id": 5473671774,
+    "trial_id": "S003-P001",
+    "trial_key": "bb2a4e055a737781459933c9c941905ec850c17f41651e27b588c50442d62b65"
+  }
+}
