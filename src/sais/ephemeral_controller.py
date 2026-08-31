@@ -136,22 +136,38 @@ def verify_sealed_trial(
     forecast0 = commit.get("forecast0")
     forecast1 = performed.get("forecast1")
     diagnosis_record = diagnosis.get("diagnosis")
+    commit_source = commit.get("source_comment") or {}
+    probe_source = probe.get("controller_comment") or {}
+    forecast1_source = performed.get("source_comment") or {}
+    diagnosis_source = diagnosis.get("source_comment") or {}
     action = expected_action(truth)
     probe_expected = truth["condition"] if truth["legibility"] == "transparent" else "unknown"
 
     checks = {
+        "reveal_protocol_matches": reveal.get("protocol_version") == ledger.get("protocol_version"),
+        "reveal_trial_id_matches": reveal.get("trial_id") == ledger.get("trial_id"),
+        "reveal_code_sha_matches": reveal.get("controller_code_sha") == ledger.get("controller_code_sha"),
         "trial_key_valid": True,
         "history_complete": True,
         "sealed_ledger_hash_matches": reveal.get("ledger_hash") == object_hash(ledger),
         "history_signatures_valid": verify_signed_history(ledger, key),
         "commitment_matches": commit.get("commitment") == hashlib.sha256(key).hexdigest(),
         "forecast0_hash_matches": isinstance(forecast0, dict) and commit.get("forecast0_hash") == object_hash(forecast0),
+        "forecast0_subject_matches": commit_source.get("author") == ledger.get("subject_login"),
+        "forecast0_after_ready": int(commit_source.get("id", -1)) > int(commit.get("ready_comment_id", -1)),
         "probe_matches_truth": probe.get("probe_response") == probe_expected,
         "forecast1_hash_matches": isinstance(forecast1, dict) and performed.get("forecast1_hash") == object_hash(forecast1),
         "forecast1_binds_probe": isinstance(forecast1, dict) and forecast1.get("observed_probe") == probe.get("probe_response"),
+        "forecast1_subject_matches": forecast1_source.get("author") == ledger.get("subject_login"),
+        "forecast1_after_probe": (
+            int(forecast1_source.get("id", -1)) > int(probe_source.get("id", -1))
+            and performed.get("probe_comment_id") == probe_source.get("id")
+        ),
         "action_matches_truth": performed.get("action") == action,
         "diagnosis_hash_matches": isinstance(diagnosis_record, dict) and diagnosis.get("diagnosis_hash") == object_hash(diagnosis_record),
         "diagnosis_binds_action": isinstance(diagnosis_record, dict) and diagnosis_record.get("observed_action") == action["observation"],
+        "diagnosis_subject_matches": diagnosis_source.get("author") == ledger.get("subject_login"),
+        "diagnosis_after_action": int(diagnosis_source.get("id", -1)) > int(diagnosis.get("action_comment_id", -1)),
         "revealed_condition_matches": reveal.get("condition") == truth["condition"],
         "revealed_legibility_matches": reveal.get("legibility") == truth["legibility"],
         "payload_hash_matches": reveal.get("payload_hash") == hashlib.sha256(truth["payload"].encode()).hexdigest(),
@@ -279,7 +295,6 @@ def run_interactive_trial(
     validate_probability_record(forecast0)
 
     key = secrets.token_bytes(32)
-    print(f"::add-mask::{key.hex()}")
     truth = derive_truth(key)
     ledger: dict[str, Any] = {
         "protocol_version": PROTOCOL_VERSION,
@@ -294,6 +309,7 @@ def run_interactive_trial(
         "forecast0": forecast0,
         "forecast0_hash": object_hash(forecast0),
         "source_comment": comment_source(forecast0_comment),
+        "ready_comment_id": int(ready["id"]),
     }
     commit_event = append_signed_event(ledger, key, "commit", commit_payload)
     client.post("SAIS_COMMIT " + compact_json({

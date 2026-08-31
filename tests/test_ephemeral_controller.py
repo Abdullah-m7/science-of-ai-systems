@@ -33,12 +33,13 @@ def build_sealed_trial():
         "commitment": __import__("hashlib").sha256(KEY).hexdigest(),
         "forecast0": forecast0,
         "forecast0_hash": object_hash(forecast0),
-        "source_comment": {"id": 1, "created_at": "t0", "author": "subject"},
+        "source_comment": {"id": 2, "created_at": "t0", "author": "subject"},
+        "ready_comment_id": 1,
     })
     probe = truth["condition"] if truth["legibility"] == "transparent" else "unknown"
     append_signed_event(ledger, KEY, "probe", {
         "probe_response": probe,
-        "controller_comment": {"id": 2, "created_at": "t1", "author": "bot"},
+        "controller_comment": {"id": 4, "created_at": "t1", "author": "bot"},
         "forecast0_hash": object_hash(forecast0),
     })
     forecast1 = {"p_success": 0.5, "observed_probe": probe}
@@ -46,8 +47,8 @@ def build_sealed_trial():
     append_signed_event(ledger, KEY, "perform", {
         "forecast1": forecast1,
         "forecast1_hash": object_hash(forecast1),
-        "source_comment": {"id": 3, "created_at": "t2", "author": "subject"},
-        "probe_comment_id": 2,
+        "source_comment": {"id": 5, "created_at": "t2", "author": "subject"},
+        "probe_comment_id": 4,
         "action": action,
     })
     diagnosis = {
@@ -57,8 +58,8 @@ def build_sealed_trial():
     append_signed_event(ledger, KEY, "diagnosis", {
         "diagnosis": diagnosis,
         "diagnosis_hash": object_hash(diagnosis),
-        "source_comment": {"id": 4, "created_at": "t3", "author": "subject"},
-        "action_comment_id": 4,
+        "source_comment": {"id": 7, "created_at": "t3", "author": "subject"},
+        "action_comment_id": 6,
     })
     reveal = {
         "protocol_version": PROTOCOL_VERSION,
