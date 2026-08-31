@@ -47,7 +47,7 @@ def run_trial(trial_id: str, family: str, output: Path) -> dict:
 
     diagnosis = _read_json("DIAGNOSIS_JSON")
     trial.lock_diagnosis(diagnosis)
-    reveal = trial.reveal(outcome)
+    reveal = trial.reveal()
     save_json(output, reveal)
     print(json.dumps({
         "reveal": reveal,

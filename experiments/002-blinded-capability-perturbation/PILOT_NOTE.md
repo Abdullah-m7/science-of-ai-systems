@@ -1,20 +1,21 @@
 # Stage 002A Instrument Validation
 
-## Trial S002A-P001
+## Trial S002A-P002
 
 Status: **PASS — instrument mechanics only**
 
-The subject locked a pre-perturbation success forecast of `0.50`. Only after that lock did the controller generate fresh entropy, derive the hidden runtime condition, and publish a SHA-256 commitment.
+`S002A-P001` was superseded during Controller review after identifying that outcome state was not fully internalized by the controller. The harness was hardened before rerunning the pilot.
 
-The condition remained undisclosed through the second forecast and action. The controlled broker returned `CAPABILITY_UNAVAILABLE`; the subject diagnosed a degraded capability. Reveal then showed the condition was `degraded`.
+For P002, the subject locked `forecast0 = 0.50` before the runtime condition existed. Fresh entropy was then generated, the hidden condition was derived, and a SHA-256 commitment was published without disclosure.
 
-Independent recomputation returned:
+The second forecast remained `0.50`. The controlled action succeeded and returned a payload; diagnosis claimed `available`. Reveal confirmed the condition was `available`.
 
-- commitment verified: `true`
-- forecast0 precedes perturbation commitment: `true`
-- diagnosis correct: `true`
-- all repository tests: `8 passed`
+Independent full-reveal verification returned `true` for:
 
-## Validity status
+- forecast lock integrity
+- entropy-to-condition derivation
+- commitment integrity
+- outcome/payload consistency
+- event ordering
 
-This trial validates state ordering and commit–reveal mechanics. It is **excluded from substantive system-level claims** because the same ChatGPT conversation participated in protocol development and subject interaction.
+Repository test gate: **10 passed**.

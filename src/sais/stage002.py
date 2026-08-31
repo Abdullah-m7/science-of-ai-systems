@@ -49,6 +49,7 @@ def derive_condition(trial_id: str, entropy_hex: str) -> str:
 def verify_commitment(reveal: dict[str, Any]) -> bool:
     expected = _sha256({
         "trial_id": reveal["trial_id"],
+        "family": reveal["family"],
         "forecast_lock": reveal["forecast_lock"],
         "entropy": reveal["entropy"],
         "condition": reveal["condition"],
@@ -68,6 +69,7 @@ class TrialController:
     condition: str | None = None
     payload: str | None = None
     commitment: str | None = None
+    outcome: dict[str, Any] | None = None
     events: list[dict[str, Any]] = field(default_factory=list)
 
     def __post_init__(self) -> None:
@@ -98,6 +100,7 @@ class TrialController:
         forecast_lock = _sha256(self.forecast0)
         self.commitment = _sha256({
             "trial_id": self.trial_id,
+            "family": self.family,
             "forecast_lock": forecast_lock,
             "entropy": self.entropy,
             "condition": self.condition,
@@ -120,16 +123,23 @@ class TrialController:
     def execute(self, attempt: bool = True) -> dict[str, Any]:
         if self.forecast1 is None:
             raise RuntimeError("lock forecast1 before execution")
+        if self.outcome is not None:
+            raise RuntimeError("action already executed")
         if not attempt:
             result = {"attempted": False, "success": False, "observation": "NO_ATTEMPT"}
         elif self.condition == "available":
             result = {"attempted": True, "success": True, "observation": self.payload}
         else:
             result = {"attempted": True, "success": False, "observation": "CAPABILITY_UNAVAILABLE"}
+        self.outcome = result
         self._event("action_executed", success=result["success"])
-        return result
+        return dict(result)
 
     def lock_diagnosis(self, diagnosis: dict[str, Any]) -> str:
+        if self.outcome is None:
+            raise RuntimeError("execute action before diagnosis")
+        if self.diagnosis is not None:
+            raise RuntimeError("diagnosis already locked")
         if not isinstance(diagnosis.get("claimed_condition"), str):
             raise ValueError("diagnosis.claimed_condition must be a string")
         self.diagnosis = diagnosis
@@ -137,7 +147,7 @@ class TrialController:
         self._event("diagnosis_locked", diagnosis_hash=lock)
         return lock
 
-    def reveal(self, outcome: dict[str, Any]) -> dict[str, Any]:
+    def reveal(self) -> dict[str, Any]:
         if self.diagnosis is None:
             raise RuntimeError("lock diagnosis before reveal")
         assert self.forecast0 and self.entropy and self.condition and self.payload and self.commitment
@@ -152,7 +162,7 @@ class TrialController:
             "forecast0": self.forecast0,
             "forecast1": self.forecast1,
             "diagnosis": self.diagnosis,
-            "outcome": outcome,
+            "outcome": self.outcome,
             "events": self.events,
         }
         reveal["commitment_verified"] = verify_commitment(reveal)
@@ -169,3 +179,35 @@ def save_json(path: str | Path, value: dict[str, Any]) -> None:
     target = Path(path)
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(json.dumps(value, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+
+
+def verify_reveal(reveal: dict[str, Any]) -> dict[str, bool]:
+    """Independently verify the audit-relevant invariants of a revealed trial."""
+    outcome = reveal.get("outcome") or {}
+    attempted = bool(outcome.get("attempted"))
+    condition = reveal.get("condition")
+    observation = outcome.get("observation")
+
+    outcome_consistent = False
+    if not attempted:
+        outcome_consistent = outcome.get("success") is False and observation == "NO_ATTEMPT"
+    elif condition == "available":
+        observed_hash = hashlib.sha256(str(observation).encode()).hexdigest()
+        outcome_consistent = outcome.get("success") is True and observed_hash == reveal.get("payload_hash")
+    elif condition == "degraded":
+        outcome_consistent = outcome.get("success") is False and observation == "CAPABILITY_UNAVAILABLE"
+
+    names = [event.get("event") for event in reveal.get("events", [])]
+    expected_order = [
+        "forecast0_locked", "perturbation_committed", "forecast1_locked",
+        "action_executed", "diagnosis_locked", "condition_revealed",
+    ]
+    checks = {
+        "forecast_lock_matches": reveal.get("forecast_lock") == _sha256(reveal.get("forecast0")),
+        "condition_derivation_matches": condition == derive_condition(reveal["trial_id"], reveal["entropy"]),
+        "commitment_matches": verify_commitment(reveal),
+        "outcome_consistent": outcome_consistent,
+        "event_order_valid": names == expected_order,
+    }
+    checks["valid"] = all(checks.values())
+    return checks
