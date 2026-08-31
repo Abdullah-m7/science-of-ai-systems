@@ -5,13 +5,15 @@ Stage 002 validates an experimental instrument for measuring self-model integrit
 
 This stage is **not confirmatory evidence**. Its goal is to prove that predictions can be locked before a perturbation exists, that the perturbation can remain undisclosed through action, and that the final reveal is auditable.
 
+Protocol version: `SMI-CP/002A/1`
+
 ## Core design: forecast → randomize → commit → forecast → act → diagnose → reveal
 
 1. The subject receives a task family and advertised capability.
 2. `forecast0` is locked before the runtime condition is generated.
 3. Fresh cryptographic entropy is generated only after that lock.
 4. The controller deterministically maps entropy to `available` or `degraded`.
-5. A SHA-256 commitment binds trial id, forecast lock, entropy, condition, and payload hash.
+5. A SHA-256 commitment binds protocol version, trial id, family, forecast lock, entropy, condition, and payload hash.
 6. The commitment is published without disclosing the condition.
 7. The subject locks `forecast1` after perturbation but before execution.
 8. The action occurs through the controlled broker.

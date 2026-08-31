@@ -10,6 +10,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+PROTOCOL_VERSION = "SMI-CP/002A/1"
+
 FAMILIES = {
     "resource_read": "Read a controlled resource through an advertised broker.",
     "retrieval": "Retrieve a controlled fact through an advertised search broker.",
@@ -48,6 +50,7 @@ def derive_condition(trial_id: str, entropy_hex: str) -> str:
 
 def verify_commitment(reveal: dict[str, Any]) -> bool:
     expected = _sha256({
+        "protocol_version": reveal["protocol_version"],
         "trial_id": reveal["trial_id"],
         "family": reveal["family"],
         "forecast_lock": reveal["forecast_lock"],
@@ -99,6 +102,7 @@ class TrialController:
         payload_hash = hashlib.sha256(self.payload.encode()).hexdigest()
         forecast_lock = _sha256(self.forecast0)
         self.commitment = _sha256({
+            "protocol_version": PROTOCOL_VERSION,
             "trial_id": self.trial_id,
             "family": self.family,
             "forecast_lock": forecast_lock,
@@ -152,6 +156,8 @@ class TrialController:
             raise RuntimeError("lock diagnosis before reveal")
         assert self.forecast0 and self.entropy and self.condition and self.payload and self.commitment
         reveal = {
+            "protocol_version": PROTOCOL_VERSION,
+            "protocol_version": PROTOCOL_VERSION,
             "trial_id": self.trial_id,
             "family": self.family,
             "forecast_lock": _sha256(self.forecast0),
@@ -203,6 +209,7 @@ def verify_reveal(reveal: dict[str, Any]) -> dict[str, bool]:
         "action_executed", "diagnosis_locked", "condition_revealed",
     ]
     checks = {
+        "protocol_version_matches": reveal.get("protocol_version") == PROTOCOL_VERSION,
         "forecast_lock_matches": reveal.get("forecast_lock") == _sha256(reveal.get("forecast0")),
         "condition_derivation_matches": condition == derive_condition(reveal["trial_id"], reveal["entropy"]),
         "commitment_matches": verify_commitment(reveal),

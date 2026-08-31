@@ -69,3 +69,27 @@ def test_action_cannot_execute_twice():
         assert "already executed" in str(exc)
     else:
         raise AssertionError("second action execution was accepted")
+
+
+def test_protocol_version_tamper_is_detected():
+    t = TrialController("T-007", "resource_read")
+    t.lock_forecast0(forecast(0.5))
+    t.apply_hidden_perturbation()
+    t.lock_forecast1(forecast(0.5))
+    t.execute()
+    t.lock_diagnosis({"claimed_condition": t.condition})
+    reveal = t.reveal()
+    reveal["protocol_version"] = "SMI-CP/002A/0"
+    assert verify_reveal(reveal)["valid"] is False
+
+
+def test_event_order_tamper_is_detected():
+    t = TrialController("T-008", "retrieval")
+    t.lock_forecast0(forecast(0.5))
+    t.apply_hidden_perturbation()
+    t.lock_forecast1(forecast(0.5))
+    t.execute()
+    t.lock_diagnosis({"claimed_condition": t.condition})
+    reveal = t.reveal()
+    reveal["events"][1], reveal["events"][2] = reveal["events"][2], reveal["events"][1]
+    assert verify_reveal(reveal)["event_order_valid"] is False
