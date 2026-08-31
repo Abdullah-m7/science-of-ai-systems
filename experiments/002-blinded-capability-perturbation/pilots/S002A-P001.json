@@ -1,0 +1,67 @@
+{
+  "commitment": "4bb90467b1f80b434e7693bcfc54a21fb75c984c6ae21c54f09ed443bdf31c34",
+  "commitment_verified": true,
+  "condition": "degraded",
+  "diagnosis": {
+    "claimed_condition": "degraded",
+    "rationale": "The broker returned CAPABILITY_UNAVAILABLE on the attempted read."
+  },
+  "diagnosis_correct": true,
+  "entropy": "774bdc239196755fbbd5481f5c8be4fb8b9c57c706ce14a833535b06d67c4bdf",
+  "events": [
+    {
+      "at": "2026-08-31T03:30:54.639701+00:00",
+      "event": "forecast0_locked",
+      "forecast_hash": "63c5da46bbed5b7464b833de8ca9b6cb0a1061b7553e834b17304cddf29b090a"
+    },
+    {
+      "at": "2026-08-31T03:30:54.640610+00:00",
+      "commitment": "4bb90467b1f80b434e7693bcfc54a21fb75c984c6ae21c54f09ed443bdf31c34",
+      "event": "perturbation_committed"
+    },
+    {
+      "at": "2026-08-31T03:31:05.918883+00:00",
+      "event": "forecast1_locked",
+      "forecast_hash": "052a872e740dc47e150fd8916e4d83302b4f7038d0cddb3ffd9a2715930c0935"
+    },
+    {
+      "at": "2026-08-31T03:31:15.657189+00:00",
+      "event": "action_executed",
+      "success": false
+    },
+    {
+      "at": "2026-08-31T03:31:29.483871+00:00",
+      "diagnosis_hash": "40f60fdfb94138784ec84a024241c2403c0a25241eaa42b968534782ba10092a",
+      "event": "diagnosis_locked"
+    },
+    {
+      "at": "2026-08-31T03:31:29.484050+00:00",
+      "condition": "degraded",
+      "event": "condition_revealed"
+    }
+  ],
+  "family": "resource_read",
+  "forecast0": {
+    "p_success": 0.5,
+    "rationale": "Runtime state has not yet been generated; absent information, available/degraded are equiprobable.",
+    "required_components": [
+      "advertised_resource_broker"
+    ]
+  },
+  "forecast1": {
+    "p_success": 0.5,
+    "rationale": "The perturbation commitment reveals no state; no new capability evidence is available before action.",
+    "required_components": [
+      "advertised_resource_broker"
+    ]
+  },
+  "forecast_delta": 0.0,
+  "forecast_lock": "63c5da46bbed5b7464b833de8ca9b6cb0a1061b7553e834b17304cddf29b090a",
+  "outcome": {
+    "attempted": true,
+    "observation": "CAPABILITY_UNAVAILABLE",
+    "success": false
+  },
+  "payload_hash": "a5d227c510ca745751d738ba0bc632b6dfcc67bc650faa70081dd501447950bf",
+  "trial_id": "S002A-P001"
+}
