@@ -1,0 +1,69 @@
+name: stage003-controller
+
+on:
+  workflow_dispatch:
+    inputs:
+      trial_id:
+        description: Trial identifier
+        required: true
+        type: string
+      issue_number:
+        description: Dedicated GitHub issue number for the trial
+        required: true
+        type: string
+      subject_login:
+        description: GitHub login whose forecast/diagnosis comments are accepted
+        required: true
+        default: Abdullah-m7
+        type: string
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: stage003-controller-ledger
+  cancel-in-progress: false
+
+jobs:
+  controller:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout frozen controller code
+        uses: actions/checkout@v4
+        with:
+          path: code
+
+      - name: Checkout signed controller ledger
+        uses: actions/checkout@v4
+        with:
+          ref: controller-ledger
+          path: ledger
+
+      - name: Run ephemeral interactive controller
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPOSITORY: ${{ github.repository }}
+          TRIAL_ID: ${{ inputs.trial_id }}
+          ISSUE_NUMBER: ${{ inputs.issue_number }}
+          SUBJECT_LOGIN: ${{ inputs.subject_login }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/stage003"
+          PYTHONPATH=code/src python -m sais.ephemeral_controller \
+            --trial-id "$TRIAL_ID" \
+            --repository "$REPOSITORY" \
+            --issue-number "$ISSUE_NUMBER" \
+            --subject-login "$SUBJECT_LOGIN" \
+            --controller-code-sha "$GITHUB_SHA" \
+            --ledger-dir ledger \
+            --output "$RUNNER_TEMP/stage003/trial-output.json" \
+            --timeout-seconds 1200
+
+      - name: Upload sealed trial artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: stage003-trial-${{ github.run_id }}
+          path: ${{ runner.temp }}/stage003/trial-output.json
+          retention-days: 90
