@@ -135,7 +135,10 @@ def test_collector_uses_frozen_actor_and_round_trips_fixture(monkeypatch):
         lambda url, token=None: {
             "type": "file",
             "encoding": "base64",
-            "content": source["content_base64"],
+            "content": "\n".join(
+                source["content_base64"][index:index + 60]
+                for index in range(0, len(source["content_base64"]), 60)
+            ),
             "sha": source["api_blob_sha"],
         },
     )
@@ -176,3 +179,10 @@ def test_confirmatory_extractor_rejects_wrong_protocol_early():
     bundle["reveal"]["protocol_version"] = "SMI-CP/UNFROZEN"
     with pytest.raises(TrialIntegrityError, match="controller_protocol_mismatch"):
         extract_trial(bundle)
+
+
+def test_github_base64_decoder_accepts_ascii_wrapping_and_rejects_noise():
+    encoded = "YQ==\n\t"
+    assert public_evidence.decode_github_base64(encoded, source="fixture") == b"a"
+    with pytest.raises(public_evidence.PublicEvidenceError, match="not valid base64"):
+        public_evidence.decode_github_base64("YQ==!", source="fixture")

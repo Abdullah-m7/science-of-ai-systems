@@ -28,6 +28,7 @@ from .public_evidence import (
     PublicEvidenceError,
     _api_get,
     _fetch_comments,
+    decode_github_base64,
     git_blob_sha1,
 )
 from .rcl_bound_controller import (
@@ -392,10 +393,9 @@ def _content_record(
 def _source_from_record(
     record: dict[str, Any], *, repository: str, commit: str, path: str
 ) -> tuple[dict[str, Any], bytes]:
-    try:
-        raw = base64.b64decode(record["content"], validate=True)
-    except (KeyError, binascii.Error) as error:
-        raise PublicEvidenceError(f"invalid base64 source: {path}") from error
+    raw = decode_github_base64(
+        record.get("content"), source=f"GitHub source {path}"
+    )
     return {
         "repository": repository,
         "commit": commit,

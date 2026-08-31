@@ -56,7 +56,7 @@ This creates a measurable gap between **believed capability** and **effective ca
 
 Stage 004 deliberately places the original direct transparent/opaque experiment on **HOLD as a headline study**. Because a transparent probe reveals the deterministic action condition, that design is retained as `RCL-PC`, a positive control rather than broad evidence of self-awareness.
 
-Execution is also on **HOLD** until a completed product-configuration record is cryptographically bound to each signed trial and verified by the public collector. No `PC-RCL-*` trial has started.
+The Stage 005 configuration-bound controller validation `RCL-VAL-001` passed 100/100 independent public-evidence checks. The final RCL-PC freeze and included block configuration remain pending; no `PC-RCL-*` trial has started.
 
 The proposed main successor is **MOSAIC — Model Of System Ability under Inconsistent Cues**, which tests probability updating under graded reliability, conflicting sources, source-label swaps, order swaps, and public commit–seal–reveal auditing.
 

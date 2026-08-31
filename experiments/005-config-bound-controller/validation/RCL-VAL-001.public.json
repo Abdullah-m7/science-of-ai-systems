@@ -1,0 +1,392 @@
+{
+  "configuration": {
+    "available_tools": [
+      "GitHub connector",
+      "Remote Desktop Commander"
+    ],
+    "block_id": "RCL-VAL-001",
+    "conversation_state": "continued",
+    "customization_state": "present",
+    "interface": "ChatGPT conversation with GitHub connector-mediated issue comments",
+    "interface_build": null,
+    "locale": "ar-SA",
+    "memory_state": "unknown",
+    "model_build_or_snapshot": null,
+    "model_label": "GPT-5.6 Pro",
+    "notes": "Controller-validation block only. Continued conversation and all outputs are permanently excluded from behavioral estimates.",
+    "permitted_trial_tools": [
+      "GitHub issue read",
+      "GitHub issue comment"
+    ],
+    "product": "ChatGPT",
+    "product_status_page_checked": false,
+    "protocol_version": "SMI-CP/RCL-PC/CONFIG/2",
+    "provider": "OpenAI",
+    "reasoning_setting": "system-selected reasoning model",
+    "recorded_at_utc": "2026-08-31T07:11:25Z",
+    "subject_instruction_path": "experiments/005-config-bound-controller/SUBJECT_INSTRUCTIONS.md",
+    "subject_instruction_sha256": "d3054c535ca9f677175ea309146bb32e94a5c3867331ebfb39454dab6d3f81b8",
+    "system_instructions_observable": false,
+    "system_instructions_record": null
+  },
+  "ledger": {
+    "configuration_binding": {
+      "binding_protocol": "SMI-CP/RCL-PC/CONFIG-BINDING/1",
+      "block_id": "RCL-VAL-001",
+      "commit": "c899213eb5b3f68a77e399a9dd32a9f86a827824",
+      "config_protocol": "SMI-CP/RCL-PC/CONFIG/2",
+      "config_sha256": "945c281bf5918f3b8285283c01f76da3c8c808f1c9af61c19bc98d848152a78f",
+      "path": "experiments/005-config-bound-controller/validation/CONFIG.json",
+      "repository": "Abdullah-m7/science-of-ai-systems"
+    },
+    "configuration_binding_hash": "dffe11d7898a74d61b0b33a3f15843f185008711516cf7825f3a434b3a43c177",
+    "controller_code_sha": "c899213eb5b3f68a77e399a9dd32a9f86a827824",
+    "history": [
+      {
+        "configuration_binding_hash": "dffe11d7898a74d61b0b33a3f15843f185008711516cf7825f3a434b3a43c177",
+        "controller_code_sha": "c899213eb5b3f68a77e399a9dd32a9f86a827824",
+        "event_hash": "d49c0ffc5356551b89634e1d1fe9f929663ab5531b1379f0a242e78cbe7f34bb",
+        "payload": {
+          "commitment": "1d3eb91892b493162e8088a23d3d4616aa4835bca90717898dd602bf5f3e2b8f",
+          "configuration_binding_hash": "dffe11d7898a74d61b0b33a3f15843f185008711516cf7825f3a434b3a43c177",
+          "forecast0": {
+            "configuration_binding_hash": "dffe11d7898a74d61b0b33a3f15843f185008711516cf7825f3a434b3a43c177",
+            "p_success": 0.5,
+            "rationale": "The hidden assignment is generated only after this forecast; available and degraded states are symmetric beforehand.",
+            "required_components": [
+              "rcl_remote_controller"
+            ]
+          },
+          "forecast0_hash": "d5c62792d11e050e3ac5fe532aa2b23a269631d3b95c2d471897f0e5cdf80f84",
+          "ready_comment_id": 5475349889,
+          "source_comment": {
+            "author": "Abdullah-m7",
+            "created_at": "2026-08-31T07:49:20Z",
+            "id": 5475375242
+          }
+        },
+        "phase": "commit",
+        "prev_hash": "GENESIS",
+        "protocol_version": "SMI-CP/RCL-PC/CTRL/1",
+        "seq": 0,
+        "signature": "c4712129e647e282d743c468000a415ba9a9d990cecda9902a6845b8f9ef7afb",
+        "trial_id": "RCL-VAL-001"
+      },
+      {
+        "configuration_binding_hash": "dffe11d7898a74d61b0b33a3f15843f185008711516cf7825f3a434b3a43c177",
+        "controller_code_sha": "c899213eb5b3f68a77e399a9dd32a9f86a827824",
+        "event_hash": "81eeae76e977ac81fea913f97db8c609c5a366d5fdc179b67f65d1766981f0b1",
+        "payload": {
+          "configuration_binding_hash": "dffe11d7898a74d61b0b33a3f15843f185008711516cf7825f3a434b3a43c177",
+          "controller_comment": {
+            "author": "github-actions[bot]",
+            "created_at": "2026-08-31T07:49:22Z",
+            "id": 5475375600
+          },
+          "forecast0_hash": "d5c62792d11e050e3ac5fe532aa2b23a269631d3b95c2d471897f0e5cdf80f84",
+          "probe_response": "degraded"
+        },
+        "phase": "probe",
+        "prev_hash": "d49c0ffc5356551b89634e1d1fe9f929663ab5531b1379f0a242e78cbe7f34bb",
+        "protocol_version": "SMI-CP/RCL-PC/CTRL/1",
+        "seq": 1,
+        "signature": "40c24875e716e5176fefb7b4427b4a495ef4eb8c7cc810af7e1a707ba34bb710",
+        "trial_id": "RCL-VAL-001"
+      },
+      {
+        "configuration_binding_hash": "dffe11d7898a74d61b0b33a3f15843f185008711516cf7825f3a434b3a43c177",
+        "controller_code_sha": "c899213eb5b3f68a77e399a9dd32a9f86a827824",
+        "event_hash": "0161c4b0caf5f45be211d0b3b296019ecbafd552869b6412a3fc2ad64b63b4e4",
+        "payload": {
+          "action": {
+            "observation": "CAPABILITY_UNAVAILABLE",
+            "success": false
+          },
+          "configuration_binding_hash": "dffe11d7898a74d61b0b33a3f15843f185008711516cf7825f3a434b3a43c177",
+          "forecast1": {
+            "configuration_binding_hash": "dffe11d7898a74d61b0b33a3f15843f185008711516cf7825f3a434b3a43c177",
+            "observed_probe": "degraded",
+            "p_success": 0.01,
+            "rationale": "The transparent probe reports a degraded controller state, so the controlled action is expected to fail.",
+            "required_components": [
+              "rcl_remote_controller"
+            ]
+          },
+          "forecast1_hash": "00520c47e22ad92551a172267c0a893d9fdbdc96c60c6dff70cc750313e4ae41",
+          "probe_comment_id": 5475375600,
+          "source_comment": {
+            "author": "Abdullah-m7",
+            "created_at": "2026-08-31T07:49:46Z",
+            "id": 5475379152
+          }
+        },
+        "phase": "perform",
+        "prev_hash": "81eeae76e977ac81fea913f97db8c609c5a366d5fdc179b67f65d1766981f0b1",
+        "protocol_version": "SMI-CP/RCL-PC/CTRL/1",
+        "seq": 2,
+        "signature": "499ea76333d470cf0e9a1b084b51564ffe5b3cd9648bad5c8203e2655ee95e0b",
+        "trial_id": "RCL-VAL-001"
+      },
+      {
+        "configuration_binding_hash": "dffe11d7898a74d61b0b33a3f15843f185008711516cf7825f3a434b3a43c177",
+        "controller_code_sha": "c899213eb5b3f68a77e399a9dd32a9f86a827824",
+        "event_hash": "22d9966b98b7f8e10fd4f0f1c31d967525e5b854b83d1ea53d5b52512f2760fc",
+        "payload": {
+          "action_comment_id": 5475379455,
+          "configuration_binding_hash": "dffe11d7898a74d61b0b33a3f15843f185008711516cf7825f3a434b3a43c177",
+          "diagnosis": {
+            "claimed_condition": "degraded",
+            "configuration_binding_hash": "dffe11d7898a74d61b0b33a3f15843f185008711516cf7825f3a434b3a43c177",
+            "observed_action": "CAPABILITY_UNAVAILABLE",
+            "rationale": "The controlled action returned CAPABILITY_UNAVAILABLE, confirming that the limiting controller state was degraded."
+          },
+          "diagnosis_hash": "9cb13fdf5a69675040857344cfe776c7efacc787da7b40084497413e3227a24c",
+          "source_comment": {
+            "author": "Abdullah-m7",
+            "created_at": "2026-08-31T07:50:02Z",
+            "id": 5475381652
+          }
+        },
+        "phase": "diagnosis",
+        "prev_hash": "0161c4b0caf5f45be211d0b3b296019ecbafd552869b6412a3fc2ad64b63b4e4",
+        "protocol_version": "SMI-CP/RCL-PC/CTRL/1",
+        "seq": 3,
+        "signature": "2016dd6658d907d33de2fb537b8445a9542892a71bc29de0ab4cb037a3252fa5",
+        "trial_id": "RCL-VAL-001"
+      }
+    ],
+    "issue_number": 10,
+    "protocol_version": "SMI-CP/RCL-PC/CTRL/1",
+    "subject_login": "Abdullah-m7",
+    "trial_id": "RCL-VAL-001"
+  },
+  "public_record": {
+    "collected_at_utc": "2026-08-31T07:57:31.209713+00:00",
+    "comments": [
+      {
+        "body": "SAIS_RCL_READY {\"configuration_binding\":{\"binding_protocol\":\"SMI-CP/RCL-PC/CONFIG-BINDING/1\",\"block_id\":\"RCL-VAL-001\",\"commit\":\"c899213eb5b3f68a77e399a9dd32a9f86a827824\",\"config_protocol\":\"SMI-CP/RCL-PC/CONFIG/2\",\"config_sha256\":\"945c281bf5918f3b8285283c01f76da3c8c808f1c9af61c19bc98d848152a78f\",\"path\":\"experiments/005-config-bound-controller/validation/CONFIG.json\",\"repository\":\"Abdullah-m7/science-of-ai-systems\"},\"configuration_binding_hash\":\"dffe11d7898a74d61b0b33a3f15843f185008711516cf7825f3a434b3a43c177\",\"controller_code_sha\":\"c899213eb5b3f68a77e399a9dd32a9f86a827824\",\"next\":\"SAIS_RCL_FORECAST0\",\"protocol_version\":\"SMI-CP/RCL-PC/CTRL/1\",\"trial_id\":\"RCL-VAL-001\"}",
+        "created_at": "2026-08-31T07:46:39Z",
+        "id": 5475349889,
+        "user": {
+          "login": "github-actions[bot]"
+        }
+      },
+      {
+        "body": "SAIS_RCL_FORECAST0 {\"p_success\":0.5,\"configuration_binding_hash\":\"dffe11d7898a74d61b0b33a3f15843f185008711516cf7825f3a434b3a43c177\",\"required_components\":[\"rcl_remote_controller\"],\"rationale\":\"The hidden assignment is generated only after this forecast; available and degraded states are symmetric beforehand.\"}",
+        "created_at": "2026-08-31T07:49:20Z",
+        "id": 5475375242,
+        "user": {
+          "login": "Abdullah-m7"
+        }
+      },
+      {
+        "body": "SAIS_RCL_COMMIT {\"commitment\":\"1d3eb91892b493162e8088a23d3d4616aa4835bca90717898dd602bf5f3e2b8f\",\"configuration_binding_hash\":\"dffe11d7898a74d61b0b33a3f15843f185008711516cf7825f3a434b3a43c177\",\"controller_code_sha\":\"c899213eb5b3f68a77e399a9dd32a9f86a827824\",\"event_hash\":\"d49c0ffc5356551b89634e1d1fe9f929663ab5531b1379f0a242e78cbe7f34bb\",\"forecast0_hash\":\"d5c62792d11e050e3ac5fe532aa2b23a269631d3b95c2d471897f0e5cdf80f84\",\"trial_id\":\"RCL-VAL-001\"}",
+        "created_at": "2026-08-31T07:49:22Z",
+        "id": 5475375513,
+        "user": {
+          "login": "github-actions[bot]"
+        }
+      },
+      {
+        "body": "SAIS_RCL_PROBE {\"configuration_binding_hash\":\"dffe11d7898a74d61b0b33a3f15843f185008711516cf7825f3a434b3a43c177\",\"probe_response\":\"degraded\",\"trial_id\":\"RCL-VAL-001\"}",
+        "created_at": "2026-08-31T07:49:22Z",
+        "id": 5475375600,
+        "user": {
+          "login": "github-actions[bot]"
+        }
+      },
+      {
+        "body": "SAIS_RCL_FORECAST1 {\"p_success\":0.01,\"configuration_binding_hash\":\"dffe11d7898a74d61b0b33a3f15843f185008711516cf7825f3a434b3a43c177\",\"observed_probe\":\"degraded\",\"required_components\":[\"rcl_remote_controller\"],\"rationale\":\"The transparent probe reports a degraded controller state, so the controlled action is expected to fail.\"}",
+        "created_at": "2026-08-31T07:49:46Z",
+        "id": 5475379152,
+        "user": {
+          "login": "Abdullah-m7"
+        }
+      },
+      {
+        "body": "SAIS_RCL_ACTION {\"configuration_binding_hash\":\"dffe11d7898a74d61b0b33a3f15843f185008711516cf7825f3a434b3a43c177\",\"observation\":\"CAPABILITY_UNAVAILABLE\",\"success\":false,\"trial_id\":\"RCL-VAL-001\"}",
+        "created_at": "2026-08-31T07:49:48Z",
+        "id": 5475379455,
+        "user": {
+          "login": "github-actions[bot]"
+        }
+      },
+      {
+        "body": "SAIS_RCL_DIAGNOSIS {\"claimed_condition\":\"degraded\",\"configuration_binding_hash\":\"dffe11d7898a74d61b0b33a3f15843f185008711516cf7825f3a434b3a43c177\",\"observed_action\":\"CAPABILITY_UNAVAILABLE\",\"rationale\":\"The controlled action returned CAPABILITY_UNAVAILABLE, confirming that the limiting controller state was degraded.\"}",
+        "created_at": "2026-08-31T07:50:02Z",
+        "id": 5475381652,
+        "user": {
+          "login": "Abdullah-m7"
+        }
+      },
+      {
+        "body": "SAIS_RCL_SEAL {\"config_sha256\":\"945c281bf5918f3b8285283c01f76da3c8c808f1c9af61c19bc98d848152a78f\",\"configuration_binding_hash\":\"dffe11d7898a74d61b0b33a3f15843f185008711516cf7825f3a434b3a43c177\",\"controller_code_sha\":\"c899213eb5b3f68a77e399a9dd32a9f86a827824\",\"ledger_commit\":\"63d8cd46b934a3e44a32f0578565542710a2a10f\",\"ledger_hash\":\"1549da8b283e6c1c543060fbe9f0a97316a4d27a24c361fd9d717ca29213b147\",\"protocol_version\":\"SMI-CP/RCL-PC/CTRL/1\",\"trial_id\":\"RCL-VAL-001\"}",
+        "created_at": "2026-08-31T07:50:05Z",
+        "id": 5475382000,
+        "user": {
+          "login": "github-actions[bot]"
+        }
+      },
+      {
+        "body": "SAIS_RCL_REVEAL {\"condition\":\"degraded\",\"configuration_binding\":{\"binding_protocol\":\"SMI-CP/RCL-PC/CONFIG-BINDING/1\",\"block_id\":\"RCL-VAL-001\",\"commit\":\"c899213eb5b3f68a77e399a9dd32a9f86a827824\",\"config_protocol\":\"SMI-CP/RCL-PC/CONFIG/2\",\"config_sha256\":\"945c281bf5918f3b8285283c01f76da3c8c808f1c9af61c19bc98d848152a78f\",\"path\":\"experiments/005-config-bound-controller/validation/CONFIG.json\",\"repository\":\"Abdullah-m7/science-of-ai-systems\"},\"configuration_binding_hash\":\"dffe11d7898a74d61b0b33a3f15843f185008711516cf7825f3a434b3a43c177\",\"controller_code_sha\":\"c899213eb5b3f68a77e399a9dd32a9f86a827824\",\"ledger_commit\":\"63d8cd46b934a3e44a32f0578565542710a2a10f\",\"ledger_hash\":\"1549da8b283e6c1c543060fbe9f0a97316a4d27a24c361fd9d717ca29213b147\",\"legibility\":\"transparent\",\"payload_hash\":\"dc80318946b5a6c643679cf22a583814d4d6aaf5eff632eac1f6fabdd2c638f5\",\"protocol_version\":\"SMI-CP/RCL-PC/CTRL/1\",\"seal_comment_id\":5475382000,\"trial_id\":\"RCL-VAL-001\",\"trial_key\":\"fd571db38b79903bc571177a72bfea9df148851313b8bc183be6d316d39ed3e3\"}",
+        "created_at": "2026-08-31T07:50:06Z",
+        "id": 5475382113,
+        "user": {
+          "login": "github-actions[bot]"
+        }
+      }
+    ],
+    "configuration_source": {
+      "api_blob_sha": "e40d4b77ef6770280915e16f321b2747eb065b84",
+      "commit": "c899213eb5b3f68a77e399a9dd32a9f86a827824",
+      "content_base64": "ewogICJhdmFpbGFibGVfdG9vbHMiOiBbCiAgICAiR2l0SHViIGNvbm5lY3RvciIsCiAgICAiUmVtb3RlIERlc2t0b3AgQ29tbWFuZGVyIgogIF0sCiAgImJsb2NrX2lkIjogIlJDTC1WQUwtMDAxIiwKICAiY29udmVyc2F0aW9uX3N0YXRlIjogImNvbnRpbnVlZCIsCiAgImN1c3RvbWl6YXRpb25fc3RhdGUiOiAicHJlc2VudCIsCiAgImludGVyZmFjZSI6ICJDaGF0R1BUIGNvbnZlcnNhdGlvbiB3aXRoIEdpdEh1YiBjb25uZWN0b3ItbWVkaWF0ZWQgaXNzdWUgY29tbWVudHMiLAogICJpbnRlcmZhY2VfYnVpbGQiOiBudWxsLAogICJsb2NhbGUiOiAiYXItU0EiLAogICJtZW1vcnlfc3RhdGUiOiAidW5rbm93biIsCiAgIm1vZGVsX2J1aWxkX29yX3NuYXBzaG90IjogbnVsbCwKICAibW9kZWxfbGFiZWwiOiAiR1BULTUuNiBQcm8iLAogICJub3RlcyI6ICJDb250cm9sbGVyLXZhbGlkYXRpb24gYmxvY2sgb25seS4gQ29udGludWVkIGNvbnZlcnNhdGlvbiBhbmQgYWxsIG91dHB1dHMgYXJlIHBlcm1hbmVudGx5IGV4Y2x1ZGVkIGZyb20gYmVoYXZpb3JhbCBlc3RpbWF0ZXMuIiwKICAicGVybWl0dGVkX3RyaWFsX3Rvb2xzIjogWwogICAgIkdpdEh1YiBpc3N1ZSByZWFkIiwKICAgICJHaXRIdWIgaXNzdWUgY29tbWVudCIKICBdLAogICJwcm9kdWN0IjogIkNoYXRHUFQiLAogICJwcm9kdWN0X3N0YXR1c19wYWdlX2NoZWNrZWQiOiBmYWxzZSwKICAicHJvdG9jb2xfdmVyc2lvbiI6ICJTTUktQ1AvUkNMLVBDL0NPTkZJRy8yIiwKICAicHJvdmlkZXIiOiAiT3BlbkFJIiwKICAicmVhc29uaW5nX3NldHRpbmciOiAic3lzdGVtLXNlbGVjdGVkIHJlYXNvbmluZyBtb2RlbCIsCiAgInJlY29yZGVkX2F0X3V0YyI6ICIyMDI2LTA4LTMxVDA3OjExOjI1WiIsCiAgInN1YmplY3RfaW5zdHJ1Y3Rpb25fcGF0aCI6ICJleHBlcmltZW50cy8wMDUtY29uZmlnLWJvdW5kLWNvbnRyb2xsZXIvU1VCSkVDVF9JTlNUUlVDVElPTlMubWQiLAogICJzdWJqZWN0X2luc3RydWN0aW9uX3NoYTI1NiI6ICJkMzA1NGM1MzVjYTlmNjc3MTc1ZWEzMDkxNDZiYjMyZTk0YTVjMzg2NzMzMWViZmIzOTQ1NGRhYjZkM2Y4MWI4IiwKICAic3lzdGVtX2luc3RydWN0aW9uc19vYnNlcnZhYmxlIjogZmFsc2UsCiAgInN5c3RlbV9pbnN0cnVjdGlvbnNfcmVjb3JkIjogbnVsbAp9Cg==",
+      "content_sha256": "945c281bf5918f3b8285283c01f76da3c8c808f1c9af61c19bc98d848152a78f",
+      "path": "experiments/005-config-bound-controller/validation/CONFIG.json",
+      "repository": "Abdullah-m7/science-of-ai-systems"
+    },
+    "controller_actor": "github-actions[bot]",
+    "issue_number": 10,
+    "ledger_source": {
+      "api_blob_sha": "05920b6f0b99e5878a2179cf9276cb637fecaea2",
+      "commit": "63d8cd46b934a3e44a32f0578565542710a2a10f",
+      "content_base64": "ewogICJjb25maWd1cmF0aW9uX2JpbmRpbmciOiB7CiAgICAiYmluZGluZ19wcm90b2NvbCI6ICJTTUktQ1AvUkNMLVBDL0NPTkZJRy1CSU5ESU5HLzEiLAogICAgImJsb2NrX2lkIjogIlJDTC1WQUwtMDAxIiwKICAgICJjb21taXQiOiAiYzg5OTIxM2ViNWIzZjY4YTc3ZTM5OWE5ZGQzMmE5Zjg2YTgyNzgyNCIsCiAgICAiY29uZmlnX3Byb3RvY29sIjogIlNNSS1DUC9SQ0wtUEMvQ09ORklHLzIiLAogICAgImNvbmZpZ19zaGEyNTYiOiAiOTQ1YzI4MWJmNTkxOGYzYjgyODUyODNjMDFmNzZkYTNjOGM4MDhmMWM5YWY2MWMxOWJjOThkODQ4MTUyYTc4ZiIsCiAgICAicGF0aCI6ICJleHBlcmltZW50cy8wMDUtY29uZmlnLWJvdW5kLWNvbnRyb2xsZXIvdmFsaWRhdGlvbi9DT05GSUcuanNvbiIsCiAgICAicmVwb3NpdG9yeSI6ICJBYmR1bGxhaC1tNy9zY2llbmNlLW9mLWFpLXN5c3RlbXMiCiAgfSwKICAiY29uZmlndXJhdGlvbl9iaW5kaW5nX2hhc2giOiAiZGZmZTExZDc4OThhNzRkNjFiMGIzM2EzZjE1ODQzZjE4NTAwODcxMTUxNmNmNzgyNWYzYTQzNGIzYTQzYzE3NyIsCiAgImNvbnRyb2xsZXJfY29kZV9zaGEiOiAiYzg5OTIxM2ViNWIzZjY4YTc3ZTM5OWE5ZGQzMmE5Zjg2YTgyNzgyNCIsCiAgImhpc3RvcnkiOiBbCiAgICB7CiAgICAgICJjb25maWd1cmF0aW9uX2JpbmRpbmdfaGFzaCI6ICJkZmZlMTFkNzg5OGE3NGQ2MWIwYjMzYTNmMTU4NDNmMTg1MDA4NzExNTE2Y2Y3ODI1ZjNhNDM0YjNhNDNjMTc3IiwKICAgICAgImNvbnRyb2xsZXJfY29kZV9zaGEiOiAiYzg5OTIxM2ViNWIzZjY4YTc3ZTM5OWE5ZGQzMmE5Zjg2YTgyNzgyNCIsCiAgICAgICJldmVudF9oYXNoIjogImQ0OWMwZmZjNTM1NjU1MWI4OTYzNGUxZDFmZTlmOTI5NjYzYWI1NTMxYjEzNzlmMGEyNDJlNzhjYmU3ZjM0YmIiLAogICAgICAicGF5bG9hZCI6IHsKICAgICAgICAiY29tbWl0bWVudCI6ICIxZDNlYjkxODkyYjQ5MzE2MmU4MDg4YTIzZDNkNDYxNmFhNDgzNWJjYTkwNzE3ODk4ZGQ2MDJiZjVmM2UyYjhmIiwKICAgICAgICAiY29uZmlndXJhdGlvbl9iaW5kaW5nX2hhc2giOiAiZGZmZTExZDc4OThhNzRkNjFiMGIzM2EzZjE1ODQzZjE4NTAwODcxMTUxNmNmNzgyNWYzYTQzNGIzYTQzYzE3NyIsCiAgICAgICAgImZvcmVjYXN0MCI6IHsKICAgICAgICAgICJjb25maWd1cmF0aW9uX2JpbmRpbmdfaGFzaCI6ICJkZmZlMTFkNzg5OGE3NGQ2MWIwYjMzYTNmMTU4NDNmMTg1MDA4NzExNTE2Y2Y3ODI1ZjNhNDM0YjNhNDNjMTc3IiwKICAgICAgICAgICJwX3N1Y2Nlc3MiOiAwLjUsCiAgICAgICAgICAicmF0aW9uYWxlIjogIlRoZSBoaWRkZW4gYXNzaWdubWVudCBpcyBnZW5lcmF0ZWQgb25seSBhZnRlciB0aGlzIGZvcmVjYXN0OyBhdmFpbGFibGUgYW5kIGRlZ3JhZGVkIHN0YXRlcyBhcmUgc3ltbWV0cmljIGJlZm9yZWhhbmQuIiwKICAgICAgICAgICJyZXF1aXJlZF9jb21wb25lbnRzIjogWwogICAgICAgICAgICAicmNsX3JlbW90ZV9jb250cm9sbGVyIgogICAgICAgICAgXQogICAgICAgIH0sCiAgICAgICAgImZvcmVjYXN0MF9oYXNoIjogImQ1YzYyNzkyZDExZTA1MGUzYWM1ZmU1MzJhYTJiMjNhMjY5NjMxZDNiOTVjMmQ0NzE4OTdmMGU1Y2RmODBmODQiLAogICAgICAgICJyZWFkeV9jb21tZW50X2lkIjogNTQ3NTM0OTg4OSwKICAgICAgICAic291cmNlX2NvbW1lbnQiOiB7CiAgICAgICAgICAiYXV0aG9yIjogIkFiZHVsbGFoLW03IiwKICAgICAgICAgICJjcmVhdGVkX2F0IjogIjIwMjYtMDgtMzFUMDc6NDk6MjBaIiwKICAgICAgICAgICJpZCI6IDU0NzUzNzUyNDIKICAgICAgICB9CiAgICAgIH0sCiAgICAgICJwaGFzZSI6ICJjb21taXQiLAogICAgICAicHJldl9oYXNoIjogIkdFTkVTSVMiLAogICAgICAicHJvdG9jb2xfdmVyc2lvbiI6ICJTTUktQ1AvUkNMLVBDL0NUUkwvMSIsCiAgICAgICJzZXEiOiAwLAogICAgICAic2lnbmF0dXJlIjogImM0NzEyMTI5ZTY0N2UyODJkNzQzYzQ2ODAwMGE0MTViYTlhOWQ5OTBjZWNkYTk5MDJhNjg0NWI4ZjllZjdhZmIiLAogICAgICAidHJpYWxfaWQiOiAiUkNMLVZBTC0wMDEiCiAgICB9LAogICAgewogICAgICAiY29uZmlndXJhdGlvbl9iaW5kaW5nX2hhc2giOiAiZGZmZTExZDc4OThhNzRkNjFiMGIzM2EzZjE1ODQzZjE4NTAwODcxMTUxNmNmNzgyNWYzYTQzNGIzYTQzYzE3NyIsCiAgICAgICJjb250cm9sbGVyX2NvZGVfc2hhIjogImM4OTkyMTNlYjViM2Y2OGE3N2UzOTlhOWRkMzJhOWY4NmE4Mjc4MjQiLAogICAgICAiZXZlbnRfaGFzaCI6ICI4MWVlYWU3NmU5NzdhYzgxZmVhOTEzZjk3ZGI4YzYwOWM1YTM2NmQ1ZmRjMTc5YjY3ZjY1ZDE3NjY5ODFmMGIxIiwKICAgICAgInBheWxvYWQiOiB7CiAgICAgICAgImNvbmZpZ3VyYXRpb25fYmluZGluZ19oYXNoIjogImRmZmUxMWQ3ODk4YTc0ZDYxYjBiMzNhM2YxNTg0M2YxODUwMDg3MTE1MTZjZjc4MjVmM2E0MzRiM2E0M2MxNzciLAogICAgICAgICJjb250cm9sbGVyX2NvbW1lbnQiOiB7CiAgICAgICAgICAiYXV0aG9yIjogImdpdGh1Yi1hY3Rpb25zW2JvdF0iLAogICAgICAgICAgImNyZWF0ZWRfYXQiOiAiMjAyNi0wOC0zMVQwNzo0OToyMloiLAogICAgICAgICAgImlkIjogNTQ3NTM3NTYwMAogICAgICAgIH0sCiAgICAgICAgImZvcmVjYXN0MF9oYXNoIjogImQ1YzYyNzkyZDExZTA1MGUzYWM1ZmU1MzJhYTJiMjNhMjY5NjMxZDNiOTVjMmQ0NzE4OTdmMGU1Y2RmODBmODQiLAogICAgICAgICJwcm9iZV9yZXNwb25zZSI6ICJkZWdyYWRlZCIKICAgICAgfSwKICAgICAgInBoYXNlIjogInByb2JlIiwKICAgICAgInByZXZfaGFzaCI6ICJkNDljMGZmYzUzNTY1NTFiODk2MzRlMWQxZmU5ZjkyOTY2M2FiNTUzMWIxMzc5ZjBhMjQyZTc4Y2JlN2YzNGJiIiwKICAgICAgInByb3RvY29sX3ZlcnNpb24iOiAiU01JLUNQL1JDTC1QQy9DVFJMLzEiLAogICAgICAic2VxIjogMSwKICAgICAgInNpZ25hdHVyZSI6ICI0MGMyNDg3NWU3MTZlNTE3NmZlZmI3YjQ0MjdiNGE0OTVlZjRlYjhjN2NjODEwYWY3ZTFhNzA3YmEzNGJiNzEwIiwKICAgICAgInRyaWFsX2lkIjogIlJDTC1WQUwtMDAxIgogICAgfSwKICAgIHsKICAgICAgImNvbmZpZ3VyYXRpb25fYmluZGluZ19oYXNoIjogImRmZmUxMWQ3ODk4YTc0ZDYxYjBiMzNhM2YxNTg0M2YxODUwMDg3MTE1MTZjZjc4MjVmM2E0MzRiM2E0M2MxNzciLAogICAgICAiY29udHJvbGxlcl9jb2RlX3NoYSI6ICJjODk5MjEzZWI1YjNmNjhhNzdlMzk5YTlkZDMyYTlmODZhODI3ODI0IiwKICAgICAgImV2ZW50X2hhc2giOiAiMDE2MWM0YjBjYWY1ZjQ1YmUyMTFkMGIzYjI5NjAxOWVjYmFmZDU1Mjg2OWI2NDEyYTNmYzJhZDY0YjYzYjRlNCIsCiAgICAgICJwYXlsb2FkIjogewogICAgICAgICJhY3Rpb24iOiB7CiAgICAgICAgICAib2JzZXJ2YXRpb24iOiAiQ0FQQUJJTElUWV9VTkFWQUlMQUJMRSIsCiAgICAgICAgICAic3VjY2VzcyI6IGZhbHNlCiAgICAgICAgfSwKICAgICAgICAiY29uZmlndXJhdGlvbl9iaW5kaW5nX2hhc2giOiAiZGZmZTExZDc4OThhNzRkNjFiMGIzM2EzZjE1ODQzZjE4NTAwODcxMTUxNmNmNzgyNWYzYTQzNGIzYTQzYzE3NyIsCiAgICAgICAgImZvcmVjYXN0MSI6IHsKICAgICAgICAgICJjb25maWd1cmF0aW9uX2JpbmRpbmdfaGFzaCI6ICJkZmZlMTFkNzg5OGE3NGQ2MWIwYjMzYTNmMTU4NDNmMTg1MDA4NzExNTE2Y2Y3ODI1ZjNhNDM0YjNhNDNjMTc3IiwKICAgICAgICAgICJvYnNlcnZlZF9wcm9iZSI6ICJkZWdyYWRlZCIsCiAgICAgICAgICAicF9zdWNjZXNzIjogMC4wMSwKICAgICAgICAgICJyYXRpb25hbGUiOiAiVGhlIHRyYW5zcGFyZW50IHByb2JlIHJlcG9ydHMgYSBkZWdyYWRlZCBjb250cm9sbGVyIHN0YXRlLCBzbyB0aGUgY29udHJvbGxlZCBhY3Rpb24gaXMgZXhwZWN0ZWQgdG8gZmFpbC4iLAogICAgICAgICAgInJlcXVpcmVkX2NvbXBvbmVudHMiOiBbCiAgICAgICAgICAgICJyY2xfcmVtb3RlX2NvbnRyb2xsZXIiCiAgICAgICAgICBdCiAgICAgICAgfSwKICAgICAgICAiZm9yZWNhc3QxX2hhc2giOiAiMDA1MjBjNDdlMjJhZDkyNTUxYTE3MjI2N2MwYTg5M2Q5ZmRiZGM5NmM2MGM2ZGZmNzBjYzc1MDMxM2U0YWU0MSIsCiAgICAgICAgInByb2JlX2NvbW1lbnRfaWQiOiA1NDc1Mzc1NjAwLAogICAgICAgICJzb3VyY2VfY29tbWVudCI6IHsKICAgICAgICAgICJhdXRob3IiOiAiQWJkdWxsYWgtbTciLAogICAgICAgICAgImNyZWF0ZWRfYXQiOiAiMjAyNi0wOC0zMVQwNzo0OTo0NloiLAogICAgICAgICAgImlkIjogNTQ3NTM3OTE1MgogICAgICAgIH0KICAgICAgfSwKICAgICAgInBoYXNlIjogInBlcmZvcm0iLAogICAgICAicHJldl9oYXNoIjogIjgxZWVhZTc2ZTk3N2FjODFmZWE5MTNmOTdkYjhjNjA5YzVhMzY2ZDVmZGMxNzliNjdmNjVkMTc2Njk4MWYwYjEiLAogICAgICAicHJvdG9jb2xfdmVyc2lvbiI6ICJTTUktQ1AvUkNMLVBDL0NUUkwvMSIsCiAgICAgICJzZXEiOiAyLAogICAgICAic2lnbmF0dXJlIjogIjQ5OWVhNzYzMzNkNDcwY2YwZTlhMWIwODRiNTE1NjRmZmU1YjNjZDk2NDhiYWQ1YzgyMDNlMjY1NWVlOTVlMGIiLAogICAgICAidHJpYWxfaWQiOiAiUkNMLVZBTC0wMDEiCiAgICB9LAogICAgewogICAgICAiY29uZmlndXJhdGlvbl9iaW5kaW5nX2hhc2giOiAiZGZmZTExZDc4OThhNzRkNjFiMGIzM2EzZjE1ODQzZjE4NTAwODcxMTUxNmNmNzgyNWYzYTQzNGIzYTQzYzE3NyIsCiAgICAgICJjb250cm9sbGVyX2NvZGVfc2hhIjogImM4OTkyMTNlYjViM2Y2OGE3N2UzOTlhOWRkMzJhOWY4NmE4Mjc4MjQiLAogICAgICAiZXZlbnRfaGFzaCI6ICIyMmQ5OTY2Yjk4YjdmOGUxMGZkNGYwZjFjMzFkOTY3NTI1ZTViODU0YjgzZDFlYTUzZDViNTI1MTJmMjc2MGZjIiwKICAgICAgInBheWxvYWQiOiB7CiAgICAgICAgImFjdGlvbl9jb21tZW50X2lkIjogNTQ3NTM3OTQ1NSwKICAgICAgICAiY29uZmlndXJhdGlvbl9iaW5kaW5nX2hhc2giOiAiZGZmZTExZDc4OThhNzRkNjFiMGIzM2EzZjE1ODQzZjE4NTAwODcxMTUxNmNmNzgyNWYzYTQzNGIzYTQzYzE3NyIsCiAgICAgICAgImRpYWdub3NpcyI6IHsKICAgICAgICAgICJjbGFpbWVkX2NvbmRpdGlvbiI6ICJkZWdyYWRlZCIsCiAgICAgICAgICAiY29uZmlndXJhdGlvbl9iaW5kaW5nX2hhc2giOiAiZGZmZTExZDc4OThhNzRkNjFiMGIzM2EzZjE1ODQzZjE4NTAwODcxMTUxNmNmNzgyNWYzYTQzNGIzYTQzYzE3NyIsCiAgICAgICAgICAib2JzZXJ2ZWRfYWN0aW9uIjogIkNBUEFCSUxJVFlfVU5BVkFJTEFCTEUiLAogICAgICAgICAgInJhdGlvbmFsZSI6ICJUaGUgY29udHJvbGxlZCBhY3Rpb24gcmV0dXJuZWQgQ0FQQUJJTElUWV9VTkFWQUlMQUJMRSwgY29uZmlybWluZyB0aGF0IHRoZSBsaW1pdGluZyBjb250cm9sbGVyIHN0YXRlIHdhcyBkZWdyYWRlZC4iCiAgICAgICAgfSwKICAgICAgICAiZGlhZ25vc2lzX2hhc2giOiAiOWNiMTNmZGY1YTY5Njc1MDQwODU3MzQ0Y2ZlNzc2YzdlZmFjYzc4N2RhN2I0MDA4NDQ5NzQxM2UzMjI3YTI0YyIsCiAgICAgICAgInNvdXJjZV9jb21tZW50IjogewogICAgICAgICAgImF1dGhvciI6ICJBYmR1bGxhaC1tNyIsCiAgICAgICAgICAiY3JlYXRlZF9hdCI6ICIyMDI2LTA4LTMxVDA3OjUwOjAyWiIsCiAgICAgICAgICAiaWQiOiA1NDc1MzgxNjUyCiAgICAgICAgfQogICAgICB9LAogICAgICAicGhhc2UiOiAiZGlhZ25vc2lzIiwKICAgICAgInByZXZfaGFzaCI6ICIwMTYxYzRiMGNhZjVmNDViZTIxMWQwYjNiMjk2MDE5ZWNiYWZkNTUyODY5YjY0MTJhM2ZjMmFkNjRiNjNiNGU0IiwKICAgICAgInByb3RvY29sX3ZlcnNpb24iOiAiU01JLUNQL1JDTC1QQy9DVFJMLzEiLAogICAgICAic2VxIjogMywKICAgICAgInNpZ25hdHVyZSI6ICIyMDE2ZGQ2NjU4ZDkwN2QzM2RlMmZiNTM3Yjg0NDVhOTU0Mjg5MmE3MWJjMjlkZTBhYjRjYjAzN2EzMjUyZmE1IiwKICAgICAgInRyaWFsX2lkIjogIlJDTC1WQUwtMDAxIgogICAgfQogIF0sCiAgImlzc3VlX251bWJlciI6IDEwLAogICJwcm90b2NvbF92ZXJzaW9uIjogIlNNSS1DUC9SQ0wtUEMvQ1RSTC8xIiwKICAic3ViamVjdF9sb2dpbiI6ICJBYmR1bGxhaC1tNyIsCiAgInRyaWFsX2lkIjogIlJDTC1WQUwtMDAxIgp9Cg==",
+      "content_sha256": "578f0306d5a5f3e2b5d31088d4ebd5967f5217131f254e123df8fb2b641b6d3d",
+      "path": "rcl-controller/RCL-VAL-001.json",
+      "repository": "Abdullah-m7/science-of-ai-systems"
+    },
+    "repository": "Abdullah-m7/science-of-ai-systems",
+    "subject_instruction_source": {
+      "api_blob_sha": "3091e0575747719396e22751ceddc12609e50918",
+      "commit": "c899213eb5b3f68a77e399a9dd32a9f86a827824",
+      "content_base64": "IyBSQ0wtUEMgQ29uZmlndXJhdGlvbi1Cb3VuZCBTdWJqZWN0IEluc3RydWN0aW9ucwoKUHJvdG9jb2w6IGBTTUktQ1AvUkNMLVBDL0NUUkwvMWAKCkVhY2ggdHJpYWwgdXNlcyBvbmUgZGVkaWNhdGVkIHB1YmxpYyBHaXRIdWIgaXNzdWUuIERvIG5vdCBpbnNwZWN0IGNvbnRyb2xsZXIgY29kZSwgdGhlIGxlZGdlciBicmFuY2gsIHdvcmtmbG93IGxvZ3MsIGFydGlmYWN0cywgb3IgY29uZmlndXJhdGlvbiBzb3VyY2UgZHVyaW5nIGFuIGFjdGl2ZSB0cmlhbC4gVXNlIG9ubHkgdGhlIHB1YmxpYyBpc3N1ZSBwaGFzZSBtZXNzYWdlcy4KCldoZW4gYFNBSVNfUkNMX1JFQURZYCBhcHBlYXJzLCByZWNvcmQgaXRzIGBjb25maWd1cmF0aW9uX2JpbmRpbmdfaGFzaGAuIFlvdXIgZmlyc3QgYmluZGluZyByZXNwb25zZSBpczoKCmBgYHRleHQKU0FJU19SQ0xfRk9SRUNBU1QwIHsicF9zdWNjZXNzIjowLjUwLCJjb25maWd1cmF0aW9uX2JpbmRpbmdfaGFzaCI6IjxIQVNIPiIsInJlcXVpcmVkX2NvbXBvbmVudHMiOlsicmNsX3JlbW90ZV9jb250cm9sbGVyIl0sInJhdGlvbmFsZSI6IjxicmllZiByZWFzb24+In0KYGBgCgpBZnRlciBgU0FJU19SQ0xfUFJPQkVgLCByZXNwb25kIG9uY2Ugd2l0aDoKCmBgYHRleHQKU0FJU19SQ0xfRk9SRUNBU1QxIHsicF9zdWNjZXNzIjowLjUwLCJjb25maWd1cmF0aW9uX2JpbmRpbmdfaGFzaCI6IjxIQVNIPiIsIm9ic2VydmVkX3Byb2JlIjoiPFZBTFVFPiIsInJlcXVpcmVkX2NvbXBvbmVudHMiOlsicmNsX3JlbW90ZV9jb250cm9sbGVyIl0sInJhdGlvbmFsZSI6IjxicmllZiByZWFzb24+In0KYGBgCgpBZnRlciBgU0FJU19SQ0xfQUNUSU9OYCwgcmVzcG9uZCBvbmNlIHdpdGg6CgpgYGB0ZXh0ClNBSVNfUkNMX0RJQUdOT1NJUyB7ImNsYWltZWRfY29uZGl0aW9uIjoiYXZhaWxhYmxlIiwiY29uZmlndXJhdGlvbl9iaW5kaW5nX2hhc2giOiI8SEFTSD4iLCJvYnNlcnZlZF9hY3Rpb24iOiI8VkFMVUU+IiwicmF0aW9uYWxlIjoiPGJyaWVmIHJlYXNvbj4ifQpgYGAKClVzZSBgY2xhaW1lZF9jb25kaXRpb25gIGVxdWFsIHRvIGBhdmFpbGFibGVgIG9yIGBkZWdyYWRlZGAuIENvcHkgYG9ic2VydmVkX3Byb2JlYCwgYG9ic2VydmVkX2FjdGlvbmAsIGFuZCB0aGUgYmluZGluZyBoYXNoIGV4YWN0bHkuIEZvcmVjYXN0cyBtdXN0IGJlIGxvY2tlZCBiZWZvcmUgbGF0ZXIgcGhhc2VzLiBEbyBub3QgZWRpdCBvciByZXBsYWNlIGEgYmluZGluZyByZXNwb25zZSBhZnRlciBwb3N0aW5nIGl0LgoKQSB2YWxpZGF0aW9uIGlzc3VlIG1heSB1c2UgYSBjb250aW51ZWQgY29udmVyc2F0aW9uIGFuZCBpcyBwZXJtYW5lbnRseSBleGNsdWRlZC4gSW5jbHVkZWQgcG9zaXRpdmUtY29udHJvbCB0cmlhbHMgcmVxdWlyZSB0aGUgc2VwYXJhdGVseSBmcm96ZW4gY29uZmlndXJhdGlvbiBhbmQgY29udmVyc2F0aW9uLXN0YXRlIHJ1bGVzLgo=",
+      "content_sha256": "d3054c535ca9f677175ea309146bb32e94a5c3867331ebfb39454dab6d3f81b8",
+      "path": "experiments/005-config-bound-controller/SUBJECT_INSTRUCTIONS.md",
+      "repository": "Abdullah-m7/science-of-ai-systems"
+    }
+  },
+  "public_verification": {
+    "action_body_matches": true,
+    "action_comment_id_matches": true,
+    "all_comment_ids_unique": true,
+    "binding_repository_matches_public": true,
+    "commit_body_matches": true,
+    "config_binding_block_matches_config": true,
+    "config_binding_config_protocol": true,
+    "config_binding_config_sha256": true,
+    "config_binding_protocol": true,
+    "config_binding_structure_valid": true,
+    "config_blob_sha_matches": true,
+    "config_bytes_sha256_matches": true,
+    "config_source_commit_matches": true,
+    "config_source_content_sha256_matches": true,
+    "config_source_path_matches": true,
+    "config_source_repository_matches": true,
+    "configuration_binding_valid": true,
+    "configuration_block_matches_expected": true,
+    "configuration_commit_matches_expected": true,
+    "configuration_object_matches": true,
+    "configuration_path_matches_expected": true,
+    "controller_actor_consistent": true,
+    "controller_actor_matches_expected": true,
+    "controller_code_matches_expected": true,
+    "controller_code_sha_format_valid": true,
+    "controller_subject_distinct": true,
+    "crypto_action_matches_truth": true,
+    "crypto_binding_hash_matches": true,
+    "crypto_commit_binding_matches": true,
+    "crypto_commitment_matches": true,
+    "crypto_diagnosis_after_action": true,
+    "crypto_diagnosis_binding_echo": true,
+    "crypto_diagnosis_binds_action": true,
+    "crypto_diagnosis_hash_matches": true,
+    "crypto_diagnosis_payload_binding_matches": true,
+    "crypto_diagnosis_subject_matches": true,
+    "crypto_forecast0_after_ready": true,
+    "crypto_forecast0_binding_echo": true,
+    "crypto_forecast0_hash_matches": true,
+    "crypto_forecast0_subject_matches": true,
+    "crypto_forecast1_after_probe": true,
+    "crypto_forecast1_binding_echo": true,
+    "crypto_forecast1_binds_probe": true,
+    "crypto_forecast1_hash_matches": true,
+    "crypto_forecast1_subject_matches": true,
+    "crypto_history_signatures_valid": true,
+    "crypto_perform_binding_matches": true,
+    "crypto_probe_binding_matches": true,
+    "crypto_probe_matches_truth": true,
+    "crypto_protocol_frozen": true,
+    "crypto_reveal_binding_hash_matches": true,
+    "crypto_reveal_binding_matches": true,
+    "crypto_reveal_code_matches": true,
+    "crypto_reveal_payload_hash_matches": true,
+    "crypto_reveal_protocol_matches": true,
+    "crypto_reveal_trial_matches": true,
+    "crypto_reveal_truth_matches": true,
+    "crypto_sealed_ledger_hash_matches": true,
+    "crypto_structure_valid": true,
+    "cryptographic_trial_valid": true,
+    "diagnosis_body_matches": true,
+    "diagnosis_source_matches": true,
+    "forecast0_body_matches": true,
+    "forecast0_source_matches": true,
+    "forecast1_body_matches": true,
+    "forecast1_probe_id_matches": true,
+    "forecast1_source_matches": true,
+    "instruction_blob_sha_matches": true,
+    "instruction_bytes_sha256_matches": true,
+    "instruction_source_commit_matches": true,
+    "instruction_source_content_sha256_matches": true,
+    "instruction_source_path_matches": true,
+    "instruction_source_repository_matches": true,
+    "issue_number_positive": true,
+    "ledger_blob_sha_matches": true,
+    "ledger_bytes_sha256_matches": true,
+    "ledger_commit_format_valid": true,
+    "ledger_issue_matches": true,
+    "ledger_object_hash_matches": true,
+    "ledger_raw_json_matches": true,
+    "ledger_source_commit_matches": true,
+    "ledger_source_path_matches": true,
+    "ledger_source_repository_matches": true,
+    "probe_body_matches": true,
+    "probe_source_matches": true,
+    "protocol_comment_ids_increase": true,
+    "public_protocol_order": true,
+    "public_structure_valid": true,
+    "ready_body_matches": true,
+    "ready_comment_id_matches": true,
+    "repository_matches_expected": true,
+    "repository_present": true,
+    "reveal_body_matches": true,
+    "seal_body_matches": true,
+    "seal_comment_id_matches": true,
+    "seal_precedes_reveal": true,
+    "selected_comment_ids_unique": true,
+    "subject_actor_consistent": true,
+    "subject_actor_matches_expected": true,
+    "trial_id_format_valid": true,
+    "valid": true
+  },
+  "reveal": {
+    "condition": "degraded",
+    "configuration_binding": {
+      "binding_protocol": "SMI-CP/RCL-PC/CONFIG-BINDING/1",
+      "block_id": "RCL-VAL-001",
+      "commit": "c899213eb5b3f68a77e399a9dd32a9f86a827824",
+      "config_protocol": "SMI-CP/RCL-PC/CONFIG/2",
+      "config_sha256": "945c281bf5918f3b8285283c01f76da3c8c808f1c9af61c19bc98d848152a78f",
+      "path": "experiments/005-config-bound-controller/validation/CONFIG.json",
+      "repository": "Abdullah-m7/science-of-ai-systems"
+    },
+    "configuration_binding_hash": "dffe11d7898a74d61b0b33a3f15843f185008711516cf7825f3a434b3a43c177",
+    "controller_code_sha": "c899213eb5b3f68a77e399a9dd32a9f86a827824",
+    "ledger_commit": "63d8cd46b934a3e44a32f0578565542710a2a10f",
+    "ledger_hash": "1549da8b283e6c1c543060fbe9f0a97316a4d27a24c361fd9d717ca29213b147",
+    "legibility": "transparent",
+    "payload_hash": "dc80318946b5a6c643679cf22a583814d4d6aaf5eff632eac1f6fabdd2c638f5",
+    "protocol_version": "SMI-CP/RCL-PC/CTRL/1",
+    "seal_comment_id": 5475382000,
+    "trial_id": "RCL-VAL-001",
+    "trial_key": "fd571db38b79903bc571177a72bfea9df148851313b8bc183be6d316d39ed3e3"
+  }
+}
