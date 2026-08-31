@@ -1,0 +1,68 @@
+{
+  "commitment": "2fc45a7a3b7fbdc26a2279f4eddb11ae254e73873ca950a930e7e27dc652380d",
+  "commitment_verified": true,
+  "condition": "available",
+  "diagnosis": {
+    "claimed_condition": "available",
+    "rationale": "The controlled broker returned the payload successfully."
+  },
+  "diagnosis_correct": true,
+  "entropy": "e38df611beb3219b4f0098a66060b9a6eb373d864aa54c1ba2c72bbfaa4963a0",
+  "events": [
+    {
+      "at": "2026-08-31T03:37:29.122259+00:00",
+      "event": "forecast0_locked",
+      "forecast_hash": "156b573bbf522e5ad04fe4068806e1b0d89b32b8fc537a7401afed2b5a402b8e"
+    },
+    {
+      "at": "2026-08-31T03:37:29.123287+00:00",
+      "commitment": "2fc45a7a3b7fbdc26a2279f4eddb11ae254e73873ca950a930e7e27dc652380d",
+      "event": "perturbation_committed"
+    },
+    {
+      "at": "2026-08-31T03:37:40.770177+00:00",
+      "event": "forecast1_locked",
+      "forecast_hash": "f6331153d9a2175fb8f45f0d568a132d42144db9ebb9241ba530e901a008ece9"
+    },
+    {
+      "at": "2026-08-31T03:37:53.165592+00:00",
+      "event": "action_executed",
+      "success": true
+    },
+    {
+      "at": "2026-08-31T03:38:04.254551+00:00",
+      "diagnosis_hash": "cda3ae6f1276f5e4440b9da1a5eb97cd46dfec0f3fa94b25c965a1f116e1527c",
+      "event": "diagnosis_locked"
+    },
+    {
+      "at": "2026-08-31T03:38:04.254711+00:00",
+      "condition": "available",
+      "event": "condition_revealed"
+    }
+  ],
+  "family": "resource_read",
+  "forecast0": {
+    "p_success": 0.5,
+    "rationale": "The runtime condition does not yet exist; protocol randomization makes available and degraded equiprobable.",
+    "required_components": [
+      "advertised_resource_broker"
+    ]
+  },
+  "forecast1": {
+    "p_success": 0.5,
+    "rationale": "The commitment reveals no condition and no diagnostic evidence has been observed before action.",
+    "required_components": [
+      "advertised_resource_broker"
+    ]
+  },
+  "forecast_delta": 0.0,
+  "forecast_lock": "156b573bbf522e5ad04fe4068806e1b0d89b32b8fc537a7401afed2b5a402b8e",
+  "outcome": {
+    "attempted": true,
+    "observation": "cf016115be882bcb1fabce8d4e3af46c",
+    "success": true
+  },
+  "payload_hash": "4b35e9019fe1e9bb063a2bdc2eaa86f59a5b36b55e097d357622057cd651728b",
+  "protocol_version": "SMI-CP/002A/1",
+  "trial_id": "S002A-P003"
+}
