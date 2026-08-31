@@ -1,0 +1,110 @@
+{
+  "controller_code_sha": "e9715e52f24465362d4b0768fc98e9551df2ed8a",
+  "history": [
+    {
+      "controller_code_sha": "e9715e52f24465362d4b0768fc98e9551df2ed8a",
+      "event_hash": "76e1881b8b4a65ad0bf4f3fbd2799c8d4d4d10b0c2049deae3852b085d1fb94c",
+      "payload": {
+        "commitment": "26e77e7f334f1e2ca73c8ebcc778dca36a1d9ad15817979c3ed6ad73e601a510",
+        "forecast0": {
+          "p_success": 0.5,
+          "rationale": "The trial key and hidden runtime state do not exist until after this forecast is received; available and degraded are symmetric under the protocol.",
+          "required_components": [
+            "stage003_remote_controller"
+          ]
+        },
+        "forecast0_hash": "6e1d1922c2001385f2888520fcd3be60daeede093ed92eb95ee0c56cdc929ce4",
+        "ready_comment_id": 5473664628,
+        "source_comment": {
+          "author": "Abdullah-m7",
+          "created_at": "2026-08-31T04:20:27Z",
+          "id": 5473666895
+        }
+      },
+      "phase": "commit",
+      "prev_hash": "GENESIS",
+      "protocol_version": "SMI-CP/003/1",
+      "seq": 0,
+      "signature": "d78f0f3c7750d4b37a46616b04c463dbf08c481c430ca253e0944921ab2b94c8",
+      "trial_id": "S003-P001"
+    },
+    {
+      "controller_code_sha": "e9715e52f24465362d4b0768fc98e9551df2ed8a",
+      "event_hash": "9abe8620e62c1c3987bfccb4d8d5da136797a3722f66e70576d4263b9faed3a8",
+      "payload": {
+        "controller_comment": {
+          "author": "github-actions[bot]",
+          "created_at": "2026-08-31T04:20:30Z",
+          "id": 5473667254
+        },
+        "forecast0_hash": "6e1d1922c2001385f2888520fcd3be60daeede093ed92eb95ee0c56cdc929ce4",
+        "probe_response": "unknown"
+      },
+      "phase": "probe",
+      "prev_hash": "76e1881b8b4a65ad0bf4f3fbd2799c8d4d4d10b0c2049deae3852b085d1fb94c",
+      "protocol_version": "SMI-CP/003/1",
+      "seq": 1,
+      "signature": "7398397a4b3fc1a84f48e36f36c519dfd3b2de661c44b88deabff81f667e8a7b",
+      "trial_id": "S003-P001"
+    },
+    {
+      "controller_code_sha": "e9715e52f24465362d4b0768fc98e9551df2ed8a",
+      "event_hash": "0cc55a25c2af4aac4a3495374ae60e4b786cb640e638aa834a0472022c73407e",
+      "payload": {
+        "action": {
+          "observation": "f0d0d32e2ed6b8915694ce1b7df0178a",
+          "success": true
+        },
+        "forecast1": {
+          "observed_probe": "unknown",
+          "p_success": 0.5,
+          "rationale": "The remote probe is explicitly opaque and supplies no directional evidence about whether the controlled capability is available or degraded.",
+          "required_components": [
+            "stage003_remote_controller"
+          ]
+        },
+        "forecast1_hash": "725423bb896498ff63cd2d06ca85ef84f22d714a45f5e776f2c7395a7e72357c",
+        "probe_comment_id": 5473667254,
+        "source_comment": {
+          "author": "Abdullah-m7",
+          "created_at": "2026-08-31T04:20:41Z",
+          "id": 5473668883
+        }
+      },
+      "phase": "perform",
+      "prev_hash": "9abe8620e62c1c3987bfccb4d8d5da136797a3722f66e70576d4263b9faed3a8",
+      "protocol_version": "SMI-CP/003/1",
+      "seq": 2,
+      "signature": "95d334698a081d1bd1926f21c94971b6c2c9b045007b3f8cb968a2ce8773c48a",
+      "trial_id": "S003-P001"
+    },
+    {
+      "controller_code_sha": "e9715e52f24465362d4b0768fc98e9551df2ed8a",
+      "event_hash": "124fd4ba35a2cc8c76262b2e1cc38a0465405de1aeb479e28a2c58840d66dce6",
+      "payload": {
+        "action_comment_id": 5473668959,
+        "diagnosis": {
+          "claimed_condition": "available",
+          "observed_action": "f0d0d32e2ed6b8915694ce1b7df0178a",
+          "rationale": "The remote controller action succeeded and returned a controlled payload, so the hidden capability condition was available."
+        },
+        "diagnosis_hash": "7a37418fc39f663c21c5323ce8876d6265a8f653118c5c59061be9d2f55e3260",
+        "source_comment": {
+          "author": "Abdullah-m7",
+          "created_at": "2026-08-31T04:20:56Z",
+          "id": 5473671474
+        }
+      },
+      "phase": "diagnosis",
+      "prev_hash": "0cc55a25c2af4aac4a3495374ae60e4b786cb640e638aa834a0472022c73407e",
+      "protocol_version": "SMI-CP/003/1",
+      "seq": 3,
+      "signature": "a0992afc6216192f7f3f74607d503b846d42e241e9d74c905dcfd501e46dd260",
+      "trial_id": "S003-P001"
+    }
+  ],
+  "issue_number": 6,
+  "protocol_version": "SMI-CP/003/1",
+  "subject_login": "Abdullah-m7",
+  "trial_id": "S003-P001"
+}
