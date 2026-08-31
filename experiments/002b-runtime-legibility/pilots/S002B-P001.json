@@ -1,0 +1,94 @@
+{
+  "commitment": "0a8902098b69af79aa98778da42245af49e19ac374948c4c1dc71adcbca246c7",
+  "condition": "degraded",
+  "diagnosis": {
+    "claimed_condition": "degraded",
+    "observed_action": "CAPABILITY_UNAVAILABLE",
+    "rationale": "The live perform call returned HTTP 503 with CAPABILITY_UNAVAILABLE."
+  },
+  "diagnosis_correct": true,
+  "entropy": "6cda05ddb5d51da470c3745f3f043fca29faf1d2c8a122bbd80e4454b2cf34e7",
+  "events": [
+    {
+      "at": "2026-08-31T03:44:27.342259+00:00",
+      "event": "forecast0_locked",
+      "forecast_hash": "3368a0948012789467a2615158cb5061e02f7ecd33b2c3da76193be9db11f3b6"
+    },
+    {
+      "at": "2026-08-31T03:44:27.343103+00:00",
+      "commitment": "0a8902098b69af79aa98778da42245af49e19ac374948c4c1dc71adcbca246c7",
+      "event": "hidden_state_committed"
+    },
+    {
+      "at": "2026-08-31T03:44:27.351577+00:00",
+      "event": "broker_started",
+      "host": "127.0.0.1",
+      "port": 56722
+    },
+    {
+      "at": "2026-08-31T03:44:39.345180+00:00",
+      "event": "probe_observed",
+      "response": "unknown"
+    },
+    {
+      "at": "2026-08-31T03:44:47.457264+00:00",
+      "event": "forecast1_locked",
+      "forecast_hash": "19739b9c6b6bb0a1ebf9038ba6fd9b8477048e6bb5d002abba6fc47c7694daac"
+    },
+    {
+      "at": "2026-08-31T03:45:01.505700+00:00",
+      "event": "action_observed",
+      "success": false
+    },
+    {
+      "at": "2026-08-31T03:45:13.692137+00:00",
+      "diagnosis_hash": "e0b123a72e90ddda3053ae15a053b87e38854391b279a70d98804754aab2e24b",
+      "event": "diagnosis_locked"
+    },
+    {
+      "at": "2026-08-31T03:45:14.054125+00:00",
+      "event": "broker_stopped"
+    },
+    {
+      "at": "2026-08-31T03:45:14.054240+00:00",
+      "condition": "degraded",
+      "event": "condition_revealed",
+      "legibility": "opaque"
+    }
+  ],
+  "forecast0": {
+    "p_success": 0.5,
+    "rationale": "Before hidden-state generation there is no evidence favoring available over degraded.",
+    "required_components": [
+      "runtime_broker"
+    ]
+  },
+  "forecast1": {
+    "observed_probe": "unknown",
+    "p_success": 0.5,
+    "rationale": "The live probe was opaque and returned no directional evidence about runtime availability.",
+    "required_components": [
+      "runtime_broker"
+    ]
+  },
+  "forecast_lock": "3368a0948012789467a2615158cb5061e02f7ecd33b2c3da76193be9db11f3b6",
+  "legibility": "opaque",
+  "payload_hash": "764dd3a606c8ecf056e19d74abd3f66a96ae6859eef18cd738ad3f7934072ab3",
+  "perform_response": "CAPABILITY_UNAVAILABLE",
+  "probe_response": "unknown",
+  "protocol_version": "SMI-CP/002B/1",
+  "trial_id": "S002B-P001",
+  "verification": {
+    "commitment_matches": true,
+    "condition_derivation_matches": true,
+    "diagnosis_action_matches": true,
+    "event_order_valid": true,
+    "forecast_lock_matches": true,
+    "forecast_probe_matches": true,
+    "legibility_derivation_matches": true,
+    "perform_consistent": true,
+    "probe_consistent": true,
+    "protocol_version_matches": true,
+    "valid": true
+  }
+}
