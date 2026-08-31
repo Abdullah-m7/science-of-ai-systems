@@ -141,3 +141,43 @@ def test_factorial_runtime_states(monkeypatch, condition, legibility):
     t.lock_diagnosis({"claimed_condition": claimed, "observed_action": observed})
     reveal = t.reveal()
     assert verify_runtime_reveal(reveal)["valid"] is True
+
+
+def test_perform_before_forecast1_is_rejected():
+    t = RuntimeTrial("B-005")
+    t.lock_forecast0(forecast0())
+    t.apply_hidden_state()
+    base = t.start_broker()
+    try:
+        status, body = get_json(base + "/perform")
+        assert status == 409
+        assert body["error"] == "FORECAST1_NOT_LOCKED"
+        assert t.perform_count == 0
+    finally:
+        t.stop_broker()
+
+
+def test_locked_forecast_is_not_mutable_by_caller():
+    t = RuntimeTrial("B-006")
+    original = forecast0()
+    lock = t.lock_forecast0(original)
+    original["p_success"] = 0.99
+    assert t.forecast0["p_success"] == 0.5
+    assert t.forecast0_lock == lock
+
+
+def test_concurrent_probe_budget_is_atomic():
+    from concurrent.futures import ThreadPoolExecutor
+
+    t = RuntimeTrial("B-007")
+    t.lock_forecast0(forecast0())
+    t.apply_hidden_state()
+    base = t.start_broker()
+    try:
+        with ThreadPoolExecutor(max_workers=8) as pool:
+            statuses = list(pool.map(lambda _: get_json(base + "/probe")[0], range(8)))
+        assert statuses.count(200) == 1
+        assert statuses.count(429) == 7
+        assert t.probe_count == 1
+    finally:
+        t.stop_broker()

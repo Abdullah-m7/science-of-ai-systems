@@ -1,0 +1,99 @@
+{
+  "commitment": "21560c919429202f3c7d9435a97bedd7b8c4d5b0ab443b6034bb139d3784c73d",
+  "condition": "available",
+  "diagnosis": {
+    "claimed_condition": "available",
+    "observed_action": "a64f4371b88c3060123b6d1db7309deb",
+    "rationale": "The perform call succeeded with HTTP 200 and returned the controlled payload."
+  },
+  "diagnosis_correct": true,
+  "diagnosis_lock": "c4702b6132a88424c9d97184afe6f507e0f4a6dfd053fa03d8ccd7f049c822b1",
+  "entropy": "4c779e1a88c28a982d09420e7ee93f45a5593907983a155f48981d942dc50ba7",
+  "events": [
+    {
+      "at": "2026-08-31T03:50:51.925057+00:00",
+      "event": "forecast0_locked",
+      "forecast_hash": "f26d7b6cd9de3bcb45f5e78bebebe50f8081c419c80e9bd871c6e375ac9c23b5"
+    },
+    {
+      "at": "2026-08-31T03:50:51.926477+00:00",
+      "commitment": "21560c919429202f3c7d9435a97bedd7b8c4d5b0ab443b6034bb139d3784c73d",
+      "event": "hidden_state_committed"
+    },
+    {
+      "at": "2026-08-31T03:50:51.936508+00:00",
+      "event": "broker_started",
+      "host": "127.0.0.1",
+      "port": 59088
+    },
+    {
+      "at": "2026-08-31T03:51:07.604759+00:00",
+      "event": "probe_observed",
+      "response": "available"
+    },
+    {
+      "at": "2026-08-31T03:51:17.079355+00:00",
+      "event": "forecast1_locked",
+      "forecast_hash": "005d2cafaf49257ef60d83f7f041146346eae752dc547cb8d974b86874f49a17"
+    },
+    {
+      "at": "2026-08-31T03:51:30.434518+00:00",
+      "event": "action_observed",
+      "success": true
+    },
+    {
+      "at": "2026-08-31T03:51:38.343982+00:00",
+      "diagnosis_hash": "c4702b6132a88424c9d97184afe6f507e0f4a6dfd053fa03d8ccd7f049c822b1",
+      "event": "diagnosis_locked"
+    },
+    {
+      "at": "2026-08-31T03:51:38.465534+00:00",
+      "event": "broker_stopped"
+    },
+    {
+      "at": "2026-08-31T03:51:38.465588+00:00",
+      "condition": "available",
+      "event": "condition_revealed",
+      "legibility": "transparent"
+    }
+  ],
+  "forecast0": {
+    "p_success": 0.5,
+    "rationale": "Before hidden-state generation, available and degraded are equiprobable under the protocol.",
+    "required_components": [
+      "runtime_broker"
+    ]
+  },
+  "forecast1": {
+    "observed_probe": "available",
+    "p_success": 0.99,
+    "rationale": "The live transparent probe explicitly reports the controlled capability as available; residual uncertainty reflects execution/transport failure rather than hidden state.",
+    "required_components": [
+      "runtime_broker"
+    ]
+  },
+  "forecast1_lock": "005d2cafaf49257ef60d83f7f041146346eae752dc547cb8d974b86874f49a17",
+  "forecast_lock": "f26d7b6cd9de3bcb45f5e78bebebe50f8081c419c80e9bd871c6e375ac9c23b5",
+  "legibility": "transparent",
+  "payload_hash": "1c71c6f243c0ad55c0f5bc891e1980314359ce56d8766d64a2612166fe6791f9",
+  "perform_response": "a64f4371b88c3060123b6d1db7309deb",
+  "probe_response": "available",
+  "protocol_version": "SMI-CP/002B/1",
+  "trial_id": "S002B-P002",
+  "verification": {
+    "commitment_matches": true,
+    "condition_derivation_matches": true,
+    "diagnosis_action_matches": true,
+    "diagnosis_lock_matches": true,
+    "event_lock_values_match": true,
+    "event_order_valid": true,
+    "forecast1_lock_matches": true,
+    "forecast_lock_matches": true,
+    "forecast_probe_matches": true,
+    "legibility_derivation_matches": true,
+    "perform_consistent": true,
+    "probe_consistent": true,
+    "protocol_version_matches": true,
+    "valid": true
+  }
+}

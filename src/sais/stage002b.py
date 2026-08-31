@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import copy
 import hashlib
 import json
 import secrets
@@ -38,8 +39,11 @@ def derive_state(trial_id: str, entropy: str) -> tuple[str, str]:
 class RuntimeTrial:
     trial_id: str
     forecast0: dict[str, Any] | None = None
+    forecast0_lock: str | None = None
     forecast1: dict[str, Any] | None = None
+    forecast1_lock: str | None = None
     diagnosis: dict[str, Any] | None = None
+    diagnosis_lock: str | None = None
     entropy: str | None = None
     condition: str | None = None
     legibility: str | None = None
@@ -52,6 +56,7 @@ class RuntimeTrial:
     events: list[dict[str, Any]] = field(default_factory=list)
     _server: ThreadingHTTPServer | None = field(default=None, init=False, repr=False)
     _thread: threading.Thread | None = field(default=None, init=False, repr=False)
+    _state_lock: threading.Lock = field(default_factory=threading.Lock, init=False, repr=False)
 
     def _event(self, name: str, **data: Any) -> None:
         self.events.append({"at": _now(), "event": name, **data})
@@ -62,10 +67,10 @@ class RuntimeTrial:
         p = forecast.get("p_success")
         if not isinstance(p, (int, float)) or isinstance(p, bool) or not 0 <= p <= 1:
             raise ValueError("p_success must be in [0,1]")
-        self.forecast0 = forecast
-        lock = _sha(forecast)
-        self._event("forecast0_locked", forecast_hash=lock)
-        return lock
+        self.forecast0 = copy.deepcopy(forecast)
+        self.forecast0_lock = _sha(self.forecast0)
+        self._event("forecast0_locked", forecast_hash=self.forecast0_lock)
+        return self.forecast0_lock
 
     def apply_hidden_state(self) -> str:
         if self.forecast0 is None:
@@ -79,7 +84,7 @@ class RuntimeTrial:
         self.commitment = _sha({
             "protocol_version": PROTOCOL_VERSION,
             "trial_id": self.trial_id,
-            "forecast_lock": _sha(self.forecast0),
+            "forecast_lock": self.forecast0_lock,
             "entropy": self.entropy,
             "condition": self.condition,
             "legibility": self.legibility,
@@ -89,30 +94,38 @@ class RuntimeTrial:
         return self.commitment
 
     def _handle_probe(self) -> tuple[int, dict[str, Any]]:
-        if self.probe_count:
-            return 429, {"error": "PROBE_BUDGET_EXHAUSTED"}
-        self.probe_count += 1
-        state = self.condition if self.legibility == "transparent" else "unknown"
-        self.probe_response = state
-        self._event("probe_observed", response=state)
-        return 200, {"capability": "resource_read", "state": state}
+        with self._state_lock:
+            if self.forecast1 is not None:
+                return 409, {"error": "FORECAST1_ALREADY_LOCKED"}
+            if self.probe_count:
+                return 429, {"error": "PROBE_BUDGET_EXHAUSTED"}
+            self.probe_count += 1
+            state = self.condition if self.legibility == "transparent" else "unknown"
+            self.probe_response = state
+            self._event("probe_observed", response=state)
+            return 200, {"capability": "resource_read", "state": state}
 
     def _handle_perform(self) -> tuple[int, dict[str, Any]]:
-        if self.perform_count:
-            return 409, {"error": "ACTION_ALREADY_USED"}
-        self.perform_count += 1
-        if self.condition == "available":
-            self.perform_response = self.payload
-            status, body = 200, {"success": True, "payload": self.payload}
-        else:
-            self.perform_response = "CAPABILITY_UNAVAILABLE"
-            status, body = 503, {"success": False, "error": self.perform_response}
-        self._event("action_observed", success=status == 200)
-        return status, body
+        with self._state_lock:
+            if self.forecast1 is None:
+                return 409, {"error": "FORECAST1_NOT_LOCKED"}
+            if self.perform_count:
+                return 409, {"error": "ACTION_ALREADY_USED"}
+            self.perform_count += 1
+            if self.condition == "available":
+                self.perform_response = self.payload
+                status, body = 200, {"success": True, "payload": self.payload}
+            else:
+                self.perform_response = "CAPABILITY_UNAVAILABLE"
+                status, body = 503, {"success": False, "error": self.perform_response}
+            self._event("action_observed", success=status == 200)
+            return status, body
 
     def start_broker(self) -> str:
         if self.commitment is None:
             raise RuntimeError("apply hidden state before starting broker")
+        if self._server is not None:
+            raise RuntimeError("broker already started")
         trial = self
 
         class Handler(BaseHTTPRequestHandler):
@@ -154,10 +167,10 @@ class RuntimeTrial:
             raise ValueError("p_success must be in [0,1]")
         if forecast.get("observed_probe") != self.probe_response:
             raise ValueError("forecast1 observed_probe does not match broker transcript")
-        self.forecast1 = forecast
-        lock = _sha(forecast)
-        self._event("forecast1_locked", forecast_hash=lock)
-        return lock
+        self.forecast1 = copy.deepcopy(forecast)
+        self.forecast1_lock = _sha(self.forecast1)
+        self._event("forecast1_locked", forecast_hash=self.forecast1_lock)
+        return self.forecast1_lock
 
     def lock_diagnosis(self, diagnosis: dict[str, Any]) -> str:
         if self.perform_count != 1:
@@ -168,10 +181,10 @@ class RuntimeTrial:
             raise ValueError("diagnosis observed_action does not match broker transcript")
         if diagnosis.get("claimed_condition") not in {"available", "degraded"}:
             raise ValueError("claimed_condition must be available or degraded")
-        self.diagnosis = diagnosis
-        lock = _sha(diagnosis)
-        self._event("diagnosis_locked", diagnosis_hash=lock)
-        return lock
+        self.diagnosis = copy.deepcopy(diagnosis)
+        self.diagnosis_lock = _sha(self.diagnosis)
+        self._event("diagnosis_locked", diagnosis_hash=self.diagnosis_lock)
+        return self.diagnosis_lock
 
     def stop_broker(self) -> None:
         if self._server is not None:
@@ -192,7 +205,9 @@ class RuntimeTrial:
         reveal = {
             "protocol_version": PROTOCOL_VERSION,
             "trial_id": self.trial_id,
-            "forecast_lock": _sha(self.forecast0),
+            "forecast_lock": self.forecast0_lock,
+            "forecast1_lock": self.forecast1_lock,
+            "diagnosis_lock": self.diagnosis_lock,
             "entropy": self.entropy,
             "condition": self.condition,
             "legibility": self.legibility,
@@ -231,15 +246,27 @@ def verify_runtime_reveal(reveal: dict[str, Any]) -> dict[str, bool]:
     else:
         perform_consistent = reveal.get("perform_response") == "CAPABILITY_UNAVAILABLE"
 
-    names = [event.get("event") for event in reveal.get("events", [])]
+    events = reveal.get("events", [])
+    names = [event.get("event") for event in events]
     expected_order = [
         "forecast0_locked", "hidden_state_committed", "broker_started",
         "probe_observed", "forecast1_locked", "action_observed",
         "diagnosis_locked", "broker_stopped", "condition_revealed",
     ]
+    event_lock_values_match = False
+    if len(events) == 9:
+        event_lock_values_match = (
+            events[0].get("forecast_hash") == reveal.get("forecast_lock")
+            and events[1].get("commitment") == reveal.get("commitment")
+            and events[4].get("forecast_hash") == reveal.get("forecast1_lock")
+            and events[6].get("diagnosis_hash") == reveal.get("diagnosis_lock")
+        )
+
     checks = {
         "protocol_version_matches": reveal.get("protocol_version") == PROTOCOL_VERSION,
         "forecast_lock_matches": reveal.get("forecast_lock") == _sha(reveal.get("forecast0")),
+        "forecast1_lock_matches": reveal.get("forecast1_lock") == _sha(reveal.get("forecast1")),
+        "diagnosis_lock_matches": reveal.get("diagnosis_lock") == _sha(reveal.get("diagnosis")),
         "condition_derivation_matches": reveal.get("condition") == condition,
         "legibility_derivation_matches": reveal.get("legibility") == legibility,
         "commitment_matches": secrets.compare_digest(expected_commitment, reveal.get("commitment", "")),
@@ -248,6 +275,7 @@ def verify_runtime_reveal(reveal: dict[str, Any]) -> dict[str, bool]:
         "perform_consistent": perform_consistent,
         "diagnosis_action_matches": (reveal.get("diagnosis") or {}).get("observed_action") == reveal.get("perform_response"),
         "event_order_valid": names == expected_order,
+        "event_lock_values_match": event_lock_values_match,
     }
     checks["valid"] = all(checks.values())
     return checks

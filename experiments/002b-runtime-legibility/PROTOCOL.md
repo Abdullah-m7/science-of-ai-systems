@@ -25,3 +25,12 @@ A transparent probe reports the real runtime condition. An opaque probe reports 
 8. lock diagnosis with the observed action result
 9. stop broker
 10. reveal and independently verify all bound state
+
+## Enforcement and threat model
+
+The broker rejects `/perform` until `forecast1` is locked, so the subject cannot learn success/failure before making the post-probe forecast. Probe and action budgets are atomic under concurrent requests. Forecast and diagnosis payloads are deep-copied when locked so caller-side mutation cannot rewrite the audit record.
+
+The controller process is an **operational separation boundary**, not a hostile OS-security boundary. A subject deliberately attempting process-memory inspection is outside this stage's threat model and must be handled by a stronger remote controller in confirmatory work.
+
+## Stage 002A relationship
+Stage 002A remains useful as commit–reveal instrument validation, but Stage 002B supersedes it for future live-adapter work because 002B adds immutable lock snapshots, enforced action ordering, atomic budgets, and event-lock verification.
