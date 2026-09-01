@@ -55,6 +55,7 @@ This creates a measurable gap between **believed capability** and **effective ca
 - **Stage 005:** configuration-bound RCL controller validated publicly; `RCL-VAL-001` passed 100/100 independent evidence checks and remains excluded.
 - **Stage 006:** corrected final RCL-PC freeze `sais-rcl-pc-v2` targets GPT-5.6 Sol; v1 is retained but invalidated pre-trial after a model-identity provenance error. No included trial has started.
 - **Stage 007:** execution-readiness registry and idempotent issue provisioner; all 32 public `PC-RCL-*` surfaces are provisioned (`#18`–`#49`) with zero comments and `included_trials_started = 0`.
+- **Stage 008B:** pre-dispatch subject isolation/sequential-validity addendum and deterministic fresh-chat handoff generator; RCL-PC v2 is explicitly interpreted as repeated randomized measurement of a memory-enabled system.
 
 Stage 004 deliberately places the original direct transparent/opaque experiment on **HOLD as a headline study**. Because a transparent probe reveals the deterministic action condition, that design is retained as `RCL-PC`, a positive control rather than broad evidence of self-awareness.
 
@@ -85,4 +86,11 @@ sais-rcl-registry --manifest experiments/006-rcl-pc-final-freeze/FREEZE_MANIFEST
 sais-provision-rcl-issues \
   experiments/007-rcl-pc-execution-readiness/TRIAL_REGISTRY.json \
   --manifest experiments/006-rcl-pc-final-freeze/FREEZE_MANIFEST.json
+```
+
+Stage 008B adds a deterministic handoff packet for a single fresh subject conversation and post-block temporal diagnostics that never alter the frozen qualification result:
+
+```bash
+sais-rcl-handoff PC-RCL-001 --output /tmp/PC-RCL-001-HANDOFF.md
+sais-rcl-sequential results/RCL-PC-final.json --output results/RCL-PC-sequential.json
 ```
