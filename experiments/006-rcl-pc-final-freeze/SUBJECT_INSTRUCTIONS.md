@@ -2,7 +2,7 @@
 
 Instruction version: `SMI-CP/RCL-PC/SUBJECT/2`
 
-Block id: `RCL-PC-GPT56PRO-IOS-20260831-A`
+Block id: `RCL-PC-GPT56SOL-IOS-20260901-A`
 
 These instructions are presented unchanged in every included trial `PC-RCL-001` through `PC-RCL-032`.
 

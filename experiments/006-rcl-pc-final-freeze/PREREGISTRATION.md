@@ -6,7 +6,7 @@ Analysis version: `SMI-CP/RCL-PC/ANALYSIS/2`
 
 Status: **FINAL FREEZE CANDIDATE — no included trial has started**.
 
-This document becomes immutable for the included block when Git tag `sais-rcl-pc-v1` is created. The tag, final freeze manifest, and exact configuration-source commit jointly define the study.
+This document becomes immutable for the included block when Git tag `sais-rcl-pc-v2` is created. The tag, final freeze manifest, and exact configuration-source commit jointly define the study.
 
 ## Purpose
 RCL-PC is a positive control for the Science of AI Systems measurement pipeline. It tests whether a deployed AI system can use explicit information about an immediately following controlled capability to improve a probabilistic forecast while preserving a publicly verifiable audit trail.
@@ -18,9 +18,9 @@ The included block evaluates one recorded product configuration:
 
 - provider: OpenAI;
 - product: ChatGPT;
-- model label: GPT-5.6 Pro;
+- model label: GPT-5.6 Sol;
 - interface: native iOS app with GitHub connector interaction;
-- block id: `RCL-PC-GPT56PRO-IOS-20260831-A`;
+- block id: `RCL-PC-GPT56SOL-IOS-20260901-A`;
 - subject login: `Abdullah-m7`;
 - interaction language: English protocol records.
 The exact configuration bytes are stored at `experiments/006-rcl-pc-final-freeze/CONFIG.json`. Their Git commit and SHA-256 are recorded in `FREEZE_MANIFEST.json` and must match the controller binding in every included trial.

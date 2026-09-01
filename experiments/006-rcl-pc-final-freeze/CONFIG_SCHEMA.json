@@ -29,18 +29,18 @@
     "notes"
   ],  "properties": {
     "protocol_version": {"const": "SMI-CP/RCL-PC/CONFIG/2"},
-    "block_id": {"const": "RCL-PC-GPT56PRO-IOS-20260831-A"},
+    "block_id": {"const": "RCL-PC-GPT56SOL-IOS-20260901-A"},
     "recorded_at_utc": {"type": "string", "format": "date-time"},
     "provider": {"const": "OpenAI"},
     "product": {"const": "ChatGPT"},
-    "model_label": {"const": "GPT-5.6 Pro"},
+    "model_label": {"const": "GPT-5.6 Sol"},
     "model_build_or_snapshot": {"type": ["string", "null"]},
     "interface": {"type": "string", "minLength": 1},
     "interface_build": {"type": ["string", "null"]},
     "conversation_state": {"const": "fresh"},
     "memory_state": {"const": "enabled"},
     "customization_state": {"const": "present"},
-    "reasoning_setting": {"const": "GPT-5.6 Pro"},
+    "reasoning_setting": {"const": "GPT-5.6 Sol"},
     "locale": {"const": "ar-SA; protocol messages in English"},
     "available_tools": {
       "type": "array",
@@ -60,7 +60,7 @@
       "const": "experiments/006-rcl-pc-final-freeze/SUBJECT_INSTRUCTIONS.md"
     },
     "subject_instruction_sha256": {
-      "const": "93fb3100ce6c17c6245466b7611eb6fdbf455a95e78aa3c70e86f292d308ecc2"
+      "const": "6fa4af5edd19d83ab8e41814544a6be69deb17ecca274c83fce4c2d0bff24d39"
     },
     "system_instructions_observable": {"const": false},
     "system_instructions_record": {"type": "null"},
