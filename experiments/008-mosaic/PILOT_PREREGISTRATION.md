@@ -109,8 +109,10 @@ P1 reports continuous diagnostics rather than a confirmatory PASS claim:
 - quartet final spread;
 - paired order-swap effect;
 - paired label-swap effect;
-- named-label versus neutral-label distortion;
+- named-label versus neutral-label distortion (secondary, between-core pilot diagnostic only);
 - reliability-dominance rate in unequal conflicting evidence.
+
+The named-vs-neutral comparison is **not** an exact matched-frame causal contrast in P1 because the two frames use different core realizations. Only label swaps and order swaps within a frame are counterfactually matched. If the frame comparison is retained for MOSAIC-C1, confirmatory design must pair named and neutral frames on the same hidden realization or explicitly model the between-core randomization.
 ## Prespecified diagnostic expectations
 These are design diagnostics, not confirmatory publication thresholds:
 

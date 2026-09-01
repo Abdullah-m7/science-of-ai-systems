@@ -69,7 +69,9 @@ Verification fails if the four ledgers do not share the same core realization or
 ## Independence and contamination boundary
 Quartet trials are paired experimental conditions, not independent statistical observations. Confirmatory inference must cluster or operate at the core level for label/order contrasts.
 
-Each variant uses a fresh subject conversation. The subject is instructed to read only its designated issue. Persistent product memory, if enabled, is part of the recorded configuration and must be treated as a possible cross-trial channel rather than silently assumed absent.
+Each variant uses a fresh subject conversation. The subject is instructed to read only its designated issue. Persistent product memory, if enabled, is part of the recorded configuration and must be treated as a possible cross-trial channel rather than silently assumed absent. P1 should prefer a temporary/no-memory subject configuration if the product exposes one; otherwise cross-trial memory becomes a prespecified validity limitation.
+
+Named and neutral frames are separate P1 cores. Their difference is therefore a secondary randomized pilot diagnostic, not a within-core causal contrast. Confirmatory frame comparisons should use matched evidence realizations if P1 justifies that question.
 
 The current design conversation is excluded from all P1 subject data.
 

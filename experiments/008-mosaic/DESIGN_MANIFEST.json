@@ -20,11 +20,11 @@
   "artifacts": [
     {
       "path": "experiments/008-mosaic/PILOT_PREREGISTRATION.md",
-      "sha256": "c7a76a229fe75966e5ba18deff72aa113e9649bb3e0bdff83d81eeb1b4568d39"
+      "sha256": "bb6f2d6b375b67ee2e91b8d399dce266248e341ee1a7113563801ea4ca48dde9"
     },
     {
       "path": "experiments/008-mosaic/DESIGN.md",
-      "sha256": "466cee018bcff813eefac7e53f2f5bada0c0f9861b3dd1ebef5aa996823b1113"
+      "sha256": "c1528a6fe0770379312c1de3b493ebc1efa07d3a91cf36cfb931f6c8879683dc"
     },
     {
       "path": "experiments/008-mosaic/LITERATURE_POSITIONING.md",
