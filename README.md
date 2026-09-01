@@ -52,11 +52,12 @@ This creates a measurable gap between **believed capability** and **effective ca
 - **Stage 002B:** runtime-legibility adapter.
 - **Stage 003:** ephemeral GitHub Actions controller with seal-before-reveal validation.
 - **Stage 004:** construct-validity audit, public-evidence collector, and positive-control freeze candidate.
-- **Stage 005A:** configuration-bound RCL controller candidate; local end-to-end verification complete, public excluded validation pending.
+- **Stage 005:** configuration-bound RCL controller validated publicly; `RCL-VAL-001` passed 100/100 independent evidence checks and remains excluded.
+- **Stage 006:** final manifest-driven RCL-PC positive-control freeze candidate; no included trial has started.
 
 Stage 004 deliberately places the original direct transparent/opaque experiment on **HOLD as a headline study**. Because a transparent probe reveals the deterministic action condition, that design is retained as `RCL-PC`, a positive control rather than broad evidence of self-awareness.
 
-The Stage 005 configuration-bound controller validation `RCL-VAL-001` passed 100/100 independent public-evidence checks. The final RCL-PC freeze and included block configuration remain pending; no `PC-RCL-*` trial has started.
+The final RCL-PC package now freezes the exact product configuration, controller identity, subject instructions, 32 fixed identifiers, public-evidence requirements, analysis thresholds, and `PASS` / `FAIL` / `INCOMPLETE` / `INVALID` status rules. No `PC-RCL-*` included trial has started.
 
 The proposed main successor is **MOSAIC — Model Of System Ability under Inconsistent Cues**, which tests probability updating under graded reliability, conflicting sources, source-label swaps, order swaps, and public commit–seal–reveal auditing.
 
@@ -64,10 +65,12 @@ The proposed main successor is **MOSAIC — Model Of System Ability under Incons
 
 ```bash
 python -m pytest -q
-sais-verify-freeze experiments/004-construct-validity/manifest.json
+sais-verify-freeze experiments/006-rcl-pc-final-freeze/FREEZE_MANIFEST.json
 sais-collect-public OWNER/REPOSITORY ISSUE_NUMBER --output trial.public.json
 sais-collect-rcl-bound OWNER/REPOSITORY ISSUE_NUMBER --output trial.rcl.public.json
-sais-rcl-pc collected/*.public.json --final --output analysis.json
+sais-rcl-pc collected/*.public.json \
+  --manifest experiments/006-rcl-pc-final-freeze/FREEZE_MANIFEST.json \
+  --final --output analysis.json
 ```
 
 Confirmatory analysis rejects artifact-only trial files by default. Included records must be reconstructed from public issue comments and the exact sealed Git ledger commit.

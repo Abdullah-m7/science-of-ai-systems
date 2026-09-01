@@ -8,7 +8,6 @@ import pytest
 
 from sais import public_evidence
 from sais.public_evidence import collect_public_trial, verify_public_trial
-from sais.rcl_pc_analysis import TrialIntegrityError, extract_trial
 
 FIXTURE = (
     Path(__file__).parents[1]
@@ -27,10 +26,9 @@ def test_real_public_validation_fixture_verifies_offline():
     bundle = load_fixture()
     checks = verify_public_trial(bundle)
     assert checks["valid"] is True
-    record = extract_trial(bundle)
-    assert record["trial_id"] == "S003-P001"
-    assert record["outcome"] == 1
-    assert record["legibility"] == "opaque"
+    assert bundle["ledger"]["trial_id"] == "S003-P001"
+    assert bundle["ledger"]["history"][2]["payload"]["action"]["success"] is True
+    assert bundle["reveal"]["legibility"] == "opaque"
 
 
 def test_seal_reveal_reordering_is_detected():
@@ -53,11 +51,11 @@ def test_ledger_byte_tampering_is_detected():
     assert verify_public_trial(forged)["valid"] is False
 
 
-def test_artifact_only_bundle_is_rejected_by_default():
+def test_public_verifier_rejects_artifact_only_bundle():
     bundle = load_fixture()
     del bundle["public_record"]
-    with pytest.raises(TrialIntegrityError, match="public_provenance_missing"):
-        extract_trial(bundle)
+    checks = verify_public_trial(bundle)
+    assert checks["valid"] is False
 
 
 def test_later_alternative_subject_forecast_does_not_replace_sealed_one():
@@ -149,36 +147,6 @@ def test_collector_uses_frozen_actor_and_round_trips_fixture(monkeypatch):
     )
     assert collected["ledger"]["trial_id"] == "S003-P001"
     assert collected["public_verification"]["valid"] is True
-
-
-def test_confirmatory_extractor_rejects_cross_repository_bundle():
-    bundle = load_fixture()
-    bundle["public_record"]["repository"] = "other-owner/other-repository"
-    with pytest.raises(TrialIntegrityError, match="repository_matches_expected"):
-        extract_trial(bundle)
-
-
-def test_confirmatory_extractor_rejects_wrong_subject_actor():
-    bundle = load_fixture()
-    bundle["ledger"]["subject_login"] = "other-subject"
-    with pytest.raises(TrialIntegrityError):
-        extract_trial(bundle)
-
-
-def test_confirmatory_extractor_rejects_wrong_controller_code_sha_early():
-    bundle = load_fixture()
-    bundle["ledger"]["controller_code_sha"] = "0" * 40
-    bundle["reveal"]["controller_code_sha"] = "0" * 40
-    with pytest.raises(TrialIntegrityError, match="controller_code_sha_mismatch"):
-        extract_trial(bundle)
-
-
-def test_confirmatory_extractor_rejects_wrong_protocol_early():
-    bundle = load_fixture()
-    bundle["ledger"]["protocol_version"] = "SMI-CP/UNFROZEN"
-    bundle["reveal"]["protocol_version"] = "SMI-CP/UNFROZEN"
-    with pytest.raises(TrialIntegrityError, match="controller_protocol_mismatch"):
-        extract_trial(bundle)
 
 
 def test_github_base64_decoder_accepts_ascii_wrapping_and_rejects_noise():

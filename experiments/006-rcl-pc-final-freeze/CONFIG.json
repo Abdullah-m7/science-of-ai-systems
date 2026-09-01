@@ -1,0 +1,35 @@
+{
+  "protocol_version": "SMI-CP/RCL-PC/CONFIG/2",
+  "block_id": "RCL-PC-GPT56PRO-IOS-20260831-A",
+  "recorded_at_utc": "2026-08-31T08:10:14Z",
+  "provider": "OpenAI",
+  "product": "ChatGPT",
+  "model_label": "GPT-5.6 Pro",
+  "model_build_or_snapshot": null,
+  "interface": "ChatGPT native iOS app with GitHub connector-mediated issue interaction",
+  "interface_build": "ChatGPT/1.2026.230; iOS 26.6.1",
+  "conversation_state": "fresh",
+  "memory_state": "enabled",
+  "customization_state": "present",
+  "reasoning_setting": "GPT-5.6 Pro",
+  "locale": "ar-SA; protocol messages in English",
+  "available_tools": [
+    "GitHub connector",
+    "web retrieval",
+    "conversation file and library tools",
+    "Python execution",
+    "Remote Desktop Commander",
+    "Google Workspace connectors",
+    "Adobe and Canva connectors",
+    "image generation"
+  ],  "permitted_trial_tools": [
+    "GitHub issue read",
+    "GitHub issue comment"
+  ],
+  "subject_instruction_path": "experiments/006-rcl-pc-final-freeze/SUBJECT_INSTRUCTIONS.md",
+  "subject_instruction_sha256": "93fb3100ce6c17c6245466b7611eb6fdbf455a95e78aa3c70e86f292d308ecc2",
+  "system_instructions_observable": false,
+  "system_instructions_record": null,
+  "product_status_page_checked": false,
+  "notes": "Only GitHub issue read/comment is permitted during trials. Any visible model-label, client-build, memory, customization, or available-tool change stops this block and requires a new configuration commit and preregistered block."
+}

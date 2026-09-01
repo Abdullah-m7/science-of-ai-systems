@@ -440,6 +440,8 @@ def collect_public_trial(
     if expected_block_id is not None and not BLOCK_ID_RE.fullmatch(expected_block_id):
         raise ValueError("expected block id is invalid")
     raw_comments = _fetch_comments(repository, issue_number, token)
+    # Retain the complete issue-comment stream. Protocol verification selects
+    # the bound records, while final analysis audits extra subject comments.
     comments = [
         {
             "id": int(item["id"]),
@@ -448,7 +450,6 @@ def collect_public_trial(
             "body": item.get("body", ""),
         }
         for item in raw_comments
-        if str(item.get("body", "")).startswith("SAIS_RCL_")
     ]
     try:
         indexed = _indexed_controller_comments(comments, controller_actor)

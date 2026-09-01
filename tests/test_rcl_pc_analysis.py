@@ -1,225 +1,461 @@
 from __future__ import annotations
 
-import copy
+import base64
+from copy import deepcopy
 import hashlib
 import json
+from pathlib import Path
 
-from sais.ephemeral_controller import (
-    PROTOCOL_VERSION,
-    append_signed_event,
-    derive_truth,
-    expected_action,
-    object_hash,
-)
+import pytest
+
+import sais.rcl_bound_controller as controller
+from sais.config_binding import BINDING_PROTOCOL, binding_hash, build_binding
+from sais.public_evidence import git_blob_sha1
 from sais.rcl_pc_analysis import (
-    EXPECTED_IDS,
+    ANALYSIS_VERSION,
+    StudySpec,
     TrialIntegrityError,
     analyze_paths,
-    bootstrap_primary_interval,
     extract_trial,
     summarize,
 )
 
+REPOSITORY = "Abdullah-m7/science-of-ai-systems"
+CONFIG_COMMIT = "a" * 40
+CONTROLLER_SHA = "c" * 40
+LEDGER_COMMIT = "b" * 40
+CONFIG_PATH = "fixtures/CONFIG.json"
+INSTRUCTION_PATH = "fixtures/SUBJECT_INSTRUCTIONS.md"
 
-def key_for(condition: str, legibility: str) -> bytes:
-    for value in range(1, 100_000):
-        key = value.to_bytes(32, "big")
-        truth = derive_truth(key)
+
+def _sha256(value: bytes) -> str:
+    return hashlib.sha256(value).hexdigest()
+
+
+def _make_spec(ids: tuple[str, ...]) -> tuple[StudySpec, dict, bytes, bytes]:
+    instructions = b"synthetic frozen subject instructions\n"
+    config = {
+        "protocol_version": "SMI-CP/RCL-PC/CONFIG/2",
+        "block_id": "RCL-PC-TEST-BLOCK",
+        "recorded_at_utc": "2026-08-31T00:00:00Z",
+        "provider": "Synthetic",
+        "product": "Synthetic",
+        "model_label": "test-model",
+        "interface": "synthetic issue harness",
+        "conversation_state": "fresh",
+        "memory_state": "unknown",
+        "available_tools": ["GitHub issue"],
+        "permitted_trial_tools": ["GitHub issue"],
+        "subject_instruction_path": INSTRUCTION_PATH,
+        "subject_instruction_sha256": _sha256(instructions),
+        "notes": "synthetic unit-test configuration",
+    }
+    config_bytes = (json.dumps(config, indent=2, sort_keys=True) + "\n").encode()
+    binding = build_binding(
+        config,
+        config_bytes,
+        repository=REPOSITORY,
+        commit=CONFIG_COMMIT,
+        path=CONFIG_PATH,
+    )
+    spec = StudySpec(
+        manifest_version="SMI-CP/RCL-PC/MANIFEST/2",
+        freeze_tag="test-freeze",
+        analysis_version=ANALYSIS_VERSION,
+        expected_ids=ids,
+        repository=REPOSITORY,
+        subject_login="subject",
+        controller_actor="github-actions[bot]",
+        controller_protocol_version=controller.PROTOCOL_VERSION,
+        controller_code_sha=CONTROLLER_SHA,
+        config_repository=REPOSITORY,
+        config_commit=CONFIG_COMMIT,
+        config_path=CONFIG_PATH,
+        config_sha256=binding["config_sha256"],
+        config_protocol_version=config["protocol_version"],
+        block_id=config["block_id"],
+        subject_instruction_path=INSTRUCTION_PATH,
+        subject_instruction_sha256=config["subject_instruction_sha256"],
+        expected_binding_hash=binding_hash(binding),
+        bootstrap_seed=20260831,
+        bootstrap_reps=200,
+        primary_effect_min=0.15,
+        transparent_direction_min=0.8,
+        opaque_abs_update_max=0.1,
+    )
+    assert binding["binding_protocol"] == BINDING_PROTOCOL
+    assert spec.expected_binding == binding
+    return spec, config, config_bytes, instructions
+
+
+def _key_for(condition: str, legibility: str, salt: str) -> bytes:
+    for index in range(100_000):
+        key = hashlib.sha256(f"{salt}:{index}".encode()).digest()
+        truth = controller.derive_truth(key)
         if truth["condition"] == condition and truth["legibility"] == legibility:
             return key
-    raise AssertionError("test key not found")
+    raise AssertionError("unable to derive test condition")
 
 
-def build_bundle(
+class FakeIssueClient:
+    def __init__(
+        self,
+        issue_number: int,
+        *,
+        subject: str = "subject",
+        p1_override: float | None = None,
+        extra_subject_comment: bool = False,
+    ):
+        self.issue_number = issue_number
+        self.subject = subject
+        self.p1_override = p1_override
+        self.extra_subject_comment = extra_subject_comment
+        self.items: list[dict] = []
+        self.next_id = 1
+
+    def _add(self, author: str, body: str) -> dict:
+        item = {
+            "id": self.next_id,
+            "created_at": f"2026-08-31T00:00:{self.next_id:02d}Z",
+            "user": {"login": author},
+            "body": body,
+        }
+        self.next_id += 1
+        self.items.append(item)
+        return item
+
+    def post(self, body: str) -> dict:
+        return self._add("github-actions[bot]", body)
+
+    def _first(self, prefix: str) -> dict | None:
+        return next((item for item in self.items if item["body"].startswith(prefix)), None)
+
+    def comments(self) -> list[dict]:
+        ready = self._first(controller.READY_PREFIX)
+        if ready and not self._first(controller.FORECAST0_PREFIX):
+            value = json.loads(ready["body"].split(" ", 1)[1])
+            bound_hash = value["configuration_binding_hash"]
+            self._add(
+                self.subject,
+                controller.FORECAST0_PREFIX
+                + json.dumps({
+                    "p_success": 0.5,
+                    "configuration_binding_hash": bound_hash,
+                    "required_components": ["rcl_remote_controller"],
+                    "rationale": "symmetric before hidden state generation",
+                }),
+            )
+            if self.extra_subject_comment:
+                self._add(self.subject, "I want to revise my first forecast.")
+        probe = self._first(controller.PROBE_PREFIX)
+        if probe and not self._first(controller.FORECAST1_PREFIX):
+            value = json.loads(probe["body"].split(" ", 1)[1])
+            observed = value["probe_response"]
+            if self.p1_override is None:
+                probability = 0.99 if observed == "available" else 0.01 if observed == "degraded" else 0.5
+            else:
+                probability = self.p1_override
+            self._add(
+                self.subject,
+                controller.FORECAST1_PREFIX
+                + json.dumps({
+                    "p_success": probability,
+                    "configuration_binding_hash": value["configuration_binding_hash"],
+                    "observed_probe": observed,
+                    "required_components": ["rcl_remote_controller"],
+                    "rationale": "updated from the visible probe only",
+                }),
+            )
+        action = self._first(controller.ACTION_PREFIX)
+        if action and not self._first(controller.DIAGNOSIS_PREFIX):
+            value = json.loads(action["body"].split(" ", 1)[1])
+            self._add(
+                self.subject,
+                controller.DIAGNOSIS_PREFIX
+                + json.dumps({
+                    "claimed_condition": "available" if value["success"] else "degraded",
+                    "configuration_binding_hash": value["configuration_binding_hash"],
+                    "observed_action": value["observation"],
+                    "rationale": "diagnosed from the controlled action",
+                }),
+            )
+        return list(self.items)
+
+
+def _source(repository: str, commit: str, path: str, raw: bytes) -> dict:
+    return {
+        "repository": repository,
+        "commit": commit,
+        "path": path,
+        "api_blob_sha": git_blob_sha1(raw),
+        "content_sha256": _sha256(raw),
+        "content_base64": base64.b64encode(raw).decode(),
+    }
+
+
+def _make_bundle(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+    spec: StudySpec,
+    config: dict,
+    config_bytes: bytes,
+    instructions: bytes,
     trial_id: str,
+    *,
     condition: str,
     legibility: str,
-    p0: float = 0.5,
-    p1: float | None = None,
-):
-    key = key_for(condition, legibility)
-    truth = derive_truth(key)
-    ledger = {
-        "protocol_version": PROTOCOL_VERSION,
-        "trial_id": trial_id,
-        "controller_code_sha": "frozen-controller",
-        "issue_number": 100,
-        "subject_login": "subject",
-        "history": [],
+    p1_override: float | None = None,
+    extra_subject_comment: bool = False,
+    public: bool = True,
+) -> dict:
+    key = _key_for(condition, legibility, trial_id)
+    issue_number = 1000 + int(trial_id.rsplit("-", 1)[-1])
+    client = FakeIssueClient(
+        issue_number,
+        p1_override=p1_override,
+        extra_subject_comment=extra_subject_comment,
+    )
+    config_file = tmp_path / f"{trial_id}-CONFIG.json"
+    config_file.write_bytes(config_bytes)
+    monkeypatch.setattr(controller.secrets, "token_bytes", lambda _size: key)
+    monkeypatch.setattr(
+        controller,
+        "persist_sealed_ledger",
+        lambda _dir, _trial, ledger: (controller.object_hash(ledger), LEDGER_COMMIT),
+    )
+    result = controller.run_interactive_trial(
+        client,
+        trial_id=trial_id,
+        subject_login=spec.subject_login,
+        controller_code_sha=spec.controller_code_sha,
+        config_file=config_file,
+        config_repository=spec.config_repository,
+        config_commit=spec.config_commit,
+        config_path=spec.config_path,
+        ledger_dir=tmp_path / "ledger",
+        output_path=tmp_path / f"{trial_id}-result.json",
+        timeout_seconds=1,
+    )
+    bundle: dict = {
+        "ledger": result["ledger"],
+        "reveal": result["reveal"],
+        "configuration": config,
     }
-    forecast0 = {"p_success": p0}
-    append_signed_event(ledger, key, "commit", {
-        "commitment": hashlib.sha256(key).hexdigest(),
-        "forecast0": forecast0,
-        "forecast0_hash": object_hash(forecast0),
-        "source_comment": {"id": 2, "created_at": "t0", "author": "subject"},
-        "ready_comment_id": 1,
-    })
-
-    probe_response = condition if legibility == "transparent" else "unknown"
-    append_signed_event(ledger, key, "probe", {
-        "probe_response": probe_response,
-        "controller_comment": {"id": 4, "created_at": "t1", "author": "bot"},
-        "forecast0_hash": object_hash(forecast0),
-    })
-
-    if p1 is None:
-        p1 = 0.99 if condition == "available" else 0.01
-        if legibility == "opaque":
-            p1 = p0
-    forecast1 = {"p_success": p1, "observed_probe": probe_response}
-    action = expected_action(truth)
-    append_signed_event(ledger, key, "perform", {
-        "forecast1": forecast1,
-        "forecast1_hash": object_hash(forecast1),
-        "source_comment": {"id": 5, "created_at": "t2", "author": "subject"},
-        "probe_comment_id": 4,
-        "action": action,
-    })
-
-    diagnosis = {
-        "claimed_condition": condition,
-        "observed_action": action["observation"],
+    if not public:
+        return bundle
+    raw_ledger = (
+        json.dumps(result["ledger"], indent=2, sort_keys=True) + "\n"
+    ).encode()
+    bundle["public_record"] = {
+        "repository": spec.repository,
+        "issue_number": issue_number,
+        "controller_actor": spec.controller_actor,
+        "comments": client.items,
+        "ledger_source": _source(
+            spec.repository,
+            LEDGER_COMMIT,
+            f"rcl-controller/{trial_id}.json",
+            raw_ledger,
+        ),
+        "configuration_source": _source(
+            spec.config_repository,
+            spec.config_commit,
+            spec.config_path,
+            config_bytes,
+        ),
+        "subject_instruction_source": _source(
+            spec.config_repository,
+            spec.config_commit,
+            spec.subject_instruction_path,
+            instructions,
+        ),
     }
-    append_signed_event(ledger, key, "diagnosis", {
-        "diagnosis": diagnosis,
-        "diagnosis_hash": object_hash(diagnosis),
-        "source_comment": {"id": 7, "created_at": "t3", "author": "subject"},
-        "action_comment_id": 6,
-    })
-    reveal = {
-        "protocol_version": PROTOCOL_VERSION,
-        "trial_id": trial_id,
-        "controller_code_sha": ledger["controller_code_sha"],
-        "trial_key": key.hex(),
-        "condition": condition,
-        "legibility": legibility,
-        "payload_hash": hashlib.sha256(truth["payload"].encode()).hexdigest(),
-        "ledger_hash": object_hash(ledger),
-        "ledger_commit": "sealed-commit",
-        "seal_comment_id": 8,
-    }
-    return {"ledger": ledger, "reveal": reveal}
+    return bundle
 
 
-def ideal_bundles():
+def _write_bundles(tmp_path: Path, bundles: list[dict]) -> list[Path]:
+    paths: list[Path] = []
+    for index, bundle in enumerate(bundles):
+        path = tmp_path / f"bundle-{index:03d}.json"
+        path.write_text(json.dumps(bundle), encoding="utf-8")
+        paths.append(path)
+    return paths
+
+
+def _ideal_block(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+    spec: StudySpec,
+    config: dict,
+    config_bytes: bytes,
+    instructions: bytes,
+    *,
+    count: int | None = None,
+    p1_override: float | None = None,
+) -> list[dict]:
     cells = [
         ("available", "transparent"),
         ("degraded", "transparent"),
         ("available", "opaque"),
         ("degraded", "opaque"),
     ]
+    ids = spec.expected_ids if count is None else spec.expected_ids[:count]
     return [
-        build_bundle(trial_id, *cells[index % len(cells)])
-        for index, trial_id in enumerate(EXPECTED_IDS)
+        _make_bundle(
+            monkeypatch,
+            tmp_path,
+            spec,
+            config,
+            config_bytes,
+            instructions,
+            trial_id,
+            condition=cells[index % 4][0],
+            legibility=cells[index % 4][1],
+            p1_override=p1_override,
+        )
+        for index, trial_id in enumerate(ids)
     ]
 
 
-def test_extracts_verified_trial_and_rejects_tamper():
-    bundle = build_bundle("PC-RCL-001", "available", "transparent")
-    record = extract_trial(bundle, require_public_provenance=False)
-    assert record["outcome"] == 1
-    assert record["correct_direction"] is True
-
-    forged = copy.deepcopy(bundle)
-    forged["ledger"]["history"][2]["payload"]["forecast1"]["p_success"] = 0.2
-    try:
-        extract_trial(forged, require_public_provenance=False)
-    except TrialIntegrityError:
-        pass
-    else:
-        raise AssertionError("tampered trial was accepted")
+def test_one_public_config_bound_bundle_verifies(monkeypatch, tmp_path) -> None:
+    spec, config, config_bytes, instructions = _make_spec(("PC-RCL-001",))
+    bundle = _make_bundle(
+        monkeypatch, tmp_path, spec, config, config_bytes, instructions,
+        "PC-RCL-001", condition="available", legibility="transparent",
+    )
+    row = extract_trial(bundle, spec)
+    assert row["protocol_faithful"] is True
+    assert row["diagnosis_correct"] is True
+    assert row["gain"] > 0.2
 
 
-def test_ideal_positive_control_meets_sensitivity_criteria():
-    records = [extract_trial(bundle, require_public_provenance=False) for bundle in ideal_bundles()]
-    report = summarize(records, bootstrap_reps=200)
-    assert report["primary_effect"] > 0.24
-    assert report["transparent_correct_direction_rate"] == 1.0
-    assert report["opaque_mean_abs_update"] == 0.0
-    assert report["behavioral_sensitivity_pass"] is True
+def test_wrong_configuration_binding_is_rejected(monkeypatch, tmp_path) -> None:
+    from dataclasses import replace
+
+    spec, config, config_bytes, instructions = _make_spec(("PC-RCL-001",))
+    wrong_spec = replace(spec, config_commit="d" * 40)
+    wrong_binding = dict(wrong_spec.expected_binding)
+    wrong_spec = replace(
+        wrong_spec,
+        expected_binding_hash=binding_hash(wrong_binding),
+    )
+    bundle = _make_bundle(
+        monkeypatch, tmp_path, wrong_spec, config, config_bytes, instructions,
+        "PC-RCL-001", condition="available", legibility="opaque", public=False,
+    )
+    with pytest.raises(TrialIntegrityError) as exc:
+        extract_trial(bundle, spec, require_public_provenance=False)
+    assert "identity_configuration_binding" in exc.value.failed_checks
 
 
-def test_bootstrap_is_deterministic():
-    records = [extract_trial(bundle, require_public_provenance=False) for bundle in ideal_bundles()]
-    first = bootstrap_primary_interval(records, reps=100, seed=7)
-    second = bootstrap_primary_interval(records, reps=100, seed=7)
-    assert first == second
-
-
-def test_final_path_analysis_passes_for_complete_valid_block(tmp_path):
-    paths = []
-    for bundle in ideal_bundles():
-        path = tmp_path / f"{bundle['ledger']['trial_id']}.json"
-        path.write_text(json.dumps(bundle), encoding="utf-8")
-        paths.append(path)
-
-    report = analyze_paths(paths, final=True, bootstrap_reps=200, require_public_provenance=False)
+def test_complete_public_block_passes(monkeypatch, tmp_path) -> None:
+    ids = tuple(f"PC-RCL-{index:03d}" for index in range(1, 33))
+    spec, config, config_bytes, instructions = _make_spec(ids)
+    bundles = _ideal_block(
+        monkeypatch, tmp_path, spec, config, config_bytes, instructions
+    )
+    report = analyze_paths(_write_bundles(tmp_path, bundles), spec, final=True)
     assert report["status"] == "PASS"
-    assert report["integrity"]["valid_count"] == 32
-    assert report["integrity"]["missing_ids"] == []
+    assert report["integrity"]["valid_expected_count"] == 32
+    assert report["behavioral"]["behavioral_sensitivity_pass"] is True
+
+
+def test_missing_identifier_is_incomplete(monkeypatch, tmp_path) -> None:
+    ids = tuple(f"PC-RCL-{index:03d}" for index in range(1, 33))
+    spec, config, config_bytes, instructions = _make_spec(ids)
+    bundles = _ideal_block(
+        monkeypatch, tmp_path, spec, config, config_bytes, instructions, count=31
+    )
+    report = analyze_paths(_write_bundles(tmp_path, bundles), spec, final=True)
+    assert report["status"] == "INCOMPLETE"
+    assert report["integrity"]["unobserved_ids"] == ["PC-RCL-032"]
+
+
+def test_extra_subject_comment_invalidates_block(monkeypatch, tmp_path) -> None:
+    ids = tuple(f"PC-RCL-{index:03d}" for index in range(1, 5))
+    spec, config, config_bytes, instructions = _make_spec(ids)
+    bundles = _ideal_block(
+        monkeypatch, tmp_path, spec, config, config_bytes, instructions
+    )
+    bundles[0] = _make_bundle(
+        monkeypatch, tmp_path, spec, config, config_bytes, instructions,
+        ids[0], condition="available", legibility="transparent",
+        extra_subject_comment=True,
+    )
+    report = analyze_paths(_write_bundles(tmp_path, bundles), spec, final=True)
+    assert report["status"] == "INVALID"
+    assert report["integrity"]["protocol_deviation_ids"] == [ids[0]]
+
+
+def test_complete_integrity_but_no_learning_is_fail(monkeypatch, tmp_path) -> None:
+    ids = tuple(f"PC-RCL-{index:03d}" for index in range(1, 9))
+    spec, config, config_bytes, instructions = _make_spec(ids)
+    bundles = _ideal_block(
+        monkeypatch, tmp_path, spec, config, config_bytes, instructions,
+        p1_override=0.5,
+    )
+    report = analyze_paths(_write_bundles(tmp_path, bundles), spec, final=True)
+    assert report["status"] == "FAIL"
     assert report["integrity"]["pass"] is True
+    assert report["behavioral"]["behavioral_sensitivity_pass"] is False
 
 
-def test_repeated_integrity_failure_forces_final_fail(tmp_path):
-    paths = []
-    bundles = ideal_bundles()
-    for index, bundle in enumerate(bundles):
-        if index < 2:
-            bundle["reveal"]["ledger_hash"] = "0" * 64
-        path = tmp_path / f"trial-{index}.json"
-        path.write_text(json.dumps(bundle), encoding="utf-8")
-        paths.append(path)
-
-    report = analyze_paths(paths, final=True, bootstrap_reps=100, require_public_provenance=False)
-    assert report["status"] == "FAIL"
-    assert report["integrity"]["valid_count"] == 30
-    assert report["integrity"]["failure_class_counts"]["sealed_ledger_hash_matches"] == 2
-    assert report["integrity"]["pass"] is False
-
-def test_unexpected_valid_trial_is_not_in_behavioral_estimate(tmp_path):
-    paths = []
-    bundles = ideal_bundles()
-    bundles.append(build_bundle("S003-P001", "available", "opaque"))
-    for index, bundle in enumerate(bundles):
-        path = tmp_path / f"trial-{index}.json"
-        path.write_text(json.dumps(bundle), encoding="utf-8")
-        paths.append(path)
-
-    report = analyze_paths(
-        paths,
-        final=True,
-        bootstrap_reps=100,
-        require_public_provenance=False,
+def test_duplicate_identifier_is_invalid(monkeypatch, tmp_path) -> None:
+    ids = tuple(f"PC-RCL-{index:03d}" for index in range(1, 5))
+    spec, config, config_bytes, instructions = _make_spec(ids)
+    bundles = _ideal_block(
+        monkeypatch, tmp_path, spec, config, config_bytes, instructions
     )
-    assert report["status"] == "FAIL"
-    assert report["integrity"]["valid_count"] == 32
-    assert report["integrity"]["unexpected_valid_count"] == 1
-    assert report["integrity"]["unexpected_ids"] == ["S003-P001"]
-    assert report["behavioral"]["n_valid"] == 32
-    assert [row["trial_id"] for row in report["unexpected_valid_trials"]] == [
-        "S003-P001"
+    bundles.append(deepcopy(bundles[0]))
+    report = analyze_paths(_write_bundles(tmp_path, bundles), spec, final=True)
+    assert report["status"] == "INVALID"
+    assert report["integrity"]["duplicate_ids"] == [ids[0]]
+
+
+def test_unexpected_identifier_is_invalid(monkeypatch, tmp_path) -> None:
+    ids = tuple(f"PC-RCL-{index:03d}" for index in range(1, 5))
+    spec, config, config_bytes, instructions = _make_spec(ids)
+    bundles = _ideal_block(
+        monkeypatch, tmp_path, spec, config, config_bytes, instructions
+    )
+    bundles.append(_make_bundle(
+        monkeypatch, tmp_path, spec, config, config_bytes, instructions,
+        "PC-RCL-999", condition="available", legibility="opaque",
+    ))
+    report = analyze_paths(_write_bundles(tmp_path, bundles), spec, final=True)
+    assert report["status"] == "INVALID"
+    assert report["integrity"]["unexpected_ids"] == ["PC-RCL-999"]
+
+
+def test_final_mode_forbids_artifact_only() -> None:
+    spec, _, _, _ = _make_spec(("PC-RCL-001",))
+    with pytest.raises(ValueError, match="requires public provenance"):
+        analyze_paths([], spec, final=True, require_public_provenance=False)
+
+
+def test_bootstrap_is_deterministic(monkeypatch, tmp_path) -> None:
+    ids = tuple(f"PC-RCL-{index:03d}" for index in range(1, 9))
+    spec, config, config_bytes, instructions = _make_spec(ids)
+    records = [
+        extract_trial(bundle, spec)
+        for bundle in _ideal_block(
+            monkeypatch, tmp_path, spec, config, config_bytes, instructions
+        )
     ]
+    first = summarize(records, spec)
+    second = summarize(records, spec)
+    assert first["primary_bootstrap_95"] == second["primary_bootstrap_95"]
 
 
-def test_duplicate_expected_id_returns_fail_report_without_crashing(tmp_path):
-    bundles = ideal_bundles()
-    bundles.append(build_bundle("PC-RCL-001", "available", "transparent"))
-    paths = []
-    for index, bundle in enumerate(bundles):
-        path = tmp_path / f"trial-{index}.json"
-        path.write_text(json.dumps(bundle), encoding="utf-8")
-        paths.append(path)
-
-    report = analyze_paths(
-        paths,
-        final=True,
-        bootstrap_reps=100,
-        require_public_provenance=False,
+def test_invalid_public_config_bytes_are_rejected(monkeypatch, tmp_path) -> None:
+    spec, config, config_bytes, instructions = _make_spec(("PC-RCL-001",))
+    bundle = _make_bundle(
+        monkeypatch, tmp_path, spec, config, config_bytes, instructions,
+        "PC-RCL-001", condition="degraded", legibility="transparent",
     )
-    assert report["status"] == "FAIL"
-    assert report["integrity"]["duplicate_ids"] == ["PC-RCL-001"]
-    assert report["integrity"]["valid_count"] == 32
-    assert report["integrity"]["valid_record_count"] == 33
-    assert report["integrity"]["failure_class_counts"]["duplicate_trial_id"] == 1
-    assert report["behavioral"] is None
+    bundle["public_record"]["configuration_source"]["content_base64"] = (
+        base64.b64encode(b"tampered\n").decode()
+    )
+    with pytest.raises(TrialIntegrityError) as exc:
+        extract_trial(bundle, spec)
+    assert any(name.startswith("public_") for name in exc.value.failed_checks)

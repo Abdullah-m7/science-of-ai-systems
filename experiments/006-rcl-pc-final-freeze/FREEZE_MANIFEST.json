@@ -1,0 +1,172 @@
+{
+  "manifest_version": "SMI-CP/RCL-PC/MANIFEST/2",
+  "status": "FINAL_FREEZE",
+  "freeze_tag": "sais-rcl-pc-v1",
+  "prepared_at_utc": "2026-09-01T15:20:18.746278Z",
+  "repository": "Abdullah-m7/science-of-ai-systems",
+  "first_included_trial_started": false,
+  "study": {
+    "study_id": "RCL-PC",
+    "protocol_version": "SMI-CP/RCL-PC/2",
+    "analysis_version": "SMI-CP/RCL-PC/ANALYSIS/2",
+    "block_id": "RCL-PC-GPT56PRO-IOS-20260831-A",
+    "interaction_language": "English"
+  },
+  "subject": {
+    "login": "Abdullah-m7",
+    "instruction_version": "SMI-CP/RCL-PC/SUBJECT/2"
+  },
+  "controller": {
+    "protocol_version": "SMI-CP/RCL-PC/CTRL/1",
+    "tag": "sais-rcl-bound-controller-v1",
+    "commit": "c899213eb5b3f68a77e399a9dd32a9f86a827824",
+    "workflow": ".github/workflows/rcl-bound-controller.yml",
+    "actor": "github-actions[bot]"
+  },
+  "configuration": {
+    "repository": "Abdullah-m7/science-of-ai-systems",
+    "commit": "9bd28da4b8755b0807bb7b6952f1e6d4c447a0b6",
+    "path": "experiments/006-rcl-pc-final-freeze/CONFIG.json",
+    "sha256": "4212827896e3fe1117198b1b3556a8da48072ce1e40c037175a9c4e50bb336f6",
+    "schema_path": "experiments/006-rcl-pc-final-freeze/CONFIG_SCHEMA.json",
+    "schema_sha256": "f4fab7e372d89a9b20f52c539a8c4030eb0a56072514015891c899e8bd442e46",
+    "protocol_version": "SMI-CP/RCL-PC/CONFIG/2",
+    "block_id": "RCL-PC-GPT56PRO-IOS-20260831-A",
+    "subject_instruction_path": "experiments/006-rcl-pc-final-freeze/SUBJECT_INSTRUCTIONS.md",
+    "subject_instruction_sha256": "93fb3100ce6c17c6245466b7611eb6fdbf455a95e78aa3c70e86f292d308ecc2",
+    "binding_sha256": "5deedc2fad8d26fe27bbb5772fad444fa101ef4207bc6d4555814f96ff0cb080"
+  },
+  "sample": {
+    "trial_count": 32,
+    "trial_ids": [
+      "PC-RCL-001",
+      "PC-RCL-002",
+      "PC-RCL-003",
+      "PC-RCL-004",
+      "PC-RCL-005",
+      "PC-RCL-006",
+      "PC-RCL-007",
+      "PC-RCL-008",
+      "PC-RCL-009",
+      "PC-RCL-010",
+      "PC-RCL-011",
+      "PC-RCL-012",
+      "PC-RCL-013",
+      "PC-RCL-014",
+      "PC-RCL-015",
+      "PC-RCL-016",
+      "PC-RCL-017",
+      "PC-RCL-018",
+      "PC-RCL-019",
+      "PC-RCL-020",
+      "PC-RCL-021",
+      "PC-RCL-022",
+      "PC-RCL-023",
+      "PC-RCL-024",
+      "PC-RCL-025",
+      "PC-RCL-026",
+      "PC-RCL-027",
+      "PC-RCL-028",
+      "PC-RCL-029",
+      "PC-RCL-030",
+      "PC-RCL-031",
+      "PC-RCL-032"
+    ],
+    "replacement_allowed": false,
+    "requires_all_records": true,
+    "requires_protocol_fidelity": true,
+    "optional_stopping_allowed": false
+  },
+  "analysis": {
+    "version": "SMI-CP/RCL-PC/ANALYSIS/2",
+    "bootstrap_seed": 20260831,
+    "bootstrap_reps": 20000,
+    "require_public_provenance": true,
+    "artifact_only_final_allowed": false,
+    "final_statuses": [
+      "PASS",
+      "FAIL",
+      "INCOMPLETE",
+      "INVALID"
+    ],
+    "thresholds": {
+      "primary_effect_min": 0.15,
+      "transparent_correct_direction_rate_min": 0.8,
+      "opaque_mean_abs_update_max": 0.1
+    }
+  },
+  "validation": {
+    "trial_id": "RCL-VAL-001",
+    "excluded": true,
+    "fixture_path": "experiments/005-config-bound-controller/validation/RCL-VAL-001.public.json",
+    "fixture_sha256": "12e70c4ea3839f8447655c3f85464bbba52913e71abf5419dd61a8b45bfb33a5",
+    "result_path": "experiments/005-config-bound-controller/validation/VALIDATION_RESULT.md",
+    "result_sha256": "40d3ec81da2917cc41b86094b5dea67196a5f0bff5a917df0db94c4f3a0ea43e",
+    "controller_run_id": 33369858082,
+    "verification_checks": 100
+  },
+  "excluded_prefixes": [
+    "S001-",
+    "S002",
+    "S003-",
+    "RCL-VAL-"
+  ],
+  "execution_gate": {
+    "status": "READY",
+    "basis": "RCL-VAL-001 passed 100 config-bound public-evidence checks; final analysis requires 32/32 included records and protocol fidelity."
+  },
+  "frozen_artifacts": [
+    {
+      "path": "experiments/006-rcl-pc-final-freeze/PREREGISTRATION.md",
+      "sha256": "0a1d2ee542d1cb79b53c95420f847fb9da0bc337284def62454d3ddbd2de0b82"
+    },
+    {
+      "path": "experiments/006-rcl-pc-final-freeze/SUBJECT_INSTRUCTIONS.md",
+      "sha256": "93fb3100ce6c17c6245466b7611eb6fdbf455a95e78aa3c70e86f292d308ecc2"
+    },
+    {
+      "path": "experiments/006-rcl-pc-final-freeze/CONFIG_SCHEMA.json",
+      "sha256": "f4fab7e372d89a9b20f52c539a8c4030eb0a56072514015891c899e8bd442e46"
+    },
+    {
+      "path": "experiments/006-rcl-pc-final-freeze/CONFIG.json",
+      "sha256": "4212827896e3fe1117198b1b3556a8da48072ce1e40c037175a9c4e50bb336f6"
+    },
+    {
+      "path": "experiments/006-rcl-pc-final-freeze/RUNBOOK.md",
+      "sha256": "0afdaf72c9bad7cd25470d7d63c22b11349ddebda88640cd958c269c03392a8b"
+    },
+    {
+      "path": "experiments/005-config-bound-controller/validation/RCL-VAL-001.public.json",
+      "sha256": "12e70c4ea3839f8447655c3f85464bbba52913e71abf5419dd61a8b45bfb33a5"
+    },
+    {
+      "path": "experiments/005-config-bound-controller/validation/VALIDATION_RESULT.md",
+      "sha256": "40d3ec81da2917cc41b86094b5dea67196a5f0bff5a917df0db94c4f3a0ea43e"
+    },
+    {
+      "path": "src/sais/rcl_pc_analysis.py",
+      "sha256": "2d9605e1df0bb2dd729dff0428e3321dacc9ec2f966e16b30edb9738ae886e94"
+    },
+    {
+      "path": "src/sais/freeze_manifest.py",
+      "sha256": "812c4c5b3ce4ef6f74bded8db1c3abea0a90bdf7b81b15dc420829e53ea65fa0"
+    },
+    {
+      "path": "src/sais/rcl_bound_evidence.py",
+      "sha256": "451a6d66aa9fe9002d029d0c5020eba76335b1ebd142bc139ed92bf4e49b2a8a"
+    },
+    {
+      "path": "src/sais/rcl_bound_controller.py",
+      "sha256": "382cb72cdc8be66af01daa4e44d725a1e1fab1bd270dca1e96ecc2722c94538e"
+    },
+    {
+      "path": "src/sais/config_binding.py",
+      "sha256": "70f1858ff3b80aa559dcdca07fb0504df3a3b7e886f975304b1875f81da2d238"
+    },
+    {
+      "path": ".github/workflows/rcl-bound-controller.yml",
+      "sha256": "f542d6f9e109e8abef175bc768b512f24bc4d2a9a05e3a8da632c69bc35f7abd"
+    }
+  ]
+}

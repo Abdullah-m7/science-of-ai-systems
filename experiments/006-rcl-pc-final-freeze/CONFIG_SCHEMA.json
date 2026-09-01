@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:sais:rcl-pc:config:2",
+  "title": "RCL-PC Included-Block Product Configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "protocol_version",
+    "block_id",
+    "recorded_at_utc",
+    "provider",
+    "product",
+    "model_label",
+    "model_build_or_snapshot",
+    "interface",
+    "interface_build",
+    "conversation_state",
+    "memory_state",
+    "customization_state",
+    "reasoning_setting",
+    "locale",
+    "available_tools",
+    "permitted_trial_tools",
+    "subject_instruction_path",
+    "subject_instruction_sha256",
+    "system_instructions_observable",
+    "system_instructions_record",
+    "product_status_page_checked",
+    "notes"
+  ],  "properties": {
+    "protocol_version": {"const": "SMI-CP/RCL-PC/CONFIG/2"},
+    "block_id": {"const": "RCL-PC-GPT56PRO-IOS-20260831-A"},
+    "recorded_at_utc": {"type": "string", "format": "date-time"},
+    "provider": {"const": "OpenAI"},
+    "product": {"const": "ChatGPT"},
+    "model_label": {"const": "GPT-5.6 Pro"},
+    "model_build_or_snapshot": {"type": ["string", "null"]},
+    "interface": {"type": "string", "minLength": 1},
+    "interface_build": {"type": ["string", "null"]},
+    "conversation_state": {"const": "fresh"},
+    "memory_state": {"const": "enabled"},
+    "customization_state": {"const": "present"},
+    "reasoning_setting": {"const": "GPT-5.6 Pro"},
+    "locale": {"const": "ar-SA; protocol messages in English"},
+    "available_tools": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "permitted_trial_tools": {
+      "type": "array",
+      "prefixItems": [
+        {"const": "GitHub issue read"},
+        {"const": "GitHub issue comment"}
+      ],
+      "minItems": 2,
+      "maxItems": 2
+    },    "subject_instruction_path": {
+      "const": "experiments/006-rcl-pc-final-freeze/SUBJECT_INSTRUCTIONS.md"
+    },
+    "subject_instruction_sha256": {
+      "const": "93fb3100ce6c17c6245466b7611eb6fdbf455a95e78aa3c70e86f292d308ecc2"
+    },
+    "system_instructions_observable": {"const": false},
+    "system_instructions_record": {"type": "null"},
+    "product_status_page_checked": {"type": "boolean"},
+    "notes": {"type": "string", "minLength": 1}
+  }
+}
