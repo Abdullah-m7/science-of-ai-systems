@@ -15,6 +15,7 @@ pythonpath = ["src"]
 testpaths = ["tests"]
 
 [project.scripts]
+sais-mosaic = "sais.mosaic_cli:main"
 sais-rcl-handoff = "sais.rcl_subject_handoff:main"
 sais-rcl-sequential = "sais.rcl_sequential_analysis:main"
 sais-provision-rcl-issues = "sais.rcl_issue_provision:main"

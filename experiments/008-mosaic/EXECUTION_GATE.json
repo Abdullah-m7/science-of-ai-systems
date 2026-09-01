@@ -1,0 +1,30 @@
+{
+  "gate_version": "SAIS/MOSAIC/EXECUTION-GATE/1",
+  "status": "HOLD",
+  "reason": "RCL_PC_POSITIVE_CONTROL_NOT_RUN",
+  "rcl_pc_freeze_tag": "sais-rcl-pc-v2",
+  "rcl_pc_expected_trial_count": 32,
+  "mosaic_p1_trial_count": 64,
+  "mosaic_p1_started": false,
+  "requirements_before_dispatch": [
+    "RCL-PC completes all 32 frozen identifiers",
+    "RCL-PC final manifest-driven analysis status is PASS",
+    "RCL-PC public bundles and final report are committed and independently reviewed",
+    "MOSAIC quartet controller passes excluded end-to-end validation",
+    "MOSAIC P1 subject instructions and public-evidence schema are frozen",
+    "No MOSAIC P1 issue may contain a hidden assignment before all four baseline forecasts in its quartet are sealed"
+  ],
+  "allowed_while_hold": [
+    "design simulation",
+    "posterior oracle testing",
+    "synthetic policy diagnostics",
+    "documentation",
+    "controller implementation without behavioral dispatch"
+  ],
+  "forbidden_while_hold": [
+    "MOSAIC P1 controller dispatch",
+    "MOSAIC P1 hidden-state generation",
+    "MOSAIC P1 subject data collection",
+    "claims based on P0 synthetic outputs"
+  ]
+}
