@@ -1,0 +1,50 @@
+{
+  "checkpoint_version": "SMI-CP/RCL-PC/PRE-DISPATCH/1",
+  "recorded_at_utc": "2026-09-01T16:36:33Z",
+  "trial_id": "PC-RCL-001",
+  "status": "WAITING_FOR_FRESH_SUBJECT_AND_OPERATOR_CONFIRMATION",
+  "included_trial_started": false,
+  "apply_authorized": false,
+  "freeze_tag": "sais-rcl-pc-v2",
+  "freeze_commit": "9cae514de94cd7d84ce9cfb293c209a91decb088",
+  "main_commit_at_checkpoint": "6a80e4ba51b0c2bcb4aa491b0018ffb0b330dec5",
+  "controller_tag": "sais-rcl-bound-controller-v1",
+  "controller_commit": "c899213eb5b3f68a77e399a9dd32a9f86a827824",
+  "configuration_commit": "b6a1e728f9ced540306b604dece5e42465b46073",
+  "configuration_path": "experiments/006-rcl-pc-final-freeze/CONFIG.json",
+  "configuration_binding_hash": "6d09daad4c45c1976794add2c7a404aca0e3f27fca1946ad467b900b00d85caa",
+  "registry_sha256": "df2d420742674819a2d466e680f98995a629b9d35e40965f731f527d49b7b1c4",
+  "dispatch_plan_sha256": "3d812368d2bdbd4d2eaf9bfca67d61f9aaf2f73b01f9b157adda5cdb3378b54e",
+  "handoff_manifest_sha256": "41d2c78ac35bf13fb64b7245d35acb22473f278d05da3062a8a03396761c8f70",
+  "subject_handoff": {
+    "path": "experiments/008b-subject-isolation/handoffs/PC-RCL-001.md",
+    "sha256": "e9d6c6bd25ee2b60e97470e862c8fcc0963964f18227da38d3656cb94c54814c"
+  },
+  "issue": {
+    "number": 18,
+    "url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/18",
+    "title": "[RCL-PC] PC-RCL-001 \u2014 NOT STARTED",
+    "state": "OPEN",
+    "body_sha256": "a5b2efd34221b2f0ecb78de64467718ad70300e81d45c075a9c473ef9adc4135",
+    "frozen_body_sha256": "a5b2efd34221b2f0ecb78de64467718ad70300e81d45c075a9c473ef9adc4135",
+    "comment_count": 0
+  },
+  "dispatch_ledger": {
+    "branch": "rcl-dispatch-ledger",
+    "head_commit": "60fa8fcb5f7f1dc53b389d00394632e81a2b0cd3",
+    "manifest_sha256": "52a7025927c2cb77074d2fd084c034bb63c42a2fd236869b66376bbb08cf441f",
+    "manifest_plan_sha256": "3d812368d2bdbd4d2eaf9bfca67d61f9aaf2f73b01f9b157adda5cdb3378b54e",
+    "reservation_record_count": 0,
+    "manifest_snapshot_path": "experiments/008d-pre-dispatch-checkpoint/DISPATCH_LEDGER_GENESIS.json"
+  },
+  "matching_controller_run_ids": [],
+  "expected_product_state": {
+    "model_label": "GPT-5.6 Sol",
+    "interface_build": "ChatGPT/1.2026.230; iOS 26.6.1",
+    "memory_state": "enabled",
+    "customization_state": "present"
+  },
+  "operator_confirmation": "PENDING",
+  "subject_context_requirement": "NEW_REGULAR_CHAT_ONLY",
+  "current_design_conversation_eligible": false
+}
