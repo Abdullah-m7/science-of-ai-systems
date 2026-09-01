@@ -1,0 +1,65 @@
+{
+  "manifest_version": "SAIS/MOSAIC/STAGE009/CANDIDATE-MANIFEST/1",
+  "status": "LOCAL_CANDIDATE_EXECUTION_HOLD",
+  "base_main_commit": "72d6856da681694defde2738172345aedc495fb1",
+  "controller_protocol": "SAIS/MOSAIC/CTRL-CANDIDATE/1",
+  "public_dispatch_enabled": false,
+  "github_workflow": null,
+  "execution_gate": {
+    "path": "experiments/008-mosaic/EXECUTION_GATE.json",
+    "required_state": "HOLD"
+  },
+  "tests": {
+    "controller_adversarial": 18,
+    "stage009_guard": 6,
+    "stage009_total": 24,
+    "full_repository": 176
+  },
+  "artifacts": [
+    {
+      "path": "experiments/009-mosaic-quartet-controller/PROTOCOL.md",
+      "sha256": "67d0333e8e1d9ab46993340ea215527294e1a6f60754142b4d3eabc805754ba3"
+    },
+    {
+      "path": "experiments/009-mosaic-quartet-controller/VALIDATION_PLAN.md",
+      "sha256": "2471ff5937f55ee90dc80957134babc05f0841faf4ac659f7d89a8c0da5f370a"
+    },
+    {
+      "path": "experiments/009-mosaic-quartet-controller/STATUS.json",
+      "sha256": "7b85457a7d86d35bdf599268d7aa1886c964036f66c711a293b2528a41ea0c44"
+    },
+    {
+      "path": "src/sais/mosaic_controller.py",
+      "sha256": "3dd296c5e22723c4f0ce8984d42e49f49614073b46471555553f5757e66fee06"
+    },
+    {
+      "path": "tests/test_mosaic_controller.py",
+      "sha256": "5ae0ceced6e60a95bdced61d43415c3c9178c43383f2fab8a3a42f823601b24c"
+    },
+    {
+      "path": "tests/test_mosaic_controller_candidate.py",
+      "sha256": "5dade3e6ca925fad53ed259e4154c847d21136c6a5bc07134a846241e1e4d017"
+    },
+    {
+      "path": "src/sais/mosaic.py",
+      "sha256": "ec8ec01a830050cb53d626bf0173dc9bc0001e839dd23802ff66de5bbb616d1b"
+    },
+    {
+      "path": "experiments/008-mosaic/design_matrix.json",
+      "sha256": "32005275c21afd1a1a4326a0508dfeb3b0adbbc4d88bc8e6cccd37e0c7a2f176"
+    },
+    {
+      "path": "experiments/008-mosaic/DESIGN_MANIFEST.json",
+      "sha256": "b20dcd57c00316d88e7c5f3e86d67ab8da4636ed09681f2f36d699270346ad6f"
+    }
+  ],
+  "design_binding": {
+    "canonical_design_hash": "3728c55b6347703ad156ce64137905d045c0170228c60ea5d8e3247d74725b6a",
+    "design_source_path": "src/sais/mosaic.py",
+    "design_source_sha256": "ec8ec01a830050cb53d626bf0173dc9bc0001e839dd23802ff66de5bbb616d1b",
+    "design_matrix_path": "experiments/008-mosaic/design_matrix.json",
+    "design_matrix_sha256": "32005275c21afd1a1a4326a0508dfeb3b0adbbc4d88bc8e6cccd37e0c7a2f176",
+    "design_manifest_path": "experiments/008-mosaic/DESIGN_MANIFEST.json",
+    "design_manifest_sha256": "b20dcd57c00316d88e7c5f3e86d67ab8da4636ed09681f2f36d699270346ad6f"
+  }
+}

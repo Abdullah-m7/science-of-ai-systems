@@ -59,12 +59,13 @@ This creates a measurable gap between **believed capability** and **effective ca
 - **Stage 008B:** pre-dispatch RCL-PC subject isolation/sequential-validity addendum and deterministic fresh-chat handoff generator; RCL-PC v2 is explicitly interpreted as repeated randomized measurement of a memory-enabled system.
 - **Stage 008C:** fail-closed single-trial dispatch guard; durable Git reservation must precede workflow dispatch, and run identity is recovered relative to a frozen baseline without blind retry.
 - **Stage 008D:** immutable pre-dispatch checkpoint for `PC-RCL-001`; dispatch-ledger genesis is recorded, live issue/run/reservation baselines are zero, and authorization remains pending a fresh subject context.
+- **Stage 009:** MOSAIC quartet-controller candidate; immutable baseline seal precedes hidden key generation, quartet-wide evidence barriers prevent cross-variant leakage, and sealed-ledger verification precedes key reveal. No public MOSAIC workflow exists.
 
 Stage 004 deliberately places the original direct transparent/opaque experiment on **HOLD as a headline study**. Because a transparent probe reveals the deterministic action condition, that design is retained as `RCL-PC`, a positive control rather than broad evidence of self-awareness.
 
 The final RCL-PC package now freezes the exact product configuration, controller identity, subject instructions, 32 fixed identifiers, public-evidence requirements, analysis thresholds, and `PASS` / `FAIL` / `INCOMPLETE` / `INVALID` status rules. No `PC-RCL-*` included trial has started.
 
-The main successor is **MOSAIC — Model Of System Ability under Inconsistent Cues**. Stage 008 now implements its design oracle and synthetic diagnostics for graded reliability, conflicting evidence, source-label swaps, and order swaps. No MOSAIC behavioral data have been collected.
+The main successor is **MOSAIC — Model Of System Ability under Inconsistent Cues**. Stage 008 implements the MOSAIC design oracle and synthetic diagnostics for graded reliability, conflicting evidence, source-label swaps, and order swaps. Stage 009 adds a transport-agnostic quartet-controller candidate under the same execution HOLD. No MOSAIC behavioral data have been collected.
 
 ## Reproducibility commands
 
