@@ -58,6 +58,7 @@ This creates a measurable gap between **believed capability** and **effective ca
 - **Stage 008A:** MOSAIC design/oracle stage; 16 counterfactual quartets (64 pilot-shell trials), Bayesian posterior oracle, label/order distortion metrics, and deterministic excluded P0 simulation. Execution remains HOLD until RCL-PC returns final `PASS`.
 - **Stage 008B:** pre-dispatch RCL-PC subject isolation/sequential-validity addendum and deterministic fresh-chat handoff generator; RCL-PC v2 is explicitly interpreted as repeated randomized measurement of a memory-enabled system.
 - **Stage 008C:** fail-closed single-trial dispatch guard; durable Git reservation must precede workflow dispatch, and run identity is recovered relative to a frozen baseline without blind retry.
+- **Stage 008D:** immutable pre-dispatch checkpoint for `PC-RCL-001`; dispatch-ledger genesis is recorded, live issue/run/reservation baselines are zero, and authorization remains pending a fresh subject context.
 
 Stage 004 deliberately places the original direct transparent/opaque experiment on **HOLD as a headline study**. Because a transparent probe reveals the deterministic action condition, that design is retained as `RCL-PC`, a positive control rather than broad evidence of self-awareness.
 
