@@ -50,7 +50,7 @@ sais-collect-rcl-bound Abdullah-m7/science-of-ai-systems ISSUE_NUMBER \
   --controller-actor 'github-actions[bot]' \
   --subject-actor Abdullah-m7 \
   --controller-code-sha c899213eb5b3f68a77e399a9dd32a9f86a827824 \
-  --config-commit 9bd28da4b8755b0807bb7b6952f1e6d4c447a0b6 \
+  --config-commit b6a1e728f9ced540306b604dece5e42465b46073 \
   --config-path experiments/006-rcl-pc-final-freeze/CONFIG.json \
   --block-id RCL-PC-GPT56SOL-IOS-20260901-A \
   --output collected/PC-RCL-NNN.public.json

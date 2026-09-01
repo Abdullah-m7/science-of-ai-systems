@@ -53,7 +53,7 @@ This creates a measurable gap between **believed capability** and **effective ca
 - **Stage 003:** ephemeral GitHub Actions controller with seal-before-reveal validation.
 - **Stage 004:** construct-validity audit, public-evidence collector, and positive-control freeze candidate.
 - **Stage 005:** configuration-bound RCL controller validated publicly; `RCL-VAL-001` passed 100/100 independent evidence checks and remains excluded.
-- **Stage 006:** final manifest-driven RCL-PC positive-control freeze candidate; no included trial has started.
+- **Stage 006:** final manifest-driven RCL-PC positive-control freeze candidate; `sais-rcl-pc-v1` was invalidated pre-trial after a model-identity provenance error, and corrected freeze `sais-rcl-pc-v2` targets GPT-5.6 Sol. No included trial has started.
 
 Stage 004 deliberately places the original direct transparent/opaque experiment on **HOLD as a headline study**. Because a transparent probe reveals the deterministic action condition, that design is retained as `RCL-PC`, a positive control rather than broad evidence of self-awareness.
 

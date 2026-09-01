@@ -21,11 +21,14 @@ from .config_binding import (
 from .rcl_bound_evidence import verify_public_trial
 
 MANIFEST_VERSION = "SMI-CP/RCL-PC/MANIFEST/2"
-FREEZE_TAG = "sais-rcl-pc-v1"
+FREEZE_TAG = "sais-rcl-pc-v2"
+SUPERSEDED_TAG = "sais-rcl-pc-v1"
+SUPERSEDED_COMMIT = "332075e3b887053c641f19b41f410e8f2c4721ee"
+INVALIDATION_PATH = "experiments/006-rcl-pc-final-freeze/FREEZE_V1_INVALIDATION.md"
 REPOSITORY = "Abdullah-m7/science-of-ai-systems"
 STUDY_PROTOCOL = "SMI-CP/RCL-PC/2"
 ANALYSIS_VERSION = "SMI-CP/RCL-PC/ANALYSIS/2"
-BLOCK_ID = "RCL-PC-GPT56PRO-IOS-20260831-A"
+BLOCK_ID = "RCL-PC-GPT56SOL-IOS-20260901-A"
 SUBJECT_LOGIN = "Abdullah-m7"
 SUBJECT_VERSION = "SMI-CP/RCL-PC/SUBJECT/2"
 CONTROLLER_PROTOCOL = "SMI-CP/RCL-PC/CTRL/1"
@@ -34,14 +37,14 @@ CONTROLLER_COMMIT = "c899213eb5b3f68a77e399a9dd32a9f86a827824"
 CONTROLLER_ACTOR = "github-actions[bot]"
 WORKFLOW_PATH = ".github/workflows/rcl-bound-controller.yml"
 
-CONFIG_COMMIT = "9bd28da4b8755b0807bb7b6952f1e6d4c447a0b6"
+CONFIG_COMMIT = "b6a1e728f9ced540306b604dece5e42465b46073"
 CONFIG_PATH = "experiments/006-rcl-pc-final-freeze/CONFIG.json"
-CONFIG_SHA256 = "4212827896e3fe1117198b1b3556a8da48072ce1e40c037175a9c4e50bb336f6"
+CONFIG_SHA256 = "a9358d9e3a6bf91eb42dc0b6ae997d4e1a12ade26086dc1ae50d70f2a002e4de"
 SCHEMA_PATH = "experiments/006-rcl-pc-final-freeze/CONFIG_SCHEMA.json"
-SCHEMA_SHA256 = "f4fab7e372d89a9b20f52c539a8c4030eb0a56072514015891c899e8bd442e46"
+SCHEMA_SHA256 = "4cd923c6932538c316eb273789fe523731ae01402df459662e88e909c3a1d48a"
 SUBJECT_PATH = "experiments/006-rcl-pc-final-freeze/SUBJECT_INSTRUCTIONS.md"
-SUBJECT_SHA256 = "93fb3100ce6c17c6245466b7611eb6fdbf455a95e78aa3c70e86f292d308ecc2"
-BINDING_SHA256 = "5deedc2fad8d26fe27bbb5772fad444fa101ef4207bc6d4555814f96ff0cb080"
+SUBJECT_SHA256 = "6fa4af5edd19d83ab8e41814544a6be69deb17ecca274c83fce4c2d0bff24d39"
+BINDING_SHA256 = "6d09daad4c45c1976794add2c7a404aca0e3f27fca1946ad467b900b00d85caa"
 
 BOOTSTRAP_SEED = 20260831
 BOOTSTRAP_REPS = 20_000
@@ -66,6 +69,7 @@ EXPECTED_ARTIFACT_PATHS = (
     SCHEMA_PATH,
     CONFIG_PATH,
     "experiments/006-rcl-pc-final-freeze/RUNBOOK.md",
+    INVALIDATION_PATH,
     VALIDATION_FIXTURE_PATH,
     VALIDATION_RESULT_PATH,
     "src/sais/rcl_pc_analysis.py",
@@ -229,14 +233,14 @@ def _configuration_report(root: Path, manifest: dict[str, Any]) -> dict[str, Any
     checks.update({
         "config_provider": config.get("provider") == "OpenAI",
         "config_product": config.get("product") == "ChatGPT",
-        "config_model_label": config.get("model_label") == "GPT-5.6 Pro",
+        "config_model_label": config.get("model_label") == "GPT-5.6 Sol",
         "config_model_snapshot_unobserved": config.get("model_build_or_snapshot") is None,
         "config_interface": config.get("interface") == "ChatGPT native iOS app with GitHub connector-mediated issue interaction",
         "config_interface_build": config.get("interface_build") == "ChatGPT/1.2026.230; iOS 26.6.1",
         "config_conversation_state": config.get("conversation_state") == "fresh",
         "config_memory_state": config.get("memory_state") == "enabled",
         "config_customization_state": config.get("customization_state") == "present",
-        "config_reasoning_setting": config.get("reasoning_setting") == "GPT-5.6 Pro",
+        "config_reasoning_setting": config.get("reasoning_setting") == "GPT-5.6 Sol",
         "config_locale": config.get("locale") == "ar-SA; protocol messages in English",
         "config_available_tools": tuple(config.get("available_tools", [])) == EXPECTED_AVAILABLE_TOOLS,
         "config_permitted_tools": config.get("permitted_trial_tools") == ["GitHub issue read", "GitHub issue comment"],
@@ -318,6 +322,7 @@ def verify_manifest(manifest_path: Path, root: Path | None = None) -> dict[str, 
     sample = manifest.get("sample") if isinstance(manifest.get("sample"), dict) else {}
     analysis = manifest.get("analysis") if isinstance(manifest.get("analysis"), dict) else {}
     thresholds = analysis.get("thresholds") if isinstance(analysis.get("thresholds"), dict) else {}
+    supersedes = manifest.get("supersedes") if isinstance(manifest.get("supersedes"), dict) else {}
     checks: dict[str, bool] = {
         "manifest_parseable": True,
         "manifest_object": True,
@@ -340,6 +345,10 @@ def verify_manifest(manifest_path: Path, root: Path | None = None) -> dict[str, 
         "controller_workflow": controller.get("workflow") == WORKFLOW_PATH,
         "controller_actor": controller.get("actor") == CONTROLLER_ACTOR,
         "controller_tag_target": _tag_target(root, CONTROLLER_TAG) == CONTROLLER_COMMIT,
+        "superseded_tag": supersedes.get("freeze_tag") == SUPERSEDED_TAG,
+        "superseded_reason": supersedes.get("reason") == "pre-trial model-identity provenance error",
+        "superseded_invalidation_path": supersedes.get("invalidation_path") == INVALIDATION_PATH,
+        "superseded_tag_target": _tag_target(root, SUPERSEDED_TAG) == SUPERSEDED_COMMIT,
     }
     checks.update({
         "sample_trial_count": sample.get("trial_count") == len(TRIAL_IDS),

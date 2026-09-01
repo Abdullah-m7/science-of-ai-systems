@@ -1,15 +1,15 @@
 {
   "manifest_version": "SMI-CP/RCL-PC/MANIFEST/2",
   "status": "FINAL_FREEZE",
-  "freeze_tag": "sais-rcl-pc-v1",
-  "prepared_at_utc": "2026-09-01T15:20:18.746278Z",
+  "freeze_tag": "sais-rcl-pc-v2",
+  "prepared_at_utc": "2026-09-01T15:27:55.958623Z",
   "repository": "Abdullah-m7/science-of-ai-systems",
   "first_included_trial_started": false,
   "study": {
     "study_id": "RCL-PC",
     "protocol_version": "SMI-CP/RCL-PC/2",
     "analysis_version": "SMI-CP/RCL-PC/ANALYSIS/2",
-    "block_id": "RCL-PC-GPT56PRO-IOS-20260831-A",
+    "block_id": "RCL-PC-GPT56SOL-IOS-20260901-A",
     "interaction_language": "English"
   },
   "subject": {
@@ -25,16 +25,16 @@
   },
   "configuration": {
     "repository": "Abdullah-m7/science-of-ai-systems",
-    "commit": "9bd28da4b8755b0807bb7b6952f1e6d4c447a0b6",
+    "commit": "b6a1e728f9ced540306b604dece5e42465b46073",
     "path": "experiments/006-rcl-pc-final-freeze/CONFIG.json",
-    "sha256": "4212827896e3fe1117198b1b3556a8da48072ce1e40c037175a9c4e50bb336f6",
+    "sha256": "a9358d9e3a6bf91eb42dc0b6ae997d4e1a12ade26086dc1ae50d70f2a002e4de",
     "schema_path": "experiments/006-rcl-pc-final-freeze/CONFIG_SCHEMA.json",
-    "schema_sha256": "f4fab7e372d89a9b20f52c539a8c4030eb0a56072514015891c899e8bd442e46",
+    "schema_sha256": "4cd923c6932538c316eb273789fe523731ae01402df459662e88e909c3a1d48a",
     "protocol_version": "SMI-CP/RCL-PC/CONFIG/2",
-    "block_id": "RCL-PC-GPT56PRO-IOS-20260831-A",
+    "block_id": "RCL-PC-GPT56SOL-IOS-20260901-A",
     "subject_instruction_path": "experiments/006-rcl-pc-final-freeze/SUBJECT_INSTRUCTIONS.md",
-    "subject_instruction_sha256": "93fb3100ce6c17c6245466b7611eb6fdbf455a95e78aa3c70e86f292d308ecc2",
-    "binding_sha256": "5deedc2fad8d26fe27bbb5772fad444fa101ef4207bc6d4555814f96ff0cb080"
+    "subject_instruction_sha256": "6fa4af5edd19d83ab8e41814544a6be69deb17ecca274c83fce4c2d0bff24d39",
+    "binding_sha256": "6d09daad4c45c1976794add2c7a404aca0e3f27fca1946ad467b900b00d85caa"
   },
   "sample": {
     "trial_count": 32,
@@ -111,30 +111,39 @@
     "S003-",
     "RCL-VAL-"
   ],
+  "supersedes": {
+    "freeze_tag": "sais-rcl-pc-v1",
+    "reason": "pre-trial model-identity provenance error",
+    "invalidation_path": "experiments/006-rcl-pc-final-freeze/FREEZE_V1_INVALIDATION.md"
+  },
   "execution_gate": {
     "status": "READY",
-    "basis": "RCL-VAL-001 passed 100 config-bound public-evidence checks; final analysis requires 32/32 included records and protocol fidelity."
+    "basis": "RCL-VAL-001 passed 100 config-bound public-evidence checks; v1 was invalidated before included trial start; v2 final analysis requires 32/32 included records and protocol fidelity."
   },
   "frozen_artifacts": [
     {
       "path": "experiments/006-rcl-pc-final-freeze/PREREGISTRATION.md",
-      "sha256": "0a1d2ee542d1cb79b53c95420f847fb9da0bc337284def62454d3ddbd2de0b82"
+      "sha256": "11fcf8962ed793860d3138189106b7271b05eaf27a3ef57bd8f7743959704fee"
     },
     {
       "path": "experiments/006-rcl-pc-final-freeze/SUBJECT_INSTRUCTIONS.md",
-      "sha256": "93fb3100ce6c17c6245466b7611eb6fdbf455a95e78aa3c70e86f292d308ecc2"
+      "sha256": "6fa4af5edd19d83ab8e41814544a6be69deb17ecca274c83fce4c2d0bff24d39"
     },
     {
       "path": "experiments/006-rcl-pc-final-freeze/CONFIG_SCHEMA.json",
-      "sha256": "f4fab7e372d89a9b20f52c539a8c4030eb0a56072514015891c899e8bd442e46"
+      "sha256": "4cd923c6932538c316eb273789fe523731ae01402df459662e88e909c3a1d48a"
     },
     {
       "path": "experiments/006-rcl-pc-final-freeze/CONFIG.json",
-      "sha256": "4212827896e3fe1117198b1b3556a8da48072ce1e40c037175a9c4e50bb336f6"
+      "sha256": "a9358d9e3a6bf91eb42dc0b6ae997d4e1a12ade26086dc1ae50d70f2a002e4de"
     },
     {
       "path": "experiments/006-rcl-pc-final-freeze/RUNBOOK.md",
-      "sha256": "0afdaf72c9bad7cd25470d7d63c22b11349ddebda88640cd958c269c03392a8b"
+      "sha256": "d943735e42b0c80bc77e8d215d886d61304043e2feaf44bf3e8c33d1d68e2bad"
+    },
+    {
+      "path": "experiments/006-rcl-pc-final-freeze/FREEZE_V1_INVALIDATION.md",
+      "sha256": "05d9f3ef021d918e9321234ff9827c883283ef6140c503ef34a6146ef3b11d20"
     },
     {
       "path": "experiments/005-config-bound-controller/validation/RCL-VAL-001.public.json",
@@ -150,7 +159,7 @@
     },
     {
       "path": "src/sais/freeze_manifest.py",
-      "sha256": "812c4c5b3ce4ef6f74bded8db1c3abea0a90bdf7b81b15dc420829e53ea65fa0"
+      "sha256": "ad7ae209b5250a93812b89842f7e2d61a0662fdc63a5fada03fc67b86b3d451c"
     },
     {
       "path": "src/sais/rcl_bound_evidence.py",
