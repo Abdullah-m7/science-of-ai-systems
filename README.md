@@ -54,7 +54,7 @@ This creates a measurable gap between **believed capability** and **effective ca
 - **Stage 004:** construct-validity audit, public-evidence collector, and positive-control freeze candidate.
 - **Stage 005:** configuration-bound RCL controller validated publicly; `RCL-VAL-001` passed 100/100 independent evidence checks and remains excluded.
 - **Stage 006:** corrected final RCL-PC freeze `sais-rcl-pc-v2` targets GPT-5.6 Sol; v1 is retained but invalidated pre-trial after a model-identity provenance error. No included trial has started.
-- **Stage 007:** execution-readiness registry and idempotent issue provisioner; preparation only, with `included_trials_started = 0`.
+- **Stage 007:** execution-readiness registry and idempotent issue provisioner; all 32 public `PC-RCL-*` surfaces are provisioned (`#18`–`#49`) with zero comments and `included_trials_started = 0`.
 
 Stage 004 deliberately places the original direct transparent/opaque experiment on **HOLD as a headline study**. Because a transparent probe reveals the deterministic action condition, that design is retained as `RCL-PC`, a positive control rather than broad evidence of self-awareness.
 

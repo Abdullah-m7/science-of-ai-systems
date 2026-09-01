@@ -160,7 +160,11 @@ def test_static_execution_registry_is_valid_and_unstarted() -> None:
     registry = json.loads(path.read_text(encoding="utf-8"))
     validate_registry(registry, spec)
     assert registry["included_trials_started"] == 0
-    assert all(item["status"] == "NOT_CREATED" for item in registry["trials"])
+    assert all(item["status"] == "ISSUE_CREATED" for item in registry["trials"])
+    numbers = [item["issue_number"] for item in registry["trials"]]
+    assert len(numbers) == len(set(numbers)) == 32
+    assert numbers[0] == 18
+    assert numbers[-1] == 49
 
 
 def test_event_history_replay_detects_tampering() -> None:

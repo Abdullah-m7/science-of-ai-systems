@@ -2,11 +2,11 @@
 
 Protocol version: `SMI-CP/RCL-PC/EXECUTION-READINESS/1`
 
-Status: **PRE-EXECUTION ONLY**
+Status: **SURFACES PROVISIONED — PRE-EXECUTION ONLY**
 
 Study freeze `sais-rcl-pc-v1` is invalidated and forbidden for execution. Stage 007 accepts only corrected freeze `sais-rcl-pc-v2`.
 
-Stage 007 operationalizes the frozen Stage 006 positive-control block without starting any included behavioral trial.
+Stage 007 operationalizes the frozen Stage 006 positive-control block without starting any included behavioral trial. All 32 public issue surfaces have now been provisioned and remain comment-free; `included_trials_started = 0`.
 
 ## Purpose
 Create a fail-closed execution ledger and deterministic public issue surfaces for the 32 fixed identifiers while preserving the scientific boundary between **preparation** and **observation**.
