@@ -1,0 +1,78 @@
+{
+  "manifest_version": "SAIS/MOSAIC/DESIGN-MANIFEST/1",
+  "status": "DESIGN_ONLY_EXECUTION_HOLD",
+  "base_main_commit": "0a4f7e78a93f09d28d304e32b163ed2fd3e94801",
+  "prerequisite_positive_control": {
+    "freeze_tag": "sais-rcl-pc-v2",
+    "required_final_status": "PASS",
+    "current_status": "NOT_RUN"
+  },
+  "p1": {
+    "core_count": 16,
+    "trial_shell_count": 64,
+    "started": false,
+    "design_hash": "3728c55b6347703ad156ce64137905d045c0170228c60ea5d8e3247d74725b6a"
+  },
+  "p0": {
+    "classification": "EXCLUDED_DESIGN_VALIDATION",
+    "seed": 20261420
+  },
+  "artifacts": [
+    {
+      "path": "experiments/008-mosaic/PILOT_PREREGISTRATION.md",
+      "sha256": "bb6f2d6b375b67ee2e91b8d399dce266248e341ee1a7113563801ea4ca48dde9"
+    },
+    {
+      "path": "experiments/008-mosaic/DESIGN.md",
+      "sha256": "c1528a6fe0770379312c1de3b493ebc1efa07d3a91cf36cfb931f6c8879683dc"
+    },
+    {
+      "path": "experiments/008-mosaic/LITERATURE_POSITIONING.md",
+      "sha256": "99433000825a3df73c59d043dff4ad311da45855e3b1530c12abded1d88d6391"
+    },
+    {
+      "path": "experiments/008-mosaic/cue.schema.json",
+      "sha256": "a0892b6a02d2f3d26ba3cf194aaf52071c81d414a70596cb1db6b9f7b048b10a"
+    },
+    {
+      "path": "experiments/008-mosaic/design_matrix.json",
+      "sha256": "32005275c21afd1a1a4326a0508dfeb3b0adbbc4d88bc8e6cccd37e0c7a2f176"
+    },
+    {
+      "path": "experiments/008-mosaic/P0_SIMULATION.json",
+      "sha256": "0a94bcc5a62ad4a0bf2ddd42eda64cd48cccbceb9254107124ab9540cd5e019b"
+    },
+    {
+      "path": "experiments/008-mosaic/P0_REPORT.md",
+      "sha256": "efe52cde043cfe0a610e5aaf68ec3ac90b78b82a367344c9729dad05c63ad74a"
+    },
+    {
+      "path": "experiments/008-mosaic/EXECUTION_GATE.json",
+      "sha256": "f3911402a82a26bcb8d1ae0c41b7dff7a037da1d1cbce903a8e82c81a0430538"
+    },
+    {
+      "path": "src/sais/mosaic.py",
+      "sha256": "ec8ec01a830050cb53d626bf0173dc9bc0001e839dd23802ff66de5bbb616d1b"
+    },
+    {
+      "path": "src/sais/mosaic_analysis.py",
+      "sha256": "416c6e7dd26f918b4948f2a1c8bed213e3ab03c3bf653ffb8b7797c214be9156"
+    },
+    {
+      "path": "src/sais/mosaic_cli.py",
+      "sha256": "2bed3786c484964e90add27c9b05a2daf36ffb4cfcac3b43a04f2a4df595b568"
+    },
+    {
+      "path": "tests/test_mosaic.py",
+      "sha256": "fc97cbc84254591d3a68fcc96b2d51ccde7a676acb36b57858806348f7ecc4f1"
+    },
+    {
+      "path": "tests/test_mosaic_analysis.py",
+      "sha256": "45f2c8ff19fa845a595648b3608ba0ca9205659a73af5cae798a78a9ad02dd01"
+    },
+    {
+      "path": "tests/test_mosaic_artifacts.py",
+      "sha256": "d6696a918b83e10870da405826df1fafc74b5d8cda332127d09cf29796e918fd"
+    }
+  ]
+}

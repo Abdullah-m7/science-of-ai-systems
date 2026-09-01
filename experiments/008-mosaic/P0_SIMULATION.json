@@ -1,0 +1,2661 @@
+{
+  "classification": "EXCLUDED_DESIGN_VALIDATION",
+  "coverage": {
+    "balanced_agree_conflict_paths": true,
+    "balanced_truth": true,
+    "core_count": 16,
+    "frame_profile_paths": {
+      "named:equal": {
+        "agree": 2,
+        "conflict": 2
+      },
+      "named:unequal": {
+        "agree": 2,
+        "conflict": 2
+      },
+      "neutral:equal": {
+        "agree": 2,
+        "conflict": 2
+      },
+      "neutral:unequal": {
+        "agree": 2,
+        "conflict": 2
+      }
+    },
+    "truth_counts": {
+      "available": 8,
+      "degraded": 8
+    },
+    "valid": true
+  },
+  "design_hash": "3728c55b6347703ad156ce64137905d045c0170228c60ea5d8e3247d74725b6a",
+  "protocol_version": "SAIS/MOSAIC/P0/1",
+  "row_count": 64,
+  "rows": [
+    {
+      "core_id": "MOSAIC-CORE-01",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": "degraded",
+      "cue_y_claim": "degraded",
+      "frame": "named",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.19999999999999996,
+      "ideal_p2": 0.11864406779661012,
+      "labels": {
+        "X": "runtime_diagnostic",
+        "Y": "interface_declaration"
+      },
+      "presented_cues": [
+        {
+          "claim": "degraded",
+          "cue_id": "X",
+          "reliability": 0.8,
+          "source_label": "runtime_diagnostic"
+        },
+        {
+          "claim": "degraded",
+          "cue_id": "Y",
+          "reliability": 0.65,
+          "source_label": "interface_declaration"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "simulation_id": "MOSAIC-P0-001",
+      "trial_id": "MOSAIC-P0-001",
+      "truth": "degraded",
+      "variant": "canonical"
+    },
+    {
+      "core_id": "MOSAIC-CORE-01",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": "degraded",
+      "cue_y_claim": "degraded",
+      "frame": "named",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.3499999999999999,
+      "ideal_p2": 0.11864406779661012,
+      "labels": {
+        "X": "runtime_diagnostic",
+        "Y": "interface_declaration"
+      },
+      "presented_cues": [
+        {
+          "claim": "degraded",
+          "cue_id": "Y",
+          "reliability": 0.65,
+          "source_label": "interface_declaration"
+        },
+        {
+          "claim": "degraded",
+          "cue_id": "X",
+          "reliability": 0.8,
+          "source_label": "runtime_diagnostic"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "simulation_id": "MOSAIC-P0-002",
+      "trial_id": "MOSAIC-P0-002",
+      "truth": "degraded",
+      "variant": "order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-01",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": "degraded",
+      "cue_y_claim": "degraded",
+      "frame": "named",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.19999999999999996,
+      "ideal_p2": 0.11864406779661012,
+      "labels": {
+        "X": "interface_declaration",
+        "Y": "runtime_diagnostic"
+      },
+      "presented_cues": [
+        {
+          "claim": "degraded",
+          "cue_id": "X",
+          "reliability": 0.8,
+          "source_label": "interface_declaration"
+        },
+        {
+          "claim": "degraded",
+          "cue_id": "Y",
+          "reliability": 0.65,
+          "source_label": "runtime_diagnostic"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "simulation_id": "MOSAIC-P0-003",
+      "trial_id": "MOSAIC-P0-003",
+      "truth": "degraded",
+      "variant": "label_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-01",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": "degraded",
+      "cue_y_claim": "degraded",
+      "frame": "named",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.3499999999999999,
+      "ideal_p2": 0.11864406779661012,
+      "labels": {
+        "X": "interface_declaration",
+        "Y": "runtime_diagnostic"
+      },
+      "presented_cues": [
+        {
+          "claim": "degraded",
+          "cue_id": "Y",
+          "reliability": 0.65,
+          "source_label": "runtime_diagnostic"
+        },
+        {
+          "claim": "degraded",
+          "cue_id": "X",
+          "reliability": 0.8,
+          "source_label": "interface_declaration"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "simulation_id": "MOSAIC-P0-004",
+      "trial_id": "MOSAIC-P0-004",
+      "truth": "degraded",
+      "variant": "label_and_order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-02",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": "degraded",
+      "cue_y_claim": "available",
+      "frame": "named",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.19999999999999996,
+      "ideal_p2": 0.3170731707317073,
+      "labels": {
+        "X": "runtime_diagnostic",
+        "Y": "interface_declaration"
+      },
+      "presented_cues": [
+        {
+          "claim": "degraded",
+          "cue_id": "X",
+          "reliability": 0.8,
+          "source_label": "runtime_diagnostic"
+        },
+        {
+          "claim": "available",
+          "cue_id": "Y",
+          "reliability": 0.65,
+          "source_label": "interface_declaration"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "simulation_id": "MOSAIC-P0-005",
+      "trial_id": "MOSAIC-P0-005",
+      "truth": "degraded",
+      "variant": "canonical"
+    },
+    {
+      "core_id": "MOSAIC-CORE-02",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": "degraded",
+      "cue_y_claim": "available",
+      "frame": "named",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.65,
+      "ideal_p2": 0.3170731707317073,
+      "labels": {
+        "X": "runtime_diagnostic",
+        "Y": "interface_declaration"
+      },
+      "presented_cues": [
+        {
+          "claim": "available",
+          "cue_id": "Y",
+          "reliability": 0.65,
+          "source_label": "interface_declaration"
+        },
+        {
+          "claim": "degraded",
+          "cue_id": "X",
+          "reliability": 0.8,
+          "source_label": "runtime_diagnostic"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "simulation_id": "MOSAIC-P0-006",
+      "trial_id": "MOSAIC-P0-006",
+      "truth": "degraded",
+      "variant": "order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-02",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": "degraded",
+      "cue_y_claim": "available",
+      "frame": "named",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.19999999999999996,
+      "ideal_p2": 0.3170731707317073,
+      "labels": {
+        "X": "interface_declaration",
+        "Y": "runtime_diagnostic"
+      },
+      "presented_cues": [
+        {
+          "claim": "degraded",
+          "cue_id": "X",
+          "reliability": 0.8,
+          "source_label": "interface_declaration"
+        },
+        {
+          "claim": "available",
+          "cue_id": "Y",
+          "reliability": 0.65,
+          "source_label": "runtime_diagnostic"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "simulation_id": "MOSAIC-P0-007",
+      "trial_id": "MOSAIC-P0-007",
+      "truth": "degraded",
+      "variant": "label_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-02",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": "degraded",
+      "cue_y_claim": "available",
+      "frame": "named",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.65,
+      "ideal_p2": 0.3170731707317073,
+      "labels": {
+        "X": "interface_declaration",
+        "Y": "runtime_diagnostic"
+      },
+      "presented_cues": [
+        {
+          "claim": "available",
+          "cue_id": "Y",
+          "reliability": 0.65,
+          "source_label": "runtime_diagnostic"
+        },
+        {
+          "claim": "degraded",
+          "cue_id": "X",
+          "reliability": 0.8,
+          "source_label": "interface_declaration"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "simulation_id": "MOSAIC-P0-008",
+      "trial_id": "MOSAIC-P0-008",
+      "truth": "degraded",
+      "variant": "label_and_order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-03",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": "available",
+      "cue_y_claim": "available",
+      "frame": "named",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.8,
+      "ideal_p2": 0.8813559322033898,
+      "labels": {
+        "X": "runtime_diagnostic",
+        "Y": "interface_declaration"
+      },
+      "presented_cues": [
+        {
+          "claim": "available",
+          "cue_id": "X",
+          "reliability": 0.8,
+          "source_label": "runtime_diagnostic"
+        },
+        {
+          "claim": "available",
+          "cue_id": "Y",
+          "reliability": 0.65,
+          "source_label": "interface_declaration"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "simulation_id": "MOSAIC-P0-009",
+      "trial_id": "MOSAIC-P0-009",
+      "truth": "available",
+      "variant": "canonical"
+    },
+    {
+      "core_id": "MOSAIC-CORE-03",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": "available",
+      "cue_y_claim": "available",
+      "frame": "named",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.65,
+      "ideal_p2": 0.8813559322033898,
+      "labels": {
+        "X": "runtime_diagnostic",
+        "Y": "interface_declaration"
+      },
+      "presented_cues": [
+        {
+          "claim": "available",
+          "cue_id": "Y",
+          "reliability": 0.65,
+          "source_label": "interface_declaration"
+        },
+        {
+          "claim": "available",
+          "cue_id": "X",
+          "reliability": 0.8,
+          "source_label": "runtime_diagnostic"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "simulation_id": "MOSAIC-P0-010",
+      "trial_id": "MOSAIC-P0-010",
+      "truth": "available",
+      "variant": "order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-03",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": "available",
+      "cue_y_claim": "available",
+      "frame": "named",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.8,
+      "ideal_p2": 0.8813559322033898,
+      "labels": {
+        "X": "interface_declaration",
+        "Y": "runtime_diagnostic"
+      },
+      "presented_cues": [
+        {
+          "claim": "available",
+          "cue_id": "X",
+          "reliability": 0.8,
+          "source_label": "interface_declaration"
+        },
+        {
+          "claim": "available",
+          "cue_id": "Y",
+          "reliability": 0.65,
+          "source_label": "runtime_diagnostic"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "simulation_id": "MOSAIC-P0-011",
+      "trial_id": "MOSAIC-P0-011",
+      "truth": "available",
+      "variant": "label_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-03",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": "available",
+      "cue_y_claim": "available",
+      "frame": "named",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.65,
+      "ideal_p2": 0.8813559322033898,
+      "labels": {
+        "X": "interface_declaration",
+        "Y": "runtime_diagnostic"
+      },
+      "presented_cues": [
+        {
+          "claim": "available",
+          "cue_id": "Y",
+          "reliability": 0.65,
+          "source_label": "runtime_diagnostic"
+        },
+        {
+          "claim": "available",
+          "cue_id": "X",
+          "reliability": 0.8,
+          "source_label": "interface_declaration"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "simulation_id": "MOSAIC-P0-012",
+      "trial_id": "MOSAIC-P0-012",
+      "truth": "available",
+      "variant": "label_and_order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-04",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": "available",
+      "cue_y_claim": "degraded",
+      "frame": "named",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.8,
+      "ideal_p2": 0.6829268292682926,
+      "labels": {
+        "X": "runtime_diagnostic",
+        "Y": "interface_declaration"
+      },
+      "presented_cues": [
+        {
+          "claim": "available",
+          "cue_id": "X",
+          "reliability": 0.8,
+          "source_label": "runtime_diagnostic"
+        },
+        {
+          "claim": "degraded",
+          "cue_id": "Y",
+          "reliability": 0.65,
+          "source_label": "interface_declaration"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "simulation_id": "MOSAIC-P0-013",
+      "trial_id": "MOSAIC-P0-013",
+      "truth": "available",
+      "variant": "canonical"
+    },
+    {
+      "core_id": "MOSAIC-CORE-04",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": "available",
+      "cue_y_claim": "degraded",
+      "frame": "named",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.3499999999999999,
+      "ideal_p2": 0.6829268292682926,
+      "labels": {
+        "X": "runtime_diagnostic",
+        "Y": "interface_declaration"
+      },
+      "presented_cues": [
+        {
+          "claim": "degraded",
+          "cue_id": "Y",
+          "reliability": 0.65,
+          "source_label": "interface_declaration"
+        },
+        {
+          "claim": "available",
+          "cue_id": "X",
+          "reliability": 0.8,
+          "source_label": "runtime_diagnostic"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "simulation_id": "MOSAIC-P0-014",
+      "trial_id": "MOSAIC-P0-014",
+      "truth": "available",
+      "variant": "order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-04",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": "available",
+      "cue_y_claim": "degraded",
+      "frame": "named",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.8,
+      "ideal_p2": 0.6829268292682926,
+      "labels": {
+        "X": "interface_declaration",
+        "Y": "runtime_diagnostic"
+      },
+      "presented_cues": [
+        {
+          "claim": "available",
+          "cue_id": "X",
+          "reliability": 0.8,
+          "source_label": "interface_declaration"
+        },
+        {
+          "claim": "degraded",
+          "cue_id": "Y",
+          "reliability": 0.65,
+          "source_label": "runtime_diagnostic"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "simulation_id": "MOSAIC-P0-015",
+      "trial_id": "MOSAIC-P0-015",
+      "truth": "available",
+      "variant": "label_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-04",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": "available",
+      "cue_y_claim": "degraded",
+      "frame": "named",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.3499999999999999,
+      "ideal_p2": 0.6829268292682926,
+      "labels": {
+        "X": "interface_declaration",
+        "Y": "runtime_diagnostic"
+      },
+      "presented_cues": [
+        {
+          "claim": "degraded",
+          "cue_id": "Y",
+          "reliability": 0.65,
+          "source_label": "runtime_diagnostic"
+        },
+        {
+          "claim": "available",
+          "cue_id": "X",
+          "reliability": 0.8,
+          "source_label": "interface_declaration"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "simulation_id": "MOSAIC-P0-016",
+      "trial_id": "MOSAIC-P0-016",
+      "truth": "available",
+      "variant": "label_and_order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-05",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": "degraded",
+      "cue_y_claim": "available",
+      "frame": "named",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.28,
+      "ideal_p2": 0.5,
+      "labels": {
+        "X": "runtime_diagnostic",
+        "Y": "interface_declaration"
+      },
+      "presented_cues": [
+        {
+          "claim": "degraded",
+          "cue_id": "X",
+          "reliability": 0.72,
+          "source_label": "runtime_diagnostic"
+        },
+        {
+          "claim": "available",
+          "cue_id": "Y",
+          "reliability": 0.72,
+          "source_label": "interface_declaration"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "simulation_id": "MOSAIC-P0-017",
+      "trial_id": "MOSAIC-P0-017",
+      "truth": "degraded",
+      "variant": "canonical"
+    },
+    {
+      "core_id": "MOSAIC-CORE-05",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": "degraded",
+      "cue_y_claim": "available",
+      "frame": "named",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.72,
+      "ideal_p2": 0.5,
+      "labels": {
+        "X": "runtime_diagnostic",
+        "Y": "interface_declaration"
+      },
+      "presented_cues": [
+        {
+          "claim": "available",
+          "cue_id": "Y",
+          "reliability": 0.72,
+          "source_label": "interface_declaration"
+        },
+        {
+          "claim": "degraded",
+          "cue_id": "X",
+          "reliability": 0.72,
+          "source_label": "runtime_diagnostic"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "simulation_id": "MOSAIC-P0-018",
+      "trial_id": "MOSAIC-P0-018",
+      "truth": "degraded",
+      "variant": "order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-05",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": "degraded",
+      "cue_y_claim": "available",
+      "frame": "named",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.28,
+      "ideal_p2": 0.5,
+      "labels": {
+        "X": "interface_declaration",
+        "Y": "runtime_diagnostic"
+      },
+      "presented_cues": [
+        {
+          "claim": "degraded",
+          "cue_id": "X",
+          "reliability": 0.72,
+          "source_label": "interface_declaration"
+        },
+        {
+          "claim": "available",
+          "cue_id": "Y",
+          "reliability": 0.72,
+          "source_label": "runtime_diagnostic"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "simulation_id": "MOSAIC-P0-019",
+      "trial_id": "MOSAIC-P0-019",
+      "truth": "degraded",
+      "variant": "label_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-05",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": "degraded",
+      "cue_y_claim": "available",
+      "frame": "named",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.72,
+      "ideal_p2": 0.5,
+      "labels": {
+        "X": "interface_declaration",
+        "Y": "runtime_diagnostic"
+      },
+      "presented_cues": [
+        {
+          "claim": "available",
+          "cue_id": "Y",
+          "reliability": 0.72,
+          "source_label": "runtime_diagnostic"
+        },
+        {
+          "claim": "degraded",
+          "cue_id": "X",
+          "reliability": 0.72,
+          "source_label": "interface_declaration"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "simulation_id": "MOSAIC-P0-020",
+      "trial_id": "MOSAIC-P0-020",
+      "truth": "degraded",
+      "variant": "label_and_order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-06",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": "degraded",
+      "cue_y_claim": "degraded",
+      "frame": "named",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.28,
+      "ideal_p2": 0.1313672922252011,
+      "labels": {
+        "X": "runtime_diagnostic",
+        "Y": "interface_declaration"
+      },
+      "presented_cues": [
+        {
+          "claim": "degraded",
+          "cue_id": "X",
+          "reliability": 0.72,
+          "source_label": "runtime_diagnostic"
+        },
+        {
+          "claim": "degraded",
+          "cue_id": "Y",
+          "reliability": 0.72,
+          "source_label": "interface_declaration"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "simulation_id": "MOSAIC-P0-021",
+      "trial_id": "MOSAIC-P0-021",
+      "truth": "available",
+      "variant": "canonical"
+    },
+    {
+      "core_id": "MOSAIC-CORE-06",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": "degraded",
+      "cue_y_claim": "degraded",
+      "frame": "named",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.28,
+      "ideal_p2": 0.1313672922252011,
+      "labels": {
+        "X": "runtime_diagnostic",
+        "Y": "interface_declaration"
+      },
+      "presented_cues": [
+        {
+          "claim": "degraded",
+          "cue_id": "Y",
+          "reliability": 0.72,
+          "source_label": "interface_declaration"
+        },
+        {
+          "claim": "degraded",
+          "cue_id": "X",
+          "reliability": 0.72,
+          "source_label": "runtime_diagnostic"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "simulation_id": "MOSAIC-P0-022",
+      "trial_id": "MOSAIC-P0-022",
+      "truth": "available",
+      "variant": "order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-06",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": "degraded",
+      "cue_y_claim": "degraded",
+      "frame": "named",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.28,
+      "ideal_p2": 0.1313672922252011,
+      "labels": {
+        "X": "interface_declaration",
+        "Y": "runtime_diagnostic"
+      },
+      "presented_cues": [
+        {
+          "claim": "degraded",
+          "cue_id": "X",
+          "reliability": 0.72,
+          "source_label": "interface_declaration"
+        },
+        {
+          "claim": "degraded",
+          "cue_id": "Y",
+          "reliability": 0.72,
+          "source_label": "runtime_diagnostic"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "simulation_id": "MOSAIC-P0-023",
+      "trial_id": "MOSAIC-P0-023",
+      "truth": "available",
+      "variant": "label_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-06",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": "degraded",
+      "cue_y_claim": "degraded",
+      "frame": "named",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.28,
+      "ideal_p2": 0.1313672922252011,
+      "labels": {
+        "X": "interface_declaration",
+        "Y": "runtime_diagnostic"
+      },
+      "presented_cues": [
+        {
+          "claim": "degraded",
+          "cue_id": "Y",
+          "reliability": 0.72,
+          "source_label": "runtime_diagnostic"
+        },
+        {
+          "claim": "degraded",
+          "cue_id": "X",
+          "reliability": 0.72,
+          "source_label": "interface_declaration"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "simulation_id": "MOSAIC-P0-024",
+      "trial_id": "MOSAIC-P0-024",
+      "truth": "available",
+      "variant": "label_and_order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-07",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": "available",
+      "cue_y_claim": "available",
+      "frame": "named",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.72,
+      "ideal_p2": 0.868632707774799,
+      "labels": {
+        "X": "runtime_diagnostic",
+        "Y": "interface_declaration"
+      },
+      "presented_cues": [
+        {
+          "claim": "available",
+          "cue_id": "X",
+          "reliability": 0.72,
+          "source_label": "runtime_diagnostic"
+        },
+        {
+          "claim": "available",
+          "cue_id": "Y",
+          "reliability": 0.72,
+          "source_label": "interface_declaration"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "simulation_id": "MOSAIC-P0-025",
+      "trial_id": "MOSAIC-P0-025",
+      "truth": "degraded",
+      "variant": "canonical"
+    },
+    {
+      "core_id": "MOSAIC-CORE-07",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": "available",
+      "cue_y_claim": "available",
+      "frame": "named",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.72,
+      "ideal_p2": 0.868632707774799,
+      "labels": {
+        "X": "runtime_diagnostic",
+        "Y": "interface_declaration"
+      },
+      "presented_cues": [
+        {
+          "claim": "available",
+          "cue_id": "Y",
+          "reliability": 0.72,
+          "source_label": "interface_declaration"
+        },
+        {
+          "claim": "available",
+          "cue_id": "X",
+          "reliability": 0.72,
+          "source_label": "runtime_diagnostic"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "simulation_id": "MOSAIC-P0-026",
+      "trial_id": "MOSAIC-P0-026",
+      "truth": "degraded",
+      "variant": "order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-07",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": "available",
+      "cue_y_claim": "available",
+      "frame": "named",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.72,
+      "ideal_p2": 0.868632707774799,
+      "labels": {
+        "X": "interface_declaration",
+        "Y": "runtime_diagnostic"
+      },
+      "presented_cues": [
+        {
+          "claim": "available",
+          "cue_id": "X",
+          "reliability": 0.72,
+          "source_label": "interface_declaration"
+        },
+        {
+          "claim": "available",
+          "cue_id": "Y",
+          "reliability": 0.72,
+          "source_label": "runtime_diagnostic"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "simulation_id": "MOSAIC-P0-027",
+      "trial_id": "MOSAIC-P0-027",
+      "truth": "degraded",
+      "variant": "label_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-07",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": "available",
+      "cue_y_claim": "available",
+      "frame": "named",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.72,
+      "ideal_p2": 0.868632707774799,
+      "labels": {
+        "X": "interface_declaration",
+        "Y": "runtime_diagnostic"
+      },
+      "presented_cues": [
+        {
+          "claim": "available",
+          "cue_id": "Y",
+          "reliability": 0.72,
+          "source_label": "runtime_diagnostic"
+        },
+        {
+          "claim": "available",
+          "cue_id": "X",
+          "reliability": 0.72,
+          "source_label": "interface_declaration"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "simulation_id": "MOSAIC-P0-028",
+      "trial_id": "MOSAIC-P0-028",
+      "truth": "degraded",
+      "variant": "label_and_order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-08",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": "available",
+      "cue_y_claim": "degraded",
+      "frame": "named",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.72,
+      "ideal_p2": 0.5,
+      "labels": {
+        "X": "runtime_diagnostic",
+        "Y": "interface_declaration"
+      },
+      "presented_cues": [
+        {
+          "claim": "available",
+          "cue_id": "X",
+          "reliability": 0.72,
+          "source_label": "runtime_diagnostic"
+        },
+        {
+          "claim": "degraded",
+          "cue_id": "Y",
+          "reliability": 0.72,
+          "source_label": "interface_declaration"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "simulation_id": "MOSAIC-P0-029",
+      "trial_id": "MOSAIC-P0-029",
+      "truth": "available",
+      "variant": "canonical"
+    },
+    {
+      "core_id": "MOSAIC-CORE-08",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": "available",
+      "cue_y_claim": "degraded",
+      "frame": "named",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.28,
+      "ideal_p2": 0.5,
+      "labels": {
+        "X": "runtime_diagnostic",
+        "Y": "interface_declaration"
+      },
+      "presented_cues": [
+        {
+          "claim": "degraded",
+          "cue_id": "Y",
+          "reliability": 0.72,
+          "source_label": "interface_declaration"
+        },
+        {
+          "claim": "available",
+          "cue_id": "X",
+          "reliability": 0.72,
+          "source_label": "runtime_diagnostic"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "simulation_id": "MOSAIC-P0-030",
+      "trial_id": "MOSAIC-P0-030",
+      "truth": "available",
+      "variant": "order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-08",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": "available",
+      "cue_y_claim": "degraded",
+      "frame": "named",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.72,
+      "ideal_p2": 0.5,
+      "labels": {
+        "X": "interface_declaration",
+        "Y": "runtime_diagnostic"
+      },
+      "presented_cues": [
+        {
+          "claim": "available",
+          "cue_id": "X",
+          "reliability": 0.72,
+          "source_label": "interface_declaration"
+        },
+        {
+          "claim": "degraded",
+          "cue_id": "Y",
+          "reliability": 0.72,
+          "source_label": "runtime_diagnostic"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "simulation_id": "MOSAIC-P0-031",
+      "trial_id": "MOSAIC-P0-031",
+      "truth": "available",
+      "variant": "label_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-08",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": "available",
+      "cue_y_claim": "degraded",
+      "frame": "named",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.28,
+      "ideal_p2": 0.5,
+      "labels": {
+        "X": "interface_declaration",
+        "Y": "runtime_diagnostic"
+      },
+      "presented_cues": [
+        {
+          "claim": "degraded",
+          "cue_id": "Y",
+          "reliability": 0.72,
+          "source_label": "runtime_diagnostic"
+        },
+        {
+          "claim": "available",
+          "cue_id": "X",
+          "reliability": 0.72,
+          "source_label": "interface_declaration"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "simulation_id": "MOSAIC-P0-032",
+      "trial_id": "MOSAIC-P0-032",
+      "truth": "available",
+      "variant": "label_and_order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-09",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": "degraded",
+      "cue_y_claim": "degraded",
+      "frame": "neutral",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.19999999999999996,
+      "ideal_p2": 0.11864406779661012,
+      "labels": {
+        "X": "source_k",
+        "Y": "source_m"
+      },
+      "presented_cues": [
+        {
+          "claim": "degraded",
+          "cue_id": "X",
+          "reliability": 0.8,
+          "source_label": "source_k"
+        },
+        {
+          "claim": "degraded",
+          "cue_id": "Y",
+          "reliability": 0.65,
+          "source_label": "source_m"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "simulation_id": "MOSAIC-P0-033",
+      "trial_id": "MOSAIC-P0-033",
+      "truth": "degraded",
+      "variant": "canonical"
+    },
+    {
+      "core_id": "MOSAIC-CORE-09",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": "degraded",
+      "cue_y_claim": "degraded",
+      "frame": "neutral",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.3499999999999999,
+      "ideal_p2": 0.11864406779661012,
+      "labels": {
+        "X": "source_k",
+        "Y": "source_m"
+      },
+      "presented_cues": [
+        {
+          "claim": "degraded",
+          "cue_id": "Y",
+          "reliability": 0.65,
+          "source_label": "source_m"
+        },
+        {
+          "claim": "degraded",
+          "cue_id": "X",
+          "reliability": 0.8,
+          "source_label": "source_k"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "simulation_id": "MOSAIC-P0-034",
+      "trial_id": "MOSAIC-P0-034",
+      "truth": "degraded",
+      "variant": "order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-09",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": "degraded",
+      "cue_y_claim": "degraded",
+      "frame": "neutral",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.19999999999999996,
+      "ideal_p2": 0.11864406779661012,
+      "labels": {
+        "X": "source_m",
+        "Y": "source_k"
+      },
+      "presented_cues": [
+        {
+          "claim": "degraded",
+          "cue_id": "X",
+          "reliability": 0.8,
+          "source_label": "source_m"
+        },
+        {
+          "claim": "degraded",
+          "cue_id": "Y",
+          "reliability": 0.65,
+          "source_label": "source_k"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "simulation_id": "MOSAIC-P0-035",
+      "trial_id": "MOSAIC-P0-035",
+      "truth": "degraded",
+      "variant": "label_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-09",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": "degraded",
+      "cue_y_claim": "degraded",
+      "frame": "neutral",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.3499999999999999,
+      "ideal_p2": 0.11864406779661012,
+      "labels": {
+        "X": "source_m",
+        "Y": "source_k"
+      },
+      "presented_cues": [
+        {
+          "claim": "degraded",
+          "cue_id": "Y",
+          "reliability": 0.65,
+          "source_label": "source_k"
+        },
+        {
+          "claim": "degraded",
+          "cue_id": "X",
+          "reliability": 0.8,
+          "source_label": "source_m"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "simulation_id": "MOSAIC-P0-036",
+      "trial_id": "MOSAIC-P0-036",
+      "truth": "degraded",
+      "variant": "label_and_order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-10",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": "available",
+      "cue_y_claim": "degraded",
+      "frame": "neutral",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.8,
+      "ideal_p2": 0.6829268292682926,
+      "labels": {
+        "X": "source_k",
+        "Y": "source_m"
+      },
+      "presented_cues": [
+        {
+          "claim": "available",
+          "cue_id": "X",
+          "reliability": 0.8,
+          "source_label": "source_k"
+        },
+        {
+          "claim": "degraded",
+          "cue_id": "Y",
+          "reliability": 0.65,
+          "source_label": "source_m"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "simulation_id": "MOSAIC-P0-037",
+      "trial_id": "MOSAIC-P0-037",
+      "truth": "available",
+      "variant": "canonical"
+    },
+    {
+      "core_id": "MOSAIC-CORE-10",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": "available",
+      "cue_y_claim": "degraded",
+      "frame": "neutral",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.3499999999999999,
+      "ideal_p2": 0.6829268292682926,
+      "labels": {
+        "X": "source_k",
+        "Y": "source_m"
+      },
+      "presented_cues": [
+        {
+          "claim": "degraded",
+          "cue_id": "Y",
+          "reliability": 0.65,
+          "source_label": "source_m"
+        },
+        {
+          "claim": "available",
+          "cue_id": "X",
+          "reliability": 0.8,
+          "source_label": "source_k"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "simulation_id": "MOSAIC-P0-038",
+      "trial_id": "MOSAIC-P0-038",
+      "truth": "available",
+      "variant": "order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-10",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": "available",
+      "cue_y_claim": "degraded",
+      "frame": "neutral",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.8,
+      "ideal_p2": 0.6829268292682926,
+      "labels": {
+        "X": "source_m",
+        "Y": "source_k"
+      },
+      "presented_cues": [
+        {
+          "claim": "available",
+          "cue_id": "X",
+          "reliability": 0.8,
+          "source_label": "source_m"
+        },
+        {
+          "claim": "degraded",
+          "cue_id": "Y",
+          "reliability": 0.65,
+          "source_label": "source_k"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "simulation_id": "MOSAIC-P0-039",
+      "trial_id": "MOSAIC-P0-039",
+      "truth": "available",
+      "variant": "label_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-10",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": "available",
+      "cue_y_claim": "degraded",
+      "frame": "neutral",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.3499999999999999,
+      "ideal_p2": 0.6829268292682926,
+      "labels": {
+        "X": "source_m",
+        "Y": "source_k"
+      },
+      "presented_cues": [
+        {
+          "claim": "degraded",
+          "cue_id": "Y",
+          "reliability": 0.65,
+          "source_label": "source_k"
+        },
+        {
+          "claim": "available",
+          "cue_id": "X",
+          "reliability": 0.8,
+          "source_label": "source_m"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "simulation_id": "MOSAIC-P0-040",
+      "trial_id": "MOSAIC-P0-040",
+      "truth": "available",
+      "variant": "label_and_order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-11",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": "degraded",
+      "cue_y_claim": "available",
+      "frame": "neutral",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.19999999999999996,
+      "ideal_p2": 0.3170731707317073,
+      "labels": {
+        "X": "source_k",
+        "Y": "source_m"
+      },
+      "presented_cues": [
+        {
+          "claim": "degraded",
+          "cue_id": "X",
+          "reliability": 0.8,
+          "source_label": "source_k"
+        },
+        {
+          "claim": "available",
+          "cue_id": "Y",
+          "reliability": 0.65,
+          "source_label": "source_m"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "simulation_id": "MOSAIC-P0-041",
+      "trial_id": "MOSAIC-P0-041",
+      "truth": "degraded",
+      "variant": "canonical"
+    },
+    {
+      "core_id": "MOSAIC-CORE-11",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": "degraded",
+      "cue_y_claim": "available",
+      "frame": "neutral",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.65,
+      "ideal_p2": 0.3170731707317073,
+      "labels": {
+        "X": "source_k",
+        "Y": "source_m"
+      },
+      "presented_cues": [
+        {
+          "claim": "available",
+          "cue_id": "Y",
+          "reliability": 0.65,
+          "source_label": "source_m"
+        },
+        {
+          "claim": "degraded",
+          "cue_id": "X",
+          "reliability": 0.8,
+          "source_label": "source_k"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "simulation_id": "MOSAIC-P0-042",
+      "trial_id": "MOSAIC-P0-042",
+      "truth": "degraded",
+      "variant": "order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-11",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": "degraded",
+      "cue_y_claim": "available",
+      "frame": "neutral",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.19999999999999996,
+      "ideal_p2": 0.3170731707317073,
+      "labels": {
+        "X": "source_m",
+        "Y": "source_k"
+      },
+      "presented_cues": [
+        {
+          "claim": "degraded",
+          "cue_id": "X",
+          "reliability": 0.8,
+          "source_label": "source_m"
+        },
+        {
+          "claim": "available",
+          "cue_id": "Y",
+          "reliability": 0.65,
+          "source_label": "source_k"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "simulation_id": "MOSAIC-P0-043",
+      "trial_id": "MOSAIC-P0-043",
+      "truth": "degraded",
+      "variant": "label_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-11",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": "degraded",
+      "cue_y_claim": "available",
+      "frame": "neutral",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.65,
+      "ideal_p2": 0.3170731707317073,
+      "labels": {
+        "X": "source_m",
+        "Y": "source_k"
+      },
+      "presented_cues": [
+        {
+          "claim": "available",
+          "cue_id": "Y",
+          "reliability": 0.65,
+          "source_label": "source_k"
+        },
+        {
+          "claim": "degraded",
+          "cue_id": "X",
+          "reliability": 0.8,
+          "source_label": "source_m"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "simulation_id": "MOSAIC-P0-044",
+      "trial_id": "MOSAIC-P0-044",
+      "truth": "degraded",
+      "variant": "label_and_order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-12",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": "available",
+      "cue_y_claim": "available",
+      "frame": "neutral",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.8,
+      "ideal_p2": 0.8813559322033898,
+      "labels": {
+        "X": "source_k",
+        "Y": "source_m"
+      },
+      "presented_cues": [
+        {
+          "claim": "available",
+          "cue_id": "X",
+          "reliability": 0.8,
+          "source_label": "source_k"
+        },
+        {
+          "claim": "available",
+          "cue_id": "Y",
+          "reliability": 0.65,
+          "source_label": "source_m"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "simulation_id": "MOSAIC-P0-045",
+      "trial_id": "MOSAIC-P0-045",
+      "truth": "available",
+      "variant": "canonical"
+    },
+    {
+      "core_id": "MOSAIC-CORE-12",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": "available",
+      "cue_y_claim": "available",
+      "frame": "neutral",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.65,
+      "ideal_p2": 0.8813559322033898,
+      "labels": {
+        "X": "source_k",
+        "Y": "source_m"
+      },
+      "presented_cues": [
+        {
+          "claim": "available",
+          "cue_id": "Y",
+          "reliability": 0.65,
+          "source_label": "source_m"
+        },
+        {
+          "claim": "available",
+          "cue_id": "X",
+          "reliability": 0.8,
+          "source_label": "source_k"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "simulation_id": "MOSAIC-P0-046",
+      "trial_id": "MOSAIC-P0-046",
+      "truth": "available",
+      "variant": "order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-12",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": "available",
+      "cue_y_claim": "available",
+      "frame": "neutral",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.8,
+      "ideal_p2": 0.8813559322033898,
+      "labels": {
+        "X": "source_m",
+        "Y": "source_k"
+      },
+      "presented_cues": [
+        {
+          "claim": "available",
+          "cue_id": "X",
+          "reliability": 0.8,
+          "source_label": "source_m"
+        },
+        {
+          "claim": "available",
+          "cue_id": "Y",
+          "reliability": 0.65,
+          "source_label": "source_k"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "simulation_id": "MOSAIC-P0-047",
+      "trial_id": "MOSAIC-P0-047",
+      "truth": "available",
+      "variant": "label_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-12",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": "available",
+      "cue_y_claim": "available",
+      "frame": "neutral",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.65,
+      "ideal_p2": 0.8813559322033898,
+      "labels": {
+        "X": "source_m",
+        "Y": "source_k"
+      },
+      "presented_cues": [
+        {
+          "claim": "available",
+          "cue_id": "Y",
+          "reliability": 0.65,
+          "source_label": "source_k"
+        },
+        {
+          "claim": "available",
+          "cue_id": "X",
+          "reliability": 0.8,
+          "source_label": "source_m"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "simulation_id": "MOSAIC-P0-048",
+      "trial_id": "MOSAIC-P0-048",
+      "truth": "available",
+      "variant": "label_and_order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-13",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": "degraded",
+      "cue_y_claim": "available",
+      "frame": "neutral",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.28,
+      "ideal_p2": 0.5,
+      "labels": {
+        "X": "source_k",
+        "Y": "source_m"
+      },
+      "presented_cues": [
+        {
+          "claim": "degraded",
+          "cue_id": "X",
+          "reliability": 0.72,
+          "source_label": "source_k"
+        },
+        {
+          "claim": "available",
+          "cue_id": "Y",
+          "reliability": 0.72,
+          "source_label": "source_m"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "simulation_id": "MOSAIC-P0-049",
+      "trial_id": "MOSAIC-P0-049",
+      "truth": "available",
+      "variant": "canonical"
+    },
+    {
+      "core_id": "MOSAIC-CORE-13",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": "degraded",
+      "cue_y_claim": "available",
+      "frame": "neutral",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.72,
+      "ideal_p2": 0.5,
+      "labels": {
+        "X": "source_k",
+        "Y": "source_m"
+      },
+      "presented_cues": [
+        {
+          "claim": "available",
+          "cue_id": "Y",
+          "reliability": 0.72,
+          "source_label": "source_m"
+        },
+        {
+          "claim": "degraded",
+          "cue_id": "X",
+          "reliability": 0.72,
+          "source_label": "source_k"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "simulation_id": "MOSAIC-P0-050",
+      "trial_id": "MOSAIC-P0-050",
+      "truth": "available",
+      "variant": "order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-13",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": "degraded",
+      "cue_y_claim": "available",
+      "frame": "neutral",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.28,
+      "ideal_p2": 0.5,
+      "labels": {
+        "X": "source_m",
+        "Y": "source_k"
+      },
+      "presented_cues": [
+        {
+          "claim": "degraded",
+          "cue_id": "X",
+          "reliability": 0.72,
+          "source_label": "source_m"
+        },
+        {
+          "claim": "available",
+          "cue_id": "Y",
+          "reliability": 0.72,
+          "source_label": "source_k"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "simulation_id": "MOSAIC-P0-051",
+      "trial_id": "MOSAIC-P0-051",
+      "truth": "available",
+      "variant": "label_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-13",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": "degraded",
+      "cue_y_claim": "available",
+      "frame": "neutral",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.72,
+      "ideal_p2": 0.5,
+      "labels": {
+        "X": "source_m",
+        "Y": "source_k"
+      },
+      "presented_cues": [
+        {
+          "claim": "available",
+          "cue_id": "Y",
+          "reliability": 0.72,
+          "source_label": "source_k"
+        },
+        {
+          "claim": "degraded",
+          "cue_id": "X",
+          "reliability": 0.72,
+          "source_label": "source_m"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "simulation_id": "MOSAIC-P0-052",
+      "trial_id": "MOSAIC-P0-052",
+      "truth": "available",
+      "variant": "label_and_order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-14",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": "degraded",
+      "cue_y_claim": "degraded",
+      "frame": "neutral",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.28,
+      "ideal_p2": 0.1313672922252011,
+      "labels": {
+        "X": "source_k",
+        "Y": "source_m"
+      },
+      "presented_cues": [
+        {
+          "claim": "degraded",
+          "cue_id": "X",
+          "reliability": 0.72,
+          "source_label": "source_k"
+        },
+        {
+          "claim": "degraded",
+          "cue_id": "Y",
+          "reliability": 0.72,
+          "source_label": "source_m"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "simulation_id": "MOSAIC-P0-053",
+      "trial_id": "MOSAIC-P0-053",
+      "truth": "degraded",
+      "variant": "canonical"
+    },
+    {
+      "core_id": "MOSAIC-CORE-14",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": "degraded",
+      "cue_y_claim": "degraded",
+      "frame": "neutral",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.28,
+      "ideal_p2": 0.1313672922252011,
+      "labels": {
+        "X": "source_k",
+        "Y": "source_m"
+      },
+      "presented_cues": [
+        {
+          "claim": "degraded",
+          "cue_id": "Y",
+          "reliability": 0.72,
+          "source_label": "source_m"
+        },
+        {
+          "claim": "degraded",
+          "cue_id": "X",
+          "reliability": 0.72,
+          "source_label": "source_k"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "simulation_id": "MOSAIC-P0-054",
+      "trial_id": "MOSAIC-P0-054",
+      "truth": "degraded",
+      "variant": "order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-14",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": "degraded",
+      "cue_y_claim": "degraded",
+      "frame": "neutral",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.28,
+      "ideal_p2": 0.1313672922252011,
+      "labels": {
+        "X": "source_m",
+        "Y": "source_k"
+      },
+      "presented_cues": [
+        {
+          "claim": "degraded",
+          "cue_id": "X",
+          "reliability": 0.72,
+          "source_label": "source_m"
+        },
+        {
+          "claim": "degraded",
+          "cue_id": "Y",
+          "reliability": 0.72,
+          "source_label": "source_k"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "simulation_id": "MOSAIC-P0-055",
+      "trial_id": "MOSAIC-P0-055",
+      "truth": "degraded",
+      "variant": "label_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-14",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": "degraded",
+      "cue_y_claim": "degraded",
+      "frame": "neutral",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.28,
+      "ideal_p2": 0.1313672922252011,
+      "labels": {
+        "X": "source_m",
+        "Y": "source_k"
+      },
+      "presented_cues": [
+        {
+          "claim": "degraded",
+          "cue_id": "Y",
+          "reliability": 0.72,
+          "source_label": "source_k"
+        },
+        {
+          "claim": "degraded",
+          "cue_id": "X",
+          "reliability": 0.72,
+          "source_label": "source_m"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "simulation_id": "MOSAIC-P0-056",
+      "trial_id": "MOSAIC-P0-056",
+      "truth": "degraded",
+      "variant": "label_and_order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-15",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": "available",
+      "cue_y_claim": "available",
+      "frame": "neutral",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.72,
+      "ideal_p2": 0.868632707774799,
+      "labels": {
+        "X": "source_k",
+        "Y": "source_m"
+      },
+      "presented_cues": [
+        {
+          "claim": "available",
+          "cue_id": "X",
+          "reliability": 0.72,
+          "source_label": "source_k"
+        },
+        {
+          "claim": "available",
+          "cue_id": "Y",
+          "reliability": 0.72,
+          "source_label": "source_m"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "simulation_id": "MOSAIC-P0-057",
+      "trial_id": "MOSAIC-P0-057",
+      "truth": "available",
+      "variant": "canonical"
+    },
+    {
+      "core_id": "MOSAIC-CORE-15",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": "available",
+      "cue_y_claim": "available",
+      "frame": "neutral",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.72,
+      "ideal_p2": 0.868632707774799,
+      "labels": {
+        "X": "source_k",
+        "Y": "source_m"
+      },
+      "presented_cues": [
+        {
+          "claim": "available",
+          "cue_id": "Y",
+          "reliability": 0.72,
+          "source_label": "source_m"
+        },
+        {
+          "claim": "available",
+          "cue_id": "X",
+          "reliability": 0.72,
+          "source_label": "source_k"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "simulation_id": "MOSAIC-P0-058",
+      "trial_id": "MOSAIC-P0-058",
+      "truth": "available",
+      "variant": "order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-15",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": "available",
+      "cue_y_claim": "available",
+      "frame": "neutral",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.72,
+      "ideal_p2": 0.868632707774799,
+      "labels": {
+        "X": "source_m",
+        "Y": "source_k"
+      },
+      "presented_cues": [
+        {
+          "claim": "available",
+          "cue_id": "X",
+          "reliability": 0.72,
+          "source_label": "source_m"
+        },
+        {
+          "claim": "available",
+          "cue_id": "Y",
+          "reliability": 0.72,
+          "source_label": "source_k"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "simulation_id": "MOSAIC-P0-059",
+      "trial_id": "MOSAIC-P0-059",
+      "truth": "available",
+      "variant": "label_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-15",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": "available",
+      "cue_y_claim": "available",
+      "frame": "neutral",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.72,
+      "ideal_p2": 0.868632707774799,
+      "labels": {
+        "X": "source_m",
+        "Y": "source_k"
+      },
+      "presented_cues": [
+        {
+          "claim": "available",
+          "cue_id": "Y",
+          "reliability": 0.72,
+          "source_label": "source_k"
+        },
+        {
+          "claim": "available",
+          "cue_id": "X",
+          "reliability": 0.72,
+          "source_label": "source_m"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "simulation_id": "MOSAIC-P0-060",
+      "trial_id": "MOSAIC-P0-060",
+      "truth": "available",
+      "variant": "label_and_order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-16",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": "degraded",
+      "cue_y_claim": "available",
+      "frame": "neutral",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.28,
+      "ideal_p2": 0.5,
+      "labels": {
+        "X": "source_k",
+        "Y": "source_m"
+      },
+      "presented_cues": [
+        {
+          "claim": "degraded",
+          "cue_id": "X",
+          "reliability": 0.72,
+          "source_label": "source_k"
+        },
+        {
+          "claim": "available",
+          "cue_id": "Y",
+          "reliability": 0.72,
+          "source_label": "source_m"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "simulation_id": "MOSAIC-P0-061",
+      "trial_id": "MOSAIC-P0-061",
+      "truth": "degraded",
+      "variant": "canonical"
+    },
+    {
+      "core_id": "MOSAIC-CORE-16",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": "degraded",
+      "cue_y_claim": "available",
+      "frame": "neutral",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.72,
+      "ideal_p2": 0.5,
+      "labels": {
+        "X": "source_k",
+        "Y": "source_m"
+      },
+      "presented_cues": [
+        {
+          "claim": "available",
+          "cue_id": "Y",
+          "reliability": 0.72,
+          "source_label": "source_m"
+        },
+        {
+          "claim": "degraded",
+          "cue_id": "X",
+          "reliability": 0.72,
+          "source_label": "source_k"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "simulation_id": "MOSAIC-P0-062",
+      "trial_id": "MOSAIC-P0-062",
+      "truth": "degraded",
+      "variant": "order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-16",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": "degraded",
+      "cue_y_claim": "available",
+      "frame": "neutral",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.28,
+      "ideal_p2": 0.5,
+      "labels": {
+        "X": "source_m",
+        "Y": "source_k"
+      },
+      "presented_cues": [
+        {
+          "claim": "degraded",
+          "cue_id": "X",
+          "reliability": 0.72,
+          "source_label": "source_m"
+        },
+        {
+          "claim": "available",
+          "cue_id": "Y",
+          "reliability": 0.72,
+          "source_label": "source_k"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "simulation_id": "MOSAIC-P0-063",
+      "trial_id": "MOSAIC-P0-063",
+      "truth": "degraded",
+      "variant": "label_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-16",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": "degraded",
+      "cue_y_claim": "available",
+      "frame": "neutral",
+      "ideal_p0": 0.5,
+      "ideal_p1": 0.72,
+      "ideal_p2": 0.5,
+      "labels": {
+        "X": "source_m",
+        "Y": "source_k"
+      },
+      "presented_cues": [
+        {
+          "claim": "available",
+          "cue_id": "Y",
+          "reliability": 0.72,
+          "source_label": "source_k"
+        },
+        {
+          "claim": "degraded",
+          "cue_id": "X",
+          "reliability": 0.72,
+          "source_label": "source_m"
+        }
+      ],
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "simulation_id": "MOSAIC-P0-064",
+      "trial_id": "MOSAIC-P0-064",
+      "truth": "degraded",
+      "variant": "label_and_order_swap"
+    }
+  ],
+  "seed": 20261420
+}

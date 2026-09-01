@@ -55,13 +55,14 @@ This creates a measurable gap between **believed capability** and **effective ca
 - **Stage 005:** configuration-bound RCL controller validated publicly; `RCL-VAL-001` passed 100/100 independent evidence checks and remains excluded.
 - **Stage 006:** corrected final RCL-PC freeze `sais-rcl-pc-v2` targets GPT-5.6 Sol; v1 is retained but invalidated pre-trial after a model-identity provenance error. No included trial has started.
 - **Stage 007:** execution-readiness registry and idempotent issue provisioner; all 32 public `PC-RCL-*` surfaces are provisioned (`#18`–`#49`) with zero comments and `included_trials_started = 0`.
-- **Stage 008B:** pre-dispatch subject isolation/sequential-validity addendum and deterministic fresh-chat handoff generator; RCL-PC v2 is explicitly interpreted as repeated randomized measurement of a memory-enabled system.
+- **Stage 008A:** MOSAIC design/oracle stage; 16 counterfactual quartets (64 pilot-shell trials), Bayesian posterior oracle, label/order distortion metrics, and deterministic excluded P0 simulation. Execution remains HOLD until RCL-PC returns final `PASS`.
+- **Stage 008B:** pre-dispatch RCL-PC subject isolation/sequential-validity addendum and deterministic fresh-chat handoff generator; RCL-PC v2 is explicitly interpreted as repeated randomized measurement of a memory-enabled system.
 
 Stage 004 deliberately places the original direct transparent/opaque experiment on **HOLD as a headline study**. Because a transparent probe reveals the deterministic action condition, that design is retained as `RCL-PC`, a positive control rather than broad evidence of self-awareness.
 
 The final RCL-PC package now freezes the exact product configuration, controller identity, subject instructions, 32 fixed identifiers, public-evidence requirements, analysis thresholds, and `PASS` / `FAIL` / `INCOMPLETE` / `INVALID` status rules. No `PC-RCL-*` included trial has started.
 
-The proposed main successor is **MOSAIC — Model Of System Ability under Inconsistent Cues**, which tests probability updating under graded reliability, conflicting sources, source-label swaps, order swaps, and public commit–seal–reveal auditing.
+The main successor is **MOSAIC — Model Of System Ability under Inconsistent Cues**. Stage 008 now implements its design oracle and synthetic diagnostics for graded reliability, conflicting evidence, source-label swaps, and order swaps. No MOSAIC behavioral data have been collected.
 
 ## Reproducibility commands
 
@@ -88,9 +89,19 @@ sais-provision-rcl-issues \
   --manifest experiments/006-rcl-pc-final-freeze/FREEZE_MANIFEST.json
 ```
 
-Stage 008B adds a deterministic handoff packet for a single fresh subject conversation and post-block temporal diagnostics that never alter the frozen qualification result:
+Stage 008B adds a deterministic handoff packet for a single fresh RCL-PC subject conversation and post-block temporal diagnostics that never alter the frozen qualification result:
 
 ```bash
 sais-rcl-handoff PC-RCL-001 --output /tmp/PC-RCL-001-HANDOFF.md
 sais-rcl-sequential results/RCL-PC-final.json --output results/RCL-PC-sequential.json
 ```
+
+MOSAIC design-only artifacts can be regenerated without starting a trial:
+
+```bash
+sais-mosaic design --output experiments/008-mosaic/design_matrix.json
+sais-mosaic simulate --output experiments/008-mosaic/P0_SIMULATION.json
+sais-mosaic diagnose recency
+```
+
+`experiments/008-mosaic/EXECUTION_GATE.json` remains `HOLD`; P0 outputs are synthetic and excluded.

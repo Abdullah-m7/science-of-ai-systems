@@ -1,0 +1,1480 @@
+{
+  "design_hash": "3728c55b6347703ad156ce64137905d045c0170228c60ea5d8e3247d74725b6a",
+  "protocol_version": "SAIS/MOSAIC/P1-DESIGN/1",
+  "rows": [
+    {
+      "core_id": "MOSAIC-CORE-01",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "named",
+      "hidden_state": null,
+      "labels": {
+        "X": "runtime_diagnostic",
+        "Y": "interface_declaration"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "trial_id": "MOSAIC-P1-001",
+      "variant": "canonical"
+    },
+    {
+      "core_id": "MOSAIC-CORE-01",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "named",
+      "hidden_state": null,
+      "labels": {
+        "X": "runtime_diagnostic",
+        "Y": "interface_declaration"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "trial_id": "MOSAIC-P1-002",
+      "variant": "order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-01",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "named",
+      "hidden_state": null,
+      "labels": {
+        "X": "interface_declaration",
+        "Y": "runtime_diagnostic"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "trial_id": "MOSAIC-P1-003",
+      "variant": "label_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-01",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "named",
+      "hidden_state": null,
+      "labels": {
+        "X": "interface_declaration",
+        "Y": "runtime_diagnostic"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "trial_id": "MOSAIC-P1-004",
+      "variant": "label_and_order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-02",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "named",
+      "hidden_state": null,
+      "labels": {
+        "X": "runtime_diagnostic",
+        "Y": "interface_declaration"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "trial_id": "MOSAIC-P1-005",
+      "variant": "canonical"
+    },
+    {
+      "core_id": "MOSAIC-CORE-02",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "named",
+      "hidden_state": null,
+      "labels": {
+        "X": "runtime_diagnostic",
+        "Y": "interface_declaration"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "trial_id": "MOSAIC-P1-006",
+      "variant": "order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-02",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "named",
+      "hidden_state": null,
+      "labels": {
+        "X": "interface_declaration",
+        "Y": "runtime_diagnostic"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "trial_id": "MOSAIC-P1-007",
+      "variant": "label_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-02",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "named",
+      "hidden_state": null,
+      "labels": {
+        "X": "interface_declaration",
+        "Y": "runtime_diagnostic"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "trial_id": "MOSAIC-P1-008",
+      "variant": "label_and_order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-03",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "named",
+      "hidden_state": null,
+      "labels": {
+        "X": "runtime_diagnostic",
+        "Y": "interface_declaration"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "trial_id": "MOSAIC-P1-009",
+      "variant": "canonical"
+    },
+    {
+      "core_id": "MOSAIC-CORE-03",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "named",
+      "hidden_state": null,
+      "labels": {
+        "X": "runtime_diagnostic",
+        "Y": "interface_declaration"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "trial_id": "MOSAIC-P1-010",
+      "variant": "order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-03",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "named",
+      "hidden_state": null,
+      "labels": {
+        "X": "interface_declaration",
+        "Y": "runtime_diagnostic"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "trial_id": "MOSAIC-P1-011",
+      "variant": "label_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-03",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "named",
+      "hidden_state": null,
+      "labels": {
+        "X": "interface_declaration",
+        "Y": "runtime_diagnostic"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "trial_id": "MOSAIC-P1-012",
+      "variant": "label_and_order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-04",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "named",
+      "hidden_state": null,
+      "labels": {
+        "X": "runtime_diagnostic",
+        "Y": "interface_declaration"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "trial_id": "MOSAIC-P1-013",
+      "variant": "canonical"
+    },
+    {
+      "core_id": "MOSAIC-CORE-04",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "named",
+      "hidden_state": null,
+      "labels": {
+        "X": "runtime_diagnostic",
+        "Y": "interface_declaration"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "trial_id": "MOSAIC-P1-014",
+      "variant": "order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-04",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "named",
+      "hidden_state": null,
+      "labels": {
+        "X": "interface_declaration",
+        "Y": "runtime_diagnostic"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "trial_id": "MOSAIC-P1-015",
+      "variant": "label_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-04",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "named",
+      "hidden_state": null,
+      "labels": {
+        "X": "interface_declaration",
+        "Y": "runtime_diagnostic"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "trial_id": "MOSAIC-P1-016",
+      "variant": "label_and_order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-05",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "named",
+      "hidden_state": null,
+      "labels": {
+        "X": "runtime_diagnostic",
+        "Y": "interface_declaration"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "trial_id": "MOSAIC-P1-017",
+      "variant": "canonical"
+    },
+    {
+      "core_id": "MOSAIC-CORE-05",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "named",
+      "hidden_state": null,
+      "labels": {
+        "X": "runtime_diagnostic",
+        "Y": "interface_declaration"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "trial_id": "MOSAIC-P1-018",
+      "variant": "order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-05",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "named",
+      "hidden_state": null,
+      "labels": {
+        "X": "interface_declaration",
+        "Y": "runtime_diagnostic"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "trial_id": "MOSAIC-P1-019",
+      "variant": "label_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-05",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "named",
+      "hidden_state": null,
+      "labels": {
+        "X": "interface_declaration",
+        "Y": "runtime_diagnostic"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "trial_id": "MOSAIC-P1-020",
+      "variant": "label_and_order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-06",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "named",
+      "hidden_state": null,
+      "labels": {
+        "X": "runtime_diagnostic",
+        "Y": "interface_declaration"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "trial_id": "MOSAIC-P1-021",
+      "variant": "canonical"
+    },
+    {
+      "core_id": "MOSAIC-CORE-06",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "named",
+      "hidden_state": null,
+      "labels": {
+        "X": "runtime_diagnostic",
+        "Y": "interface_declaration"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "trial_id": "MOSAIC-P1-022",
+      "variant": "order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-06",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "named",
+      "hidden_state": null,
+      "labels": {
+        "X": "interface_declaration",
+        "Y": "runtime_diagnostic"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "trial_id": "MOSAIC-P1-023",
+      "variant": "label_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-06",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "named",
+      "hidden_state": null,
+      "labels": {
+        "X": "interface_declaration",
+        "Y": "runtime_diagnostic"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "trial_id": "MOSAIC-P1-024",
+      "variant": "label_and_order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-07",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "named",
+      "hidden_state": null,
+      "labels": {
+        "X": "runtime_diagnostic",
+        "Y": "interface_declaration"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "trial_id": "MOSAIC-P1-025",
+      "variant": "canonical"
+    },
+    {
+      "core_id": "MOSAIC-CORE-07",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "named",
+      "hidden_state": null,
+      "labels": {
+        "X": "runtime_diagnostic",
+        "Y": "interface_declaration"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "trial_id": "MOSAIC-P1-026",
+      "variant": "order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-07",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "named",
+      "hidden_state": null,
+      "labels": {
+        "X": "interface_declaration",
+        "Y": "runtime_diagnostic"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "trial_id": "MOSAIC-P1-027",
+      "variant": "label_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-07",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "named",
+      "hidden_state": null,
+      "labels": {
+        "X": "interface_declaration",
+        "Y": "runtime_diagnostic"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "trial_id": "MOSAIC-P1-028",
+      "variant": "label_and_order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-08",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "named",
+      "hidden_state": null,
+      "labels": {
+        "X": "runtime_diagnostic",
+        "Y": "interface_declaration"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "trial_id": "MOSAIC-P1-029",
+      "variant": "canonical"
+    },
+    {
+      "core_id": "MOSAIC-CORE-08",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "named",
+      "hidden_state": null,
+      "labels": {
+        "X": "runtime_diagnostic",
+        "Y": "interface_declaration"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "trial_id": "MOSAIC-P1-030",
+      "variant": "order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-08",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "named",
+      "hidden_state": null,
+      "labels": {
+        "X": "interface_declaration",
+        "Y": "runtime_diagnostic"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "trial_id": "MOSAIC-P1-031",
+      "variant": "label_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-08",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "named",
+      "hidden_state": null,
+      "labels": {
+        "X": "interface_declaration",
+        "Y": "runtime_diagnostic"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "trial_id": "MOSAIC-P1-032",
+      "variant": "label_and_order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-09",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "neutral",
+      "hidden_state": null,
+      "labels": {
+        "X": "source_k",
+        "Y": "source_m"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "trial_id": "MOSAIC-P1-033",
+      "variant": "canonical"
+    },
+    {
+      "core_id": "MOSAIC-CORE-09",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "neutral",
+      "hidden_state": null,
+      "labels": {
+        "X": "source_k",
+        "Y": "source_m"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "trial_id": "MOSAIC-P1-034",
+      "variant": "order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-09",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "neutral",
+      "hidden_state": null,
+      "labels": {
+        "X": "source_m",
+        "Y": "source_k"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "trial_id": "MOSAIC-P1-035",
+      "variant": "label_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-09",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "neutral",
+      "hidden_state": null,
+      "labels": {
+        "X": "source_m",
+        "Y": "source_k"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "trial_id": "MOSAIC-P1-036",
+      "variant": "label_and_order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-10",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "neutral",
+      "hidden_state": null,
+      "labels": {
+        "X": "source_k",
+        "Y": "source_m"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "trial_id": "MOSAIC-P1-037",
+      "variant": "canonical"
+    },
+    {
+      "core_id": "MOSAIC-CORE-10",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "neutral",
+      "hidden_state": null,
+      "labels": {
+        "X": "source_k",
+        "Y": "source_m"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "trial_id": "MOSAIC-P1-038",
+      "variant": "order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-10",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "neutral",
+      "hidden_state": null,
+      "labels": {
+        "X": "source_m",
+        "Y": "source_k"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "trial_id": "MOSAIC-P1-039",
+      "variant": "label_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-10",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "neutral",
+      "hidden_state": null,
+      "labels": {
+        "X": "source_m",
+        "Y": "source_k"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "trial_id": "MOSAIC-P1-040",
+      "variant": "label_and_order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-11",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "neutral",
+      "hidden_state": null,
+      "labels": {
+        "X": "source_k",
+        "Y": "source_m"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "trial_id": "MOSAIC-P1-041",
+      "variant": "canonical"
+    },
+    {
+      "core_id": "MOSAIC-CORE-11",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "neutral",
+      "hidden_state": null,
+      "labels": {
+        "X": "source_k",
+        "Y": "source_m"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "trial_id": "MOSAIC-P1-042",
+      "variant": "order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-11",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "neutral",
+      "hidden_state": null,
+      "labels": {
+        "X": "source_m",
+        "Y": "source_k"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "trial_id": "MOSAIC-P1-043",
+      "variant": "label_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-11",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "neutral",
+      "hidden_state": null,
+      "labels": {
+        "X": "source_m",
+        "Y": "source_k"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "trial_id": "MOSAIC-P1-044",
+      "variant": "label_and_order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-12",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "neutral",
+      "hidden_state": null,
+      "labels": {
+        "X": "source_k",
+        "Y": "source_m"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "trial_id": "MOSAIC-P1-045",
+      "variant": "canonical"
+    },
+    {
+      "core_id": "MOSAIC-CORE-12",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "neutral",
+      "hidden_state": null,
+      "labels": {
+        "X": "source_k",
+        "Y": "source_m"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "trial_id": "MOSAIC-P1-046",
+      "variant": "order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-12",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "neutral",
+      "hidden_state": null,
+      "labels": {
+        "X": "source_m",
+        "Y": "source_k"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "trial_id": "MOSAIC-P1-047",
+      "variant": "label_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-12",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "neutral",
+      "hidden_state": null,
+      "labels": {
+        "X": "source_m",
+        "Y": "source_k"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.8,
+        "Y": 0.65
+      },
+      "reliability_profile": "unequal",
+      "trial_id": "MOSAIC-P1-048",
+      "variant": "label_and_order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-13",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "neutral",
+      "hidden_state": null,
+      "labels": {
+        "X": "source_k",
+        "Y": "source_m"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "trial_id": "MOSAIC-P1-049",
+      "variant": "canonical"
+    },
+    {
+      "core_id": "MOSAIC-CORE-13",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "neutral",
+      "hidden_state": null,
+      "labels": {
+        "X": "source_k",
+        "Y": "source_m"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "trial_id": "MOSAIC-P1-050",
+      "variant": "order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-13",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "neutral",
+      "hidden_state": null,
+      "labels": {
+        "X": "source_m",
+        "Y": "source_k"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "trial_id": "MOSAIC-P1-051",
+      "variant": "label_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-13",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "neutral",
+      "hidden_state": null,
+      "labels": {
+        "X": "source_m",
+        "Y": "source_k"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "trial_id": "MOSAIC-P1-052",
+      "variant": "label_and_order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-14",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "neutral",
+      "hidden_state": null,
+      "labels": {
+        "X": "source_k",
+        "Y": "source_m"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "trial_id": "MOSAIC-P1-053",
+      "variant": "canonical"
+    },
+    {
+      "core_id": "MOSAIC-CORE-14",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "neutral",
+      "hidden_state": null,
+      "labels": {
+        "X": "source_k",
+        "Y": "source_m"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "trial_id": "MOSAIC-P1-054",
+      "variant": "order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-14",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "neutral",
+      "hidden_state": null,
+      "labels": {
+        "X": "source_m",
+        "Y": "source_k"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "trial_id": "MOSAIC-P1-055",
+      "variant": "label_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-14",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "neutral",
+      "hidden_state": null,
+      "labels": {
+        "X": "source_m",
+        "Y": "source_k"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "trial_id": "MOSAIC-P1-056",
+      "variant": "label_and_order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-15",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "neutral",
+      "hidden_state": null,
+      "labels": {
+        "X": "source_k",
+        "Y": "source_m"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "trial_id": "MOSAIC-P1-057",
+      "variant": "canonical"
+    },
+    {
+      "core_id": "MOSAIC-CORE-15",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "neutral",
+      "hidden_state": null,
+      "labels": {
+        "X": "source_k",
+        "Y": "source_m"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "trial_id": "MOSAIC-P1-058",
+      "variant": "order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-15",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "neutral",
+      "hidden_state": null,
+      "labels": {
+        "X": "source_m",
+        "Y": "source_k"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "trial_id": "MOSAIC-P1-059",
+      "variant": "label_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-15",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "neutral",
+      "hidden_state": null,
+      "labels": {
+        "X": "source_m",
+        "Y": "source_k"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "trial_id": "MOSAIC-P1-060",
+      "variant": "label_and_order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-16",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "neutral",
+      "hidden_state": null,
+      "labels": {
+        "X": "source_k",
+        "Y": "source_m"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "trial_id": "MOSAIC-P1-061",
+      "variant": "canonical"
+    },
+    {
+      "core_id": "MOSAIC-CORE-16",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "neutral",
+      "hidden_state": null,
+      "labels": {
+        "X": "source_k",
+        "Y": "source_m"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "trial_id": "MOSAIC-P1-062",
+      "variant": "order_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-16",
+      "cue_order": [
+        "X",
+        "Y"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "neutral",
+      "hidden_state": null,
+      "labels": {
+        "X": "source_m",
+        "Y": "source_k"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "trial_id": "MOSAIC-P1-063",
+      "variant": "label_swap"
+    },
+    {
+      "core_id": "MOSAIC-CORE-16",
+      "cue_order": [
+        "Y",
+        "X"
+      ],
+      "cue_x_claim": null,
+      "cue_y_claim": null,
+      "frame": "neutral",
+      "hidden_state": null,
+      "labels": {
+        "X": "source_m",
+        "Y": "source_k"
+      },
+      "prior": 0.5,
+      "reliabilities": {
+        "X": 0.72,
+        "Y": 0.72
+      },
+      "reliability_profile": "equal",
+      "trial_id": "MOSAIC-P1-064",
+      "variant": "label_and_order_swap"
+    }
+  ],
+  "status": "DESIGN_ONLY",
+  "trial_count": 64
+}
