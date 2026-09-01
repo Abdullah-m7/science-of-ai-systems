@@ -36,3 +36,7 @@ This demonstrates byte-stable reconciliation of the already registered surfaces.
 Issue creation does not generate a trial key, capability condition, legibility assignment, probe, action, forecast, or diagnosis. All 32 issues remain empty observation surfaces marked `NOT STARTED`.
 
 The current design conversation remains ineligible for included execution. Each future controller dispatch consumes its identifier and requires a fresh subject conversation under the frozen Stage 006 subject instructions.
+
+## Content-addressed surface audit
+
+`SURFACE_AUDIT.json` records the exact trial-to-issue mapping, issue titles, SHA-256 of each issue body, and zero-comment count observed after provisioning. An offline regression test binds that snapshot to the byte-exact registry state.
