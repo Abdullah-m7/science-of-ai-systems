@@ -34,6 +34,8 @@ def test_new_registry_has_exact_frozen_denominator() -> None:
     )
     assert {item["status"] for item in registry["trials"]} == {"NOT_CREATED"}
     assert registry["included_trials_started"] == 0
+    assert registry["controller_commit"] == spec.controller_code_sha
+    assert registry["configuration_path"] == spec.config_path
     assert validate_registry(registry, spec)
 
 
@@ -194,4 +196,17 @@ def test_issue_url_must_match_frozen_repository() -> None:
         "last_transition_at_utc": "2026-09-01T15:30:00Z",
     })
     with pytest.raises(ValueError, match="trial_records_valid"):
+        validate_registry(forged, spec)
+
+
+def test_registry_rejects_controller_or_config_anchor_tamper() -> None:
+    spec = _spec()
+    registry = new_registry(spec, freeze_commit="f" * 40)
+    forged = deepcopy(registry)
+    forged["controller_commit"] = "0" * 40
+    with pytest.raises(ValueError, match="controller_commit"):
+        validate_registry(forged, spec)
+    forged = deepcopy(registry)
+    forged["configuration_path"] = "other/CONFIG.json"
+    with pytest.raises(ValueError, match="configuration_path"):
         validate_registry(forged, spec)

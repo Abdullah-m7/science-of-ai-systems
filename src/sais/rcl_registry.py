@@ -80,9 +80,11 @@ def new_registry(
         "freeze_tag": spec.freeze_tag,
         "freeze_commit": freeze_commit,
         "controller_tag": CONTROLLER_TAG,
+        "controller_commit": spec.controller_code_sha,
         "repository": spec.repository,
         "block_id": spec.block_id,
         "configuration_commit": spec.config_commit,
+        "configuration_path": spec.config_path,
         "configuration_binding_hash": spec.expected_binding_hash,
         "created_at_utc": created,
         "updated_at_utc": created,
@@ -188,9 +190,11 @@ def validate_registry(
             and HEX40.fullmatch(str(registry["freeze_commit"]))
         ),
         "controller_tag": registry.get("controller_tag") == CONTROLLER_TAG,
+        "controller_commit": registry.get("controller_commit") == spec.controller_code_sha,
         "repository": registry.get("repository") == spec.repository,
         "block_id": registry.get("block_id") == spec.block_id,
         "configuration_commit": registry.get("configuration_commit") == spec.config_commit,
+        "configuration_path": registry.get("configuration_path") == spec.config_path,
         "configuration_binding_hash": (
             registry.get("configuration_binding_hash") == spec.expected_binding_hash
         ),
@@ -325,8 +329,10 @@ def render_issue_body(
         "## Frozen references\n\n"
         f"- study freeze: `{registry['freeze_tag']}` at "
         f"`{registry['freeze_commit']}`\n"
-        f"- controller freeze: `{registry['controller_tag']}`\n"
-        f"- configuration source: `{registry['configuration_commit']}`\n"
+        f"- controller freeze: `{registry['controller_tag']}` at "
+        f"`{registry['controller_commit']}`\n"
+        f"- configuration source: `{registry['configuration_commit']}`:"
+        f"`{registry['configuration_path']}`\n"
         f"- configuration binding: `{registry['configuration_binding_hash']}`\n\n"
         "## Execution boundary\n\n"
         "This issue is an empty public observation surface. It must remain free "

@@ -53,7 +53,20 @@ def _verify_local_anchor(registry: Mapping[str, Any]) -> None:
             f"freeze tag {tag} resolves to {actual}, expected {expected}"
         )
     controller_tag = str(registry["controller_tag"])
-    _run(["git", "rev-list", "-n", "1", controller_tag])
+    expected_controller = str(registry["controller_commit"])
+    actual_controller = _run(["git", "rev-list", "-n", "1", controller_tag])
+    if actual_controller != expected_controller:
+        raise RuntimeError(
+            f"controller tag {controller_tag} resolves to {actual_controller}, "
+            f"expected {expected_controller}"
+        )
+    config_commit = str(registry["configuration_commit"])
+    try:
+        _run(["git", "merge-base", "--is-ancestor", config_commit, expected])
+    except subprocess.CalledProcessError as error:
+        raise RuntimeError(
+            "configuration source commit is not an ancestor of the frozen study"
+        ) from error
 
 
 def _existing_issues(gh: str, repository: str) -> list[dict[str, Any]]:
@@ -78,6 +91,8 @@ def _comments_empty(issue: Mapping[str, Any]) -> bool:
     comments = issue.get("comments")
     if comments is None:
         return True
+    if isinstance(comments, int) and not isinstance(comments, bool):
+        return comments == 0
     if isinstance(comments, list):
         return len(comments) == 0
     if isinstance(comments, Mapping):
