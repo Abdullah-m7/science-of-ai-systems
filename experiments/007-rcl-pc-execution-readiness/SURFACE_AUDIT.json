@@ -1,0 +1,271 @@
+{
+  "audit_version": "SMI-CP/RCL-PC/SURFACES/1",
+  "verified_at_utc": "2026-09-01T15:46:45Z",
+  "repository": "Abdullah-m7/science-of-ai-systems",
+  "freeze_tag": "sais-rcl-pc-v2",
+  "freeze_commit": "9cae514de94cd7d84ce9cfb293c209a91decb088",
+  "block_id": "RCL-PC-GPT56SOL-IOS-20260901-A",
+  "registry_sha256": "df2d420742674819a2d466e680f98995a629b9d35e40965f731f527d49b7b1c4",
+  "surface_count": 32,
+  "trial_ids_exact": true,
+  "zero_comments": true,
+  "included_trials_started": 0,
+  "surfaces": [
+    {
+      "trial_id": "PC-RCL-001",
+      "issue_number": 18,
+      "url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/18",
+      "title": "[RCL-PC] PC-RCL-001 \u2014 NOT STARTED",
+      "body_sha256": "a5b2efd34221b2f0ecb78de64467718ad70300e81d45c075a9c473ef9adc4135",
+      "comment_count": 0
+    },
+    {
+      "trial_id": "PC-RCL-002",
+      "issue_number": 19,
+      "url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/19",
+      "title": "[RCL-PC] PC-RCL-002 \u2014 NOT STARTED",
+      "body_sha256": "c8a18d3fc62faa1a243a7f9cfff41c12395e7b2100c8af58c20f135d0838a775",
+      "comment_count": 0
+    },
+    {
+      "trial_id": "PC-RCL-003",
+      "issue_number": 20,
+      "url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/20",
+      "title": "[RCL-PC] PC-RCL-003 \u2014 NOT STARTED",
+      "body_sha256": "e35b145a0ec6e3b3880546b123ae83ffdc0c71cd341554ed8f646c9438255eec",
+      "comment_count": 0
+    },
+    {
+      "trial_id": "PC-RCL-004",
+      "issue_number": 21,
+      "url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/21",
+      "title": "[RCL-PC] PC-RCL-004 \u2014 NOT STARTED",
+      "body_sha256": "9935149bc39e769a70fd696bb6d7875268fc70065572aafeb04450c0811658de",
+      "comment_count": 0
+    },
+    {
+      "trial_id": "PC-RCL-005",
+      "issue_number": 22,
+      "url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/22",
+      "title": "[RCL-PC] PC-RCL-005 \u2014 NOT STARTED",
+      "body_sha256": "8c41e4ba811fb1acbfb56222632069ea1020e5127bd12fee2ce7bf7bf2aa77e2",
+      "comment_count": 0
+    },
+    {
+      "trial_id": "PC-RCL-006",
+      "issue_number": 23,
+      "url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/23",
+      "title": "[RCL-PC] PC-RCL-006 \u2014 NOT STARTED",
+      "body_sha256": "d447bf679ee235bfdd6253599c363f8a6466f723567eede776a168702227cc63",
+      "comment_count": 0
+    },
+    {
+      "trial_id": "PC-RCL-007",
+      "issue_number": 24,
+      "url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/24",
+      "title": "[RCL-PC] PC-RCL-007 \u2014 NOT STARTED",
+      "body_sha256": "3d5ad024cf71e4df41a72f642eb36fd17e1f264ea7558c4c9fba69a6bd44d1e6",
+      "comment_count": 0
+    },
+    {
+      "trial_id": "PC-RCL-008",
+      "issue_number": 25,
+      "url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/25",
+      "title": "[RCL-PC] PC-RCL-008 \u2014 NOT STARTED",
+      "body_sha256": "621ea37f015c75a7badc46571caae0fe0d2f07598a96e3b29b7658c2ae20fa89",
+      "comment_count": 0
+    },
+    {
+      "trial_id": "PC-RCL-009",
+      "issue_number": 26,
+      "url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/26",
+      "title": "[RCL-PC] PC-RCL-009 \u2014 NOT STARTED",
+      "body_sha256": "4f1a7278cd51445fb6f3d34bf647c2267fbab14900363c53d60a5e5f309dd244",
+      "comment_count": 0
+    },
+    {
+      "trial_id": "PC-RCL-010",
+      "issue_number": 27,
+      "url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/27",
+      "title": "[RCL-PC] PC-RCL-010 \u2014 NOT STARTED",
+      "body_sha256": "06221e0e4a7fcb61687ddd90e7912be898c8fec9ba9a48765018c11c6310893d",
+      "comment_count": 0
+    },
+    {
+      "trial_id": "PC-RCL-011",
+      "issue_number": 28,
+      "url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/28",
+      "title": "[RCL-PC] PC-RCL-011 \u2014 NOT STARTED",
+      "body_sha256": "999befc268c8ac1baf985beb1080b04c53330fe84343b622eeab7a7c4011f529",
+      "comment_count": 0
+    },
+    {
+      "trial_id": "PC-RCL-012",
+      "issue_number": 29,
+      "url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/29",
+      "title": "[RCL-PC] PC-RCL-012 \u2014 NOT STARTED",
+      "body_sha256": "49d4b58fe5159d0b5bb869b34b34a898c285a35add3e15ab4592bf71fd80b114",
+      "comment_count": 0
+    },
+    {
+      "trial_id": "PC-RCL-013",
+      "issue_number": 30,
+      "url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/30",
+      "title": "[RCL-PC] PC-RCL-013 \u2014 NOT STARTED",
+      "body_sha256": "4836fc13bbfc26bf5d5ed4c46a15694f11af1824d9c7320d0975337821569a8f",
+      "comment_count": 0
+    },
+    {
+      "trial_id": "PC-RCL-014",
+      "issue_number": 31,
+      "url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/31",
+      "title": "[RCL-PC] PC-RCL-014 \u2014 NOT STARTED",
+      "body_sha256": "ac8036d74837e1962610feeb4e518ddaaeab2622e61b2f91aea49b575e491565",
+      "comment_count": 0
+    },
+    {
+      "trial_id": "PC-RCL-015",
+      "issue_number": 32,
+      "url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/32",
+      "title": "[RCL-PC] PC-RCL-015 \u2014 NOT STARTED",
+      "body_sha256": "469367f998be2a47bb543b30fe2ac478a1c4fe3d55ea2a8b3237dab284dbb21b",
+      "comment_count": 0
+    },
+    {
+      "trial_id": "PC-RCL-016",
+      "issue_number": 33,
+      "url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/33",
+      "title": "[RCL-PC] PC-RCL-016 \u2014 NOT STARTED",
+      "body_sha256": "efec6d2922e0cae9ab9a7f2c82ab904884dafb5a6de6009b3b3346f65f011d14",
+      "comment_count": 0
+    },
+    {
+      "trial_id": "PC-RCL-017",
+      "issue_number": 34,
+      "url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/34",
+      "title": "[RCL-PC] PC-RCL-017 \u2014 NOT STARTED",
+      "body_sha256": "1bf47f558fb2041e7bdf4d8f80001e65121e4cfe2aa7a9c266d0dc890927b071",
+      "comment_count": 0
+    },
+    {
+      "trial_id": "PC-RCL-018",
+      "issue_number": 35,
+      "url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/35",
+      "title": "[RCL-PC] PC-RCL-018 \u2014 NOT STARTED",
+      "body_sha256": "12e5470c6d7bd92ed7bec3d0f34dc685ea857c32c0e7d754d9dd64e51e95ba0b",
+      "comment_count": 0
+    },
+    {
+      "trial_id": "PC-RCL-019",
+      "issue_number": 36,
+      "url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/36",
+      "title": "[RCL-PC] PC-RCL-019 \u2014 NOT STARTED",
+      "body_sha256": "4a27a0b6e0265485b0b6c1082d0afb5ac108580223c272d910e9afc37482b671",
+      "comment_count": 0
+    },
+    {
+      "trial_id": "PC-RCL-020",
+      "issue_number": 37,
+      "url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/37",
+      "title": "[RCL-PC] PC-RCL-020 \u2014 NOT STARTED",
+      "body_sha256": "8616da03c3da111b5d38546c5aa5c10e1c13afe92a370c55300d53bfb78ad043",
+      "comment_count": 0
+    },
+    {
+      "trial_id": "PC-RCL-021",
+      "issue_number": 38,
+      "url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/38",
+      "title": "[RCL-PC] PC-RCL-021 \u2014 NOT STARTED",
+      "body_sha256": "84f509b949d9093fe03d4d23f23426ed63f4a1d96943a9fe053bcef27204ce53",
+      "comment_count": 0
+    },
+    {
+      "trial_id": "PC-RCL-022",
+      "issue_number": 39,
+      "url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/39",
+      "title": "[RCL-PC] PC-RCL-022 \u2014 NOT STARTED",
+      "body_sha256": "647dda00713c6ae8004a9301f7554bbc47b63316968314ffb42310d451ae8e38",
+      "comment_count": 0
+    },
+    {
+      "trial_id": "PC-RCL-023",
+      "issue_number": 40,
+      "url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/40",
+      "title": "[RCL-PC] PC-RCL-023 \u2014 NOT STARTED",
+      "body_sha256": "2ead8af804c77e6270c7ca2504069b4fe3c770ca7ab9859ead846b530da7ae08",
+      "comment_count": 0
+    },
+    {
+      "trial_id": "PC-RCL-024",
+      "issue_number": 41,
+      "url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/41",
+      "title": "[RCL-PC] PC-RCL-024 \u2014 NOT STARTED",
+      "body_sha256": "921ed0328d99c5d9b25d88a9fee24d8c07e0d61edf56ea221b88f8e9968eabfe",
+      "comment_count": 0
+    },
+    {
+      "trial_id": "PC-RCL-025",
+      "issue_number": 42,
+      "url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/42",
+      "title": "[RCL-PC] PC-RCL-025 \u2014 NOT STARTED",
+      "body_sha256": "79245817c7339acaa9d34d875f3f7f7c344592ef4f0171c5755a65a15f8bc181",
+      "comment_count": 0
+    },
+    {
+      "trial_id": "PC-RCL-026",
+      "issue_number": 43,
+      "url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/43",
+      "title": "[RCL-PC] PC-RCL-026 \u2014 NOT STARTED",
+      "body_sha256": "a7d9df11865276e6abbb83601e81eb50124e148ce8ba1ba55e495718254ff76d",
+      "comment_count": 0
+    },
+    {
+      "trial_id": "PC-RCL-027",
+      "issue_number": 44,
+      "url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/44",
+      "title": "[RCL-PC] PC-RCL-027 \u2014 NOT STARTED",
+      "body_sha256": "d527d9659dc845e52a9bfa426d2205f25485a9490ffdc8c5b73ddb3c3bdc7d70",
+      "comment_count": 0
+    },
+    {
+      "trial_id": "PC-RCL-028",
+      "issue_number": 45,
+      "url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/45",
+      "title": "[RCL-PC] PC-RCL-028 \u2014 NOT STARTED",
+      "body_sha256": "7eab626301e91a0f2d8259232b2b9f3c31f3a43e82e25718e0ca7ab9b6ae6755",
+      "comment_count": 0
+    },
+    {
+      "trial_id": "PC-RCL-029",
+      "issue_number": 46,
+      "url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/46",
+      "title": "[RCL-PC] PC-RCL-029 \u2014 NOT STARTED",
+      "body_sha256": "b07b9979605eae5c42a4872eb7eae0c73a9fafc5f6b144de653b93a0af4ba9bd",
+      "comment_count": 0
+    },
+    {
+      "trial_id": "PC-RCL-030",
+      "issue_number": 47,
+      "url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/47",
+      "title": "[RCL-PC] PC-RCL-030 \u2014 NOT STARTED",
+      "body_sha256": "bc880ddb7ee7fd2bf650165d4c75ce42db83054610306df59eac27e7763c4cf0",
+      "comment_count": 0
+    },
+    {
+      "trial_id": "PC-RCL-031",
+      "issue_number": 48,
+      "url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/48",
+      "title": "[RCL-PC] PC-RCL-031 \u2014 NOT STARTED",
+      "body_sha256": "6792912091678dfcd1a8877169e63416aa894938a5d90abfca23b3f954456a9b",
+      "comment_count": 0
+    },
+    {
+      "trial_id": "PC-RCL-032",
+      "issue_number": 49,
+      "url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/49",
+      "title": "[RCL-PC] PC-RCL-032 \u2014 NOT STARTED",
+      "body_sha256": "d62ff7e8b84f9bfcce43a236011bdba69abb862a3357385997c99cf0d596d1c5",
+      "comment_count": 0
+    }
+  ]
+}
