@@ -11,9 +11,8 @@ Before `PC-RCL-001`:
 2. Git tag `sais-rcl-pc-v1` points to the reviewed final-freeze commit.
 3. `sais-verify-freeze experiments/006-rcl-pc-final-freeze/FREEZE_MANIFEST.json` passes.
 4. The configuration commit/path exactly match the manifest.
-5. GitHub secret `RCL_CONTROLLER_PAT` remains available to the frozen workflow.
-6. The visible product configuration still matches `CONFIG.json`.
-7. No included identifier has previously been dispatched.
+5. The visible product configuration still matches `CONFIG.json`.
+6. No included identifier has previously been dispatched.
 
 If any precondition fails, do not begin or continue the block.
 
@@ -27,7 +26,6 @@ Dispatch `.github/workflows/rcl-bound-controller.yml` from `sais-rcl-bound-contr
 - `trial_id`: the fixed identifier;
 - `issue_number`: the dedicated issue;
 - `subject_login`: `Abdullah-m7`;
-- `config_repository`: `Abdullah-m7/science-of-ai-systems`;
 - `config_commit`: the exact full SHA in the final manifest;
 - `config_path`: `experiments/006-rcl-pc-final-freeze/CONFIG.json`.
 
@@ -48,10 +46,13 @@ The current designer/controller conversation is contaminated and cannot be used 
 After reveal, collect the issue and exact sealed Git objects:
 
 ```bash
-sais-collect-rcl Abdullah-m7/science-of-ai-systems ISSUE_NUMBER \
-  --expected-config-commit CONFIG_COMMIT_FROM_MANIFEST \
-  --expected-config-path experiments/006-rcl-pc-final-freeze/CONFIG.json \
-  --expected-block-id RCL-PC-GPT56PRO-IOS-20260831-A \
+sais-collect-rcl-bound Abdullah-m7/science-of-ai-systems ISSUE_NUMBER \
+  --controller-actor 'github-actions[bot]' \
+  --subject-actor Abdullah-m7 \
+  --controller-code-sha c899213eb5b3f68a77e399a9dd32a9f86a827824 \
+  --config-commit 9bd28da4b8755b0807bb7b6952f1e6d4c447a0b6 \
+  --config-path experiments/006-rcl-pc-final-freeze/CONFIG.json \
+  --block-id RCL-PC-GPT56PRO-IOS-20260831-A \
   --output collected/PC-RCL-NNN.public.json
 ```
 
@@ -69,3 +70,6 @@ sais-rcl-pc collected/*.public.json \
 ```
 
 Publish the report regardless of `PASS`, `FAIL`, `INCOMPLETE`, or `INVALID`. Preserve issues, bundles, workflow references, and the final report in an independent archive before making a publication claim.
+
+## Comment-stream preservation
+The collector retains the complete issue-comment stream, not only `SAIS_RCL_*` records. Final analysis selects the cryptographically bound comments and independently flags any additional subject-authored comment between `SAIS_RCL_READY` and `SAIS_RCL_REVEAL` as a protocol deviation.

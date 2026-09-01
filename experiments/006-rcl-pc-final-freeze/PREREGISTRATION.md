@@ -32,7 +32,7 @@ Included records must use:
 
 - controller protocol `SMI-CP/RCL-PC/CTRL/1`;
 - tag `sais-rcl-bound-controller-v1`;
-- controller code commit `c899213eb5b3ce5b817bcb81d05a7b7c0d720e6f`;
+- controller code commit `c899213eb5b3f68a77e399a9dd32a9f86a827824`;
 - repository `Abdullah-m7/science-of-ai-systems`;
 - controller actor `github-actions[bot]`;
 - public issue interaction and seal-before-reveal ordering.
