@@ -57,6 +57,7 @@ This creates a measurable gap between **believed capability** and **effective ca
 - **Stage 007:** execution-readiness registry and idempotent issue provisioner; all 32 public `PC-RCL-*` surfaces are provisioned (`#18`–`#49`) with zero comments and `included_trials_started = 0`.
 - **Stage 008A:** MOSAIC design/oracle stage; 16 counterfactual quartets (64 pilot-shell trials), Bayesian posterior oracle, label/order distortion metrics, and deterministic excluded P0 simulation. Execution remains HOLD until RCL-PC returns final `PASS`.
 - **Stage 008B:** pre-dispatch RCL-PC subject isolation/sequential-validity addendum and deterministic fresh-chat handoff generator; RCL-PC v2 is explicitly interpreted as repeated randomized measurement of a memory-enabled system.
+- **Stage 008C:** fail-closed single-trial dispatch guard; durable Git reservation must precede workflow dispatch, and run identity is recovered relative to a frozen baseline without blind retry.
 
 Stage 004 deliberately places the original direct transparent/opaque experiment on **HOLD as a headline study**. Because a transparent probe reveals the deterministic action condition, that design is retained as `RCL-PC`, a positive control rather than broad evidence of self-awareness.
 
@@ -105,3 +106,13 @@ sais-mosaic diagnose recency
 ```
 
 `experiments/008-mosaic/EXECUTION_GATE.json` remains `HOLD`; P0 outputs are synthetic and excluded.
+
+Stage 008C can run a **read-only live preflight** without reserving or dispatching anything:
+
+```bash
+sais-rcl-dispatch --repo-root . \
+  --plan experiments/008c-dispatch-guard/DISPATCH_PLAN.json \
+  preflight PC-RCL-001
+```
+
+Apply mode is intentionally not shown as a routine command: it consumes the identifier by pushing a durable reservation before external workflow dispatch and requires exact confirmations for freeze, trial, model, client, memory, and customization state. Use it only when the fresh subject conversation is already prepared.
