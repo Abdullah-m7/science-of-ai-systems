@@ -52,7 +52,7 @@
     },
     {
       "path": "src/sais/mosaic.py",
-      "sha256": "b235e7f0dc2e9f6b08039f063c500de80acfc34df606cca6d96d6c63135617b8"
+      "sha256": "ec8ec01a830050cb53d626bf0173dc9bc0001e839dd23802ff66de5bbb616d1b"
     },
     {
       "path": "src/sais/mosaic_analysis.py",
@@ -72,7 +72,7 @@
     },
     {
       "path": "tests/test_mosaic_artifacts.py",
-      "sha256": "63f7a24221f31c875305a52b9c9cd34b6c9bf0adf41852809345c46da5332e42"
+      "sha256": "d6696a918b83e10870da405826df1fafc74b5d8cda332127d09cf29796e918fd"
     }
   ]
 }

@@ -3,8 +3,8 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-import jsonschema
 
+from sais.mosaic import CUE_RECORD_FIELDS, validate_cue_record
 from sais.mosaic_cli import design_payload, simulation_payload
 
 ROOT = Path(__file__).parents[1]
@@ -37,8 +37,10 @@ def test_execution_gate_is_fail_closed() -> None:
     assert "design simulation" in gate["allowed_while_hold"]
 
 
-def test_cue_schema_accepts_only_declared_evidence_record() -> None:
+def test_cue_schema_matches_runtime_closed_validator() -> None:
     schema = json.loads((BASE / "cue.schema.json").read_text(encoding="utf-8"))
+    assert schema["additionalProperties"] is False
+    assert set(schema["required"]) == CUE_RECORD_FIELDS
     cue = {
         "protocol_version": "SAIS/MOSAIC/CUE/1",
         "trial_id": "MOSAIC-P1-001",
@@ -49,14 +51,14 @@ def test_cue_schema_accepts_only_declared_evidence_record() -> None:
         "stated_reliability": 0.8,
         "quartet_commitment": "a" * 64,
     }
-    jsonschema.validate(cue, schema)
+    validate_cue_record(cue)
     cue["hidden_truth"] = "available"
     try:
-        jsonschema.validate(cue, schema)
-    except jsonschema.ValidationError:
+        validate_cue_record(cue)
+    except ValueError:
         pass
     else:
-        raise AssertionError("cue schema admitted undeclared hidden truth")
+        raise AssertionError("runtime validator admitted undeclared hidden truth")
 
 
 def test_design_manifest_is_hold_only_and_hash_complete() -> None:

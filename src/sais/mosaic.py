@@ -282,3 +282,38 @@ def p0_coverage_report(rows: Sequence[dict[str, Any]] | None = None) -> dict[str
         "balanced_agree_conflict_paths": balanced_paths,
         "valid": len(core_rows) == 16 and balanced_truth and balanced_paths,
     }
+
+
+CUE_RECORD_FIELDS = {
+    "protocol_version",
+    "trial_id",
+    "core_id",
+    "cue_index",
+    "source_label",
+    "claim",
+    "stated_reliability",
+    "quartet_commitment",
+}
+
+
+def validate_cue_record(value: dict[str, Any]) -> None:
+    """Validate the subject-visible cue without an external schema dependency."""
+    import re
+
+    if not isinstance(value, dict) or set(value) != CUE_RECORD_FIELDS:
+        raise ValueError("cue fields do not match the frozen protocol")
+    if value.get("protocol_version") != "SAIS/MOSAIC/CUE/1":
+        raise ValueError("unsupported cue protocol")
+    if not re.fullmatch(r"MOSAIC-P1-[0-9]{3}", str(value.get("trial_id", ""))):
+        raise ValueError("invalid MOSAIC P1 trial id")
+    if not re.fullmatch(r"MOSAIC-CORE-[0-9]{2}", str(value.get("core_id", ""))):
+        raise ValueError("invalid MOSAIC core id")
+    if value.get("cue_index") not in {1, 2}:
+        raise ValueError("cue_index must be 1 or 2")
+    if not isinstance(value.get("source_label"), str) or not value["source_label"].strip():
+        raise ValueError("source_label must be non-empty")
+    if value.get("claim") not in CLAIMS:
+        raise ValueError("claim must be available or degraded")
+    validate_reliability(value.get("stated_reliability"))
+    if not re.fullmatch(r"[a-f0-9]{64}", str(value.get("quartet_commitment", ""))):
+        raise ValueError("quartet_commitment must be lowercase SHA-256")
