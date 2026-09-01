@@ -53,7 +53,8 @@ This creates a measurable gap between **believed capability** and **effective ca
 - **Stage 003:** ephemeral GitHub Actions controller with seal-before-reveal validation.
 - **Stage 004:** construct-validity audit, public-evidence collector, and positive-control freeze candidate.
 - **Stage 005:** configuration-bound RCL controller validated publicly; `RCL-VAL-001` passed 100/100 independent evidence checks and remains excluded.
-- **Stage 006:** final manifest-driven RCL-PC positive-control freeze candidate; `sais-rcl-pc-v1` was invalidated pre-trial after a model-identity provenance error, and corrected freeze `sais-rcl-pc-v2` targets GPT-5.6 Sol. No included trial has started.
+- **Stage 006:** corrected final RCL-PC freeze `sais-rcl-pc-v2` targets GPT-5.6 Sol; v1 is retained but invalidated pre-trial after a model-identity provenance error. No included trial has started.
+- **Stage 007:** execution-readiness registry and idempotent issue provisioner; preparation only, with `included_trials_started = 0`.
 
 Stage 004 deliberately places the original direct transparent/opaque experiment on **HOLD as a headline study**. Because a transparent probe reveals the deterministic action condition, that design is retained as `RCL-PC`, a positive control rather than broad evidence of self-awareness.
 
@@ -74,3 +75,14 @@ sais-rcl-pc collected/*.public.json \
 ```
 
 Confirmatory analysis rejects artifact-only trial files by default. Included records must be reconstructed from public issue comments and the exact sealed Git ledger commit.
+
+Stage 007 can validate the pre-execution registry or produce a dry-run issue plan without starting a trial:
+
+```bash
+sais-rcl-registry --manifest experiments/006-rcl-pc-final-freeze/FREEZE_MANIFEST.json \
+  validate experiments/007-rcl-pc-execution-readiness/TRIAL_REGISTRY.json
+
+sais-provision-rcl-issues \
+  experiments/007-rcl-pc-execution-readiness/TRIAL_REGISTRY.json \
+  --manifest experiments/006-rcl-pc-final-freeze/FREEZE_MANIFEST.json
+```
