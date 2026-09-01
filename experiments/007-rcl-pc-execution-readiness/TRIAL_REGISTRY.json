@@ -11,361 +11,714 @@
   "configuration_path": "experiments/006-rcl-pc-final-freeze/CONFIG.json",
   "configuration_binding_hash": "6d09daad4c45c1976794add2c7a404aca0e3f27fca1946ad467b900b00d85caa",
   "created_at_utc": "2026-09-01T15:37:02Z",
-  "updated_at_utc": "2026-09-01T15:37:02Z",
+  "updated_at_utc": "2026-09-01T15:44:57.604113Z",
   "included_trials_started": 0,
   "trials": [
     {
       "trial_id": "PC-RCL-001",
-      "status": "NOT_CREATED",
-      "issue_number": null,
-      "issue_url": null,
+      "status": "ISSUE_CREATED",
+      "issue_number": 18,
+      "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/18",
       "controller_run_id": null,
       "ready_comment_id": null,
       "reveal_comment_id": null,
       "public_bundle_path": null,
-      "last_transition_at_utc": null
+      "last_transition_at_utc": "2026-09-01T15:44:15.766035Z"
     },
     {
       "trial_id": "PC-RCL-002",
-      "status": "NOT_CREATED",
-      "issue_number": null,
-      "issue_url": null,
+      "status": "ISSUE_CREATED",
+      "issue_number": 19,
+      "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/19",
       "controller_run_id": null,
       "ready_comment_id": null,
       "reveal_comment_id": null,
       "public_bundle_path": null,
-      "last_transition_at_utc": null
+      "last_transition_at_utc": "2026-09-01T15:44:17.209183Z"
     },
     {
       "trial_id": "PC-RCL-003",
-      "status": "NOT_CREATED",
-      "issue_number": null,
-      "issue_url": null,
+      "status": "ISSUE_CREATED",
+      "issue_number": 20,
+      "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/20",
       "controller_run_id": null,
       "ready_comment_id": null,
       "reveal_comment_id": null,
       "public_bundle_path": null,
-      "last_transition_at_utc": null
+      "last_transition_at_utc": "2026-09-01T15:44:18.497089Z"
     },
     {
       "trial_id": "PC-RCL-004",
-      "status": "NOT_CREATED",
-      "issue_number": null,
-      "issue_url": null,
+      "status": "ISSUE_CREATED",
+      "issue_number": 21,
+      "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/21",
       "controller_run_id": null,
       "ready_comment_id": null,
       "reveal_comment_id": null,
       "public_bundle_path": null,
-      "last_transition_at_utc": null
+      "last_transition_at_utc": "2026-09-01T15:44:19.770917Z"
     },
     {
       "trial_id": "PC-RCL-005",
-      "status": "NOT_CREATED",
-      "issue_number": null,
-      "issue_url": null,
+      "status": "ISSUE_CREATED",
+      "issue_number": 22,
+      "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/22",
       "controller_run_id": null,
       "ready_comment_id": null,
       "reveal_comment_id": null,
       "public_bundle_path": null,
-      "last_transition_at_utc": null
+      "last_transition_at_utc": "2026-09-01T15:44:21.009966Z"
     },
     {
       "trial_id": "PC-RCL-006",
-      "status": "NOT_CREATED",
-      "issue_number": null,
-      "issue_url": null,
+      "status": "ISSUE_CREATED",
+      "issue_number": 23,
+      "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/23",
       "controller_run_id": null,
       "ready_comment_id": null,
       "reveal_comment_id": null,
       "public_bundle_path": null,
-      "last_transition_at_utc": null
+      "last_transition_at_utc": "2026-09-01T15:44:22.317210Z"
     },
     {
       "trial_id": "PC-RCL-007",
-      "status": "NOT_CREATED",
-      "issue_number": null,
-      "issue_url": null,
+      "status": "ISSUE_CREATED",
+      "issue_number": 24,
+      "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/24",
       "controller_run_id": null,
       "ready_comment_id": null,
       "reveal_comment_id": null,
       "public_bundle_path": null,
-      "last_transition_at_utc": null
+      "last_transition_at_utc": "2026-09-01T15:44:23.707115Z"
     },
     {
       "trial_id": "PC-RCL-008",
-      "status": "NOT_CREATED",
-      "issue_number": null,
-      "issue_url": null,
+      "status": "ISSUE_CREATED",
+      "issue_number": 25,
+      "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/25",
       "controller_run_id": null,
       "ready_comment_id": null,
       "reveal_comment_id": null,
       "public_bundle_path": null,
-      "last_transition_at_utc": null
+      "last_transition_at_utc": "2026-09-01T15:44:25.093685Z"
     },
     {
       "trial_id": "PC-RCL-009",
-      "status": "NOT_CREATED",
-      "issue_number": null,
-      "issue_url": null,
+      "status": "ISSUE_CREATED",
+      "issue_number": 26,
+      "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/26",
       "controller_run_id": null,
       "ready_comment_id": null,
       "reveal_comment_id": null,
       "public_bundle_path": null,
-      "last_transition_at_utc": null
+      "last_transition_at_utc": "2026-09-01T15:44:27.245394Z"
     },
     {
       "trial_id": "PC-RCL-010",
-      "status": "NOT_CREATED",
-      "issue_number": null,
-      "issue_url": null,
+      "status": "ISSUE_CREATED",
+      "issue_number": 27,
+      "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/27",
       "controller_run_id": null,
       "ready_comment_id": null,
       "reveal_comment_id": null,
       "public_bundle_path": null,
-      "last_transition_at_utc": null
+      "last_transition_at_utc": "2026-09-01T15:44:28.400274Z"
     },
     {
       "trial_id": "PC-RCL-011",
-      "status": "NOT_CREATED",
-      "issue_number": null,
-      "issue_url": null,
+      "status": "ISSUE_CREATED",
+      "issue_number": 28,
+      "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/28",
       "controller_run_id": null,
       "ready_comment_id": null,
       "reveal_comment_id": null,
       "public_bundle_path": null,
-      "last_transition_at_utc": null
+      "last_transition_at_utc": "2026-09-01T15:44:30.282946Z"
     },
     {
       "trial_id": "PC-RCL-012",
-      "status": "NOT_CREATED",
-      "issue_number": null,
-      "issue_url": null,
+      "status": "ISSUE_CREATED",
+      "issue_number": 29,
+      "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/29",
       "controller_run_id": null,
       "ready_comment_id": null,
       "reveal_comment_id": null,
       "public_bundle_path": null,
-      "last_transition_at_utc": null
+      "last_transition_at_utc": "2026-09-01T15:44:31.533251Z"
     },
     {
       "trial_id": "PC-RCL-013",
-      "status": "NOT_CREATED",
-      "issue_number": null,
-      "issue_url": null,
+      "status": "ISSUE_CREATED",
+      "issue_number": 30,
+      "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/30",
       "controller_run_id": null,
       "ready_comment_id": null,
       "reveal_comment_id": null,
       "public_bundle_path": null,
-      "last_transition_at_utc": null
+      "last_transition_at_utc": "2026-09-01T15:44:32.774685Z"
     },
     {
       "trial_id": "PC-RCL-014",
-      "status": "NOT_CREATED",
-      "issue_number": null,
-      "issue_url": null,
+      "status": "ISSUE_CREATED",
+      "issue_number": 31,
+      "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/31",
       "controller_run_id": null,
       "ready_comment_id": null,
       "reveal_comment_id": null,
       "public_bundle_path": null,
-      "last_transition_at_utc": null
+      "last_transition_at_utc": "2026-09-01T15:44:34.079557Z"
     },
     {
       "trial_id": "PC-RCL-015",
-      "status": "NOT_CREATED",
-      "issue_number": null,
-      "issue_url": null,
+      "status": "ISSUE_CREATED",
+      "issue_number": 32,
+      "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/32",
       "controller_run_id": null,
       "ready_comment_id": null,
       "reveal_comment_id": null,
       "public_bundle_path": null,
-      "last_transition_at_utc": null
+      "last_transition_at_utc": "2026-09-01T15:44:35.353809Z"
     },
     {
       "trial_id": "PC-RCL-016",
-      "status": "NOT_CREATED",
-      "issue_number": null,
-      "issue_url": null,
+      "status": "ISSUE_CREATED",
+      "issue_number": 33,
+      "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/33",
       "controller_run_id": null,
       "ready_comment_id": null,
       "reveal_comment_id": null,
       "public_bundle_path": null,
-      "last_transition_at_utc": null
+      "last_transition_at_utc": "2026-09-01T15:44:36.666592Z"
     },
     {
       "trial_id": "PC-RCL-017",
-      "status": "NOT_CREATED",
-      "issue_number": null,
-      "issue_url": null,
+      "status": "ISSUE_CREATED",
+      "issue_number": 34,
+      "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/34",
       "controller_run_id": null,
       "ready_comment_id": null,
       "reveal_comment_id": null,
       "public_bundle_path": null,
-      "last_transition_at_utc": null
+      "last_transition_at_utc": "2026-09-01T15:44:38.098888Z"
     },
     {
       "trial_id": "PC-RCL-018",
-      "status": "NOT_CREATED",
-      "issue_number": null,
-      "issue_url": null,
+      "status": "ISSUE_CREATED",
+      "issue_number": 35,
+      "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/35",
       "controller_run_id": null,
       "ready_comment_id": null,
       "reveal_comment_id": null,
       "public_bundle_path": null,
-      "last_transition_at_utc": null
+      "last_transition_at_utc": "2026-09-01T15:44:39.327681Z"
     },
     {
       "trial_id": "PC-RCL-019",
-      "status": "NOT_CREATED",
-      "issue_number": null,
-      "issue_url": null,
+      "status": "ISSUE_CREATED",
+      "issue_number": 36,
+      "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/36",
       "controller_run_id": null,
       "ready_comment_id": null,
       "reveal_comment_id": null,
       "public_bundle_path": null,
-      "last_transition_at_utc": null
+      "last_transition_at_utc": "2026-09-01T15:44:40.867848Z"
     },
     {
       "trial_id": "PC-RCL-020",
-      "status": "NOT_CREATED",
-      "issue_number": null,
-      "issue_url": null,
+      "status": "ISSUE_CREATED",
+      "issue_number": 37,
+      "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/37",
       "controller_run_id": null,
       "ready_comment_id": null,
       "reveal_comment_id": null,
       "public_bundle_path": null,
-      "last_transition_at_utc": null
+      "last_transition_at_utc": "2026-09-01T15:44:42.027131Z"
     },
     {
       "trial_id": "PC-RCL-021",
-      "status": "NOT_CREATED",
-      "issue_number": null,
-      "issue_url": null,
+      "status": "ISSUE_CREATED",
+      "issue_number": 38,
+      "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/38",
       "controller_run_id": null,
       "ready_comment_id": null,
       "reveal_comment_id": null,
       "public_bundle_path": null,
-      "last_transition_at_utc": null
+      "last_transition_at_utc": "2026-09-01T15:44:43.424253Z"
     },
     {
       "trial_id": "PC-RCL-022",
-      "status": "NOT_CREATED",
-      "issue_number": null,
-      "issue_url": null,
+      "status": "ISSUE_CREATED",
+      "issue_number": 39,
+      "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/39",
       "controller_run_id": null,
       "ready_comment_id": null,
       "reveal_comment_id": null,
       "public_bundle_path": null,
-      "last_transition_at_utc": null
+      "last_transition_at_utc": "2026-09-01T15:44:44.757008Z"
     },
     {
       "trial_id": "PC-RCL-023",
-      "status": "NOT_CREATED",
-      "issue_number": null,
-      "issue_url": null,
+      "status": "ISSUE_CREATED",
+      "issue_number": 40,
+      "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/40",
       "controller_run_id": null,
       "ready_comment_id": null,
       "reveal_comment_id": null,
       "public_bundle_path": null,
-      "last_transition_at_utc": null
+      "last_transition_at_utc": "2026-09-01T15:44:46.189381Z"
     },
     {
       "trial_id": "PC-RCL-024",
-      "status": "NOT_CREATED",
-      "issue_number": null,
-      "issue_url": null,
+      "status": "ISSUE_CREATED",
+      "issue_number": 41,
+      "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/41",
       "controller_run_id": null,
       "ready_comment_id": null,
       "reveal_comment_id": null,
       "public_bundle_path": null,
-      "last_transition_at_utc": null
+      "last_transition_at_utc": "2026-09-01T15:44:47.520951Z"
     },
     {
       "trial_id": "PC-RCL-025",
-      "status": "NOT_CREATED",
-      "issue_number": null,
-      "issue_url": null,
+      "status": "ISSUE_CREATED",
+      "issue_number": 42,
+      "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/42",
       "controller_run_id": null,
       "ready_comment_id": null,
       "reveal_comment_id": null,
       "public_bundle_path": null,
-      "last_transition_at_utc": null
+      "last_transition_at_utc": "2026-09-01T15:44:48.908500Z"
     },
     {
       "trial_id": "PC-RCL-026",
-      "status": "NOT_CREATED",
-      "issue_number": null,
-      "issue_url": null,
+      "status": "ISSUE_CREATED",
+      "issue_number": 43,
+      "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/43",
       "controller_run_id": null,
       "ready_comment_id": null,
       "reveal_comment_id": null,
       "public_bundle_path": null,
-      "last_transition_at_utc": null
+      "last_transition_at_utc": "2026-09-01T15:44:49.978596Z"
     },
     {
       "trial_id": "PC-RCL-027",
-      "status": "NOT_CREATED",
-      "issue_number": null,
-      "issue_url": null,
+      "status": "ISSUE_CREATED",
+      "issue_number": 44,
+      "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/44",
       "controller_run_id": null,
       "ready_comment_id": null,
       "reveal_comment_id": null,
       "public_bundle_path": null,
-      "last_transition_at_utc": null
+      "last_transition_at_utc": "2026-09-01T15:44:51.220047Z"
     },
     {
       "trial_id": "PC-RCL-028",
-      "status": "NOT_CREATED",
-      "issue_number": null,
-      "issue_url": null,
+      "status": "ISSUE_CREATED",
+      "issue_number": 45,
+      "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/45",
       "controller_run_id": null,
       "ready_comment_id": null,
       "reveal_comment_id": null,
       "public_bundle_path": null,
-      "last_transition_at_utc": null
+      "last_transition_at_utc": "2026-09-01T15:44:52.434675Z"
     },
     {
       "trial_id": "PC-RCL-029",
-      "status": "NOT_CREATED",
-      "issue_number": null,
-      "issue_url": null,
+      "status": "ISSUE_CREATED",
+      "issue_number": 46,
+      "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/46",
       "controller_run_id": null,
       "ready_comment_id": null,
       "reveal_comment_id": null,
       "public_bundle_path": null,
-      "last_transition_at_utc": null
+      "last_transition_at_utc": "2026-09-01T15:44:53.691405Z"
     },
     {
       "trial_id": "PC-RCL-030",
-      "status": "NOT_CREATED",
-      "issue_number": null,
-      "issue_url": null,
+      "status": "ISSUE_CREATED",
+      "issue_number": 47,
+      "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/47",
       "controller_run_id": null,
       "ready_comment_id": null,
       "reveal_comment_id": null,
       "public_bundle_path": null,
-      "last_transition_at_utc": null
+      "last_transition_at_utc": "2026-09-01T15:44:54.894600Z"
     },
     {
       "trial_id": "PC-RCL-031",
-      "status": "NOT_CREATED",
-      "issue_number": null,
-      "issue_url": null,
+      "status": "ISSUE_CREATED",
+      "issue_number": 48,
+      "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/48",
       "controller_run_id": null,
       "ready_comment_id": null,
       "reveal_comment_id": null,
       "public_bundle_path": null,
-      "last_transition_at_utc": null
+      "last_transition_at_utc": "2026-09-01T15:44:56.180041Z"
     },
     {
       "trial_id": "PC-RCL-032",
-      "status": "NOT_CREATED",
-      "issue_number": null,
-      "issue_url": null,
+      "status": "ISSUE_CREATED",
+      "issue_number": 49,
+      "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/49",
       "controller_run_id": null,
       "ready_comment_id": null,
       "reveal_comment_id": null,
       "public_bundle_path": null,
-      "last_transition_at_utc": null
+      "last_transition_at_utc": "2026-09-01T15:44:57.604113Z"
     }
   ],
-  "events": []
+  "events": [
+    {
+      "sequence": 1,
+      "at_utc": "2026-09-01T15:44:15.766035Z",
+      "trial_id": "PC-RCL-001",
+      "from_status": "NOT_CREATED",
+      "to_status": "ISSUE_CREATED",
+      "fields": {
+        "issue_number": 18,
+        "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/18"
+      }
+    },
+    {
+      "sequence": 2,
+      "at_utc": "2026-09-01T15:44:17.209183Z",
+      "trial_id": "PC-RCL-002",
+      "from_status": "NOT_CREATED",
+      "to_status": "ISSUE_CREATED",
+      "fields": {
+        "issue_number": 19,
+        "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/19"
+      }
+    },
+    {
+      "sequence": 3,
+      "at_utc": "2026-09-01T15:44:18.497089Z",
+      "trial_id": "PC-RCL-003",
+      "from_status": "NOT_CREATED",
+      "to_status": "ISSUE_CREATED",
+      "fields": {
+        "issue_number": 20,
+        "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/20"
+      }
+    },
+    {
+      "sequence": 4,
+      "at_utc": "2026-09-01T15:44:19.770917Z",
+      "trial_id": "PC-RCL-004",
+      "from_status": "NOT_CREATED",
+      "to_status": "ISSUE_CREATED",
+      "fields": {
+        "issue_number": 21,
+        "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/21"
+      }
+    },
+    {
+      "sequence": 5,
+      "at_utc": "2026-09-01T15:44:21.009966Z",
+      "trial_id": "PC-RCL-005",
+      "from_status": "NOT_CREATED",
+      "to_status": "ISSUE_CREATED",
+      "fields": {
+        "issue_number": 22,
+        "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/22"
+      }
+    },
+    {
+      "sequence": 6,
+      "at_utc": "2026-09-01T15:44:22.317210Z",
+      "trial_id": "PC-RCL-006",
+      "from_status": "NOT_CREATED",
+      "to_status": "ISSUE_CREATED",
+      "fields": {
+        "issue_number": 23,
+        "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/23"
+      }
+    },
+    {
+      "sequence": 7,
+      "at_utc": "2026-09-01T15:44:23.707115Z",
+      "trial_id": "PC-RCL-007",
+      "from_status": "NOT_CREATED",
+      "to_status": "ISSUE_CREATED",
+      "fields": {
+        "issue_number": 24,
+        "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/24"
+      }
+    },
+    {
+      "sequence": 8,
+      "at_utc": "2026-09-01T15:44:25.093685Z",
+      "trial_id": "PC-RCL-008",
+      "from_status": "NOT_CREATED",
+      "to_status": "ISSUE_CREATED",
+      "fields": {
+        "issue_number": 25,
+        "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/25"
+      }
+    },
+    {
+      "sequence": 9,
+      "at_utc": "2026-09-01T15:44:27.245394Z",
+      "trial_id": "PC-RCL-009",
+      "from_status": "NOT_CREATED",
+      "to_status": "ISSUE_CREATED",
+      "fields": {
+        "issue_number": 26,
+        "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/26"
+      }
+    },
+    {
+      "sequence": 10,
+      "at_utc": "2026-09-01T15:44:28.400274Z",
+      "trial_id": "PC-RCL-010",
+      "from_status": "NOT_CREATED",
+      "to_status": "ISSUE_CREATED",
+      "fields": {
+        "issue_number": 27,
+        "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/27"
+      }
+    },
+    {
+      "sequence": 11,
+      "at_utc": "2026-09-01T15:44:30.282946Z",
+      "trial_id": "PC-RCL-011",
+      "from_status": "NOT_CREATED",
+      "to_status": "ISSUE_CREATED",
+      "fields": {
+        "issue_number": 28,
+        "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/28"
+      }
+    },
+    {
+      "sequence": 12,
+      "at_utc": "2026-09-01T15:44:31.533251Z",
+      "trial_id": "PC-RCL-012",
+      "from_status": "NOT_CREATED",
+      "to_status": "ISSUE_CREATED",
+      "fields": {
+        "issue_number": 29,
+        "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/29"
+      }
+    },
+    {
+      "sequence": 13,
+      "at_utc": "2026-09-01T15:44:32.774685Z",
+      "trial_id": "PC-RCL-013",
+      "from_status": "NOT_CREATED",
+      "to_status": "ISSUE_CREATED",
+      "fields": {
+        "issue_number": 30,
+        "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/30"
+      }
+    },
+    {
+      "sequence": 14,
+      "at_utc": "2026-09-01T15:44:34.079557Z",
+      "trial_id": "PC-RCL-014",
+      "from_status": "NOT_CREATED",
+      "to_status": "ISSUE_CREATED",
+      "fields": {
+        "issue_number": 31,
+        "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/31"
+      }
+    },
+    {
+      "sequence": 15,
+      "at_utc": "2026-09-01T15:44:35.353809Z",
+      "trial_id": "PC-RCL-015",
+      "from_status": "NOT_CREATED",
+      "to_status": "ISSUE_CREATED",
+      "fields": {
+        "issue_number": 32,
+        "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/32"
+      }
+    },
+    {
+      "sequence": 16,
+      "at_utc": "2026-09-01T15:44:36.666592Z",
+      "trial_id": "PC-RCL-016",
+      "from_status": "NOT_CREATED",
+      "to_status": "ISSUE_CREATED",
+      "fields": {
+        "issue_number": 33,
+        "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/33"
+      }
+    },
+    {
+      "sequence": 17,
+      "at_utc": "2026-09-01T15:44:38.098888Z",
+      "trial_id": "PC-RCL-017",
+      "from_status": "NOT_CREATED",
+      "to_status": "ISSUE_CREATED",
+      "fields": {
+        "issue_number": 34,
+        "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/34"
+      }
+    },
+    {
+      "sequence": 18,
+      "at_utc": "2026-09-01T15:44:39.327681Z",
+      "trial_id": "PC-RCL-018",
+      "from_status": "NOT_CREATED",
+      "to_status": "ISSUE_CREATED",
+      "fields": {
+        "issue_number": 35,
+        "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/35"
+      }
+    },
+    {
+      "sequence": 19,
+      "at_utc": "2026-09-01T15:44:40.867848Z",
+      "trial_id": "PC-RCL-019",
+      "from_status": "NOT_CREATED",
+      "to_status": "ISSUE_CREATED",
+      "fields": {
+        "issue_number": 36,
+        "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/36"
+      }
+    },
+    {
+      "sequence": 20,
+      "at_utc": "2026-09-01T15:44:42.027131Z",
+      "trial_id": "PC-RCL-020",
+      "from_status": "NOT_CREATED",
+      "to_status": "ISSUE_CREATED",
+      "fields": {
+        "issue_number": 37,
+        "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/37"
+      }
+    },
+    {
+      "sequence": 21,
+      "at_utc": "2026-09-01T15:44:43.424253Z",
+      "trial_id": "PC-RCL-021",
+      "from_status": "NOT_CREATED",
+      "to_status": "ISSUE_CREATED",
+      "fields": {
+        "issue_number": 38,
+        "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/38"
+      }
+    },
+    {
+      "sequence": 22,
+      "at_utc": "2026-09-01T15:44:44.757008Z",
+      "trial_id": "PC-RCL-022",
+      "from_status": "NOT_CREATED",
+      "to_status": "ISSUE_CREATED",
+      "fields": {
+        "issue_number": 39,
+        "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/39"
+      }
+    },
+    {
+      "sequence": 23,
+      "at_utc": "2026-09-01T15:44:46.189381Z",
+      "trial_id": "PC-RCL-023",
+      "from_status": "NOT_CREATED",
+      "to_status": "ISSUE_CREATED",
+      "fields": {
+        "issue_number": 40,
+        "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/40"
+      }
+    },
+    {
+      "sequence": 24,
+      "at_utc": "2026-09-01T15:44:47.520951Z",
+      "trial_id": "PC-RCL-024",
+      "from_status": "NOT_CREATED",
+      "to_status": "ISSUE_CREATED",
+      "fields": {
+        "issue_number": 41,
+        "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/41"
+      }
+    },
+    {
+      "sequence": 25,
+      "at_utc": "2026-09-01T15:44:48.908500Z",
+      "trial_id": "PC-RCL-025",
+      "from_status": "NOT_CREATED",
+      "to_status": "ISSUE_CREATED",
+      "fields": {
+        "issue_number": 42,
+        "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/42"
+      }
+    },
+    {
+      "sequence": 26,
+      "at_utc": "2026-09-01T15:44:49.978596Z",
+      "trial_id": "PC-RCL-026",
+      "from_status": "NOT_CREATED",
+      "to_status": "ISSUE_CREATED",
+      "fields": {
+        "issue_number": 43,
+        "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/43"
+      }
+    },
+    {
+      "sequence": 27,
+      "at_utc": "2026-09-01T15:44:51.220047Z",
+      "trial_id": "PC-RCL-027",
+      "from_status": "NOT_CREATED",
+      "to_status": "ISSUE_CREATED",
+      "fields": {
+        "issue_number": 44,
+        "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/44"
+      }
+    },
+    {
+      "sequence": 28,
+      "at_utc": "2026-09-01T15:44:52.434675Z",
+      "trial_id": "PC-RCL-028",
+      "from_status": "NOT_CREATED",
+      "to_status": "ISSUE_CREATED",
+      "fields": {
+        "issue_number": 45,
+        "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/45"
+      }
+    },
+    {
+      "sequence": 29,
+      "at_utc": "2026-09-01T15:44:53.691405Z",
+      "trial_id": "PC-RCL-029",
+      "from_status": "NOT_CREATED",
+      "to_status": "ISSUE_CREATED",
+      "fields": {
+        "issue_number": 46,
+        "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/46"
+      }
+    },
+    {
+      "sequence": 30,
+      "at_utc": "2026-09-01T15:44:54.894600Z",
+      "trial_id": "PC-RCL-030",
+      "from_status": "NOT_CREATED",
+      "to_status": "ISSUE_CREATED",
+      "fields": {
+        "issue_number": 47,
+        "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/47"
+      }
+    },
+    {
+      "sequence": 31,
+      "at_utc": "2026-09-01T15:44:56.180041Z",
+      "trial_id": "PC-RCL-031",
+      "from_status": "NOT_CREATED",
+      "to_status": "ISSUE_CREATED",
+      "fields": {
+        "issue_number": 48,
+        "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/48"
+      }
+    },
+    {
+      "sequence": 32,
+      "at_utc": "2026-09-01T15:44:57.604113Z",
+      "trial_id": "PC-RCL-032",
+      "from_status": "NOT_CREATED",
+      "to_status": "ISSUE_CREATED",
+      "fields": {
+        "issue_number": 49,
+        "issue_url": "https://github.com/Abdullah-m7/science-of-ai-systems/issues/49"
+      }
+    }
+  ]
 }
